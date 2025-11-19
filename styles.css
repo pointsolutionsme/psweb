@@ -149,7 +149,24 @@ body {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.hero-lead-magnet {
+    text-align: center;
     margin-bottom: 3rem;
+}
+
+.hero-lead-magnet a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.hero-lead-magnet a:hover {
+    color: white;
 }
 
 .btn {
