@@ -12,12 +12,13 @@ Visit us at: [www.pointsolutions.me](https://www.pointsolutions.me)
 
 ## Services
 
-- Cloud Migration & Infrastructure Modernization
-- Information Security Audits & Compliance (SOC2, ISO27001, PCI-DSS)
-- AI Security Frameworks & Agentic Applications
-- Security Team Creation & Strategy Development
-- DevSecOps Implementation & Kubernetes Security
-- Hybrid Cloud & Private Data Center Security Architecture
+- **AI Governance & Transformation** - AI security frameworks, agentic application security, MLOps security, board-ready governance policies
+- **Compliance Certification** - ISO 27001, SOC 2, PCI DSS implementation and audit preparation
+- **Security Audit & Architecture** - Multi-cloud assessments, penetration testing, zero-trust architecture, DevSecOps
+
+## Flowpoint Platform
+
+Enterprise no-code automation built by security experts. Based on Activepieces, bundled with security-first integrations and compliance-ready workflows for regulated industries.
 
 ## Contact
 
@@ -27,7 +28,7 @@ Visit us at: [www.pointsolutions.me](https://www.pointsolutions.me)
 
 ## Geographic Coverage
 
-Based in Montenegro, serving clients across Israel, Europe, EMEA, and USA.
+Based in Montenegro, serving clients worldwide.
 
 ## Technology Stack
 
@@ -40,4 +41,4 @@ This website is built with:
 
 ## License
 
-© 2024 Point Solutions. All rights reserved.
+© 2025 Point Solutions. All rights reserved.
