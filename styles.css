@@ -375,6 +375,14 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     margin-bottom: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .flowpoint-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 .flowpoint-description h3 {
@@ -463,6 +471,13 @@ body {
     margin-top: 3rem;
     padding-top: 3rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 900px) {
+    .flowpoint-differentiator {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 .differentiator-item {
@@ -845,18 +860,8 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .flowpoint-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
     .flowpoint-header h2 {
         font-size: 2rem;
-    }
-
-    .flowpoint-differentiator {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
 
     .flowpoint-cta {
