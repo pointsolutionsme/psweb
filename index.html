@@ -122,8 +122,8 @@
                     <div class="flowpoint-description">
                         <h3>The automation security problem nobody talks about</h3>
                         <p>Workflows have access to your customer database, financial systems, API credentials—everything. Most automation platforms let workflows call any external API. If a workflow is compromised or a disgruntled employee creates a malicious one, your data can be exfiltrated instantly.</p>
-                        <p><strong>Flowpoint is different by design:</strong> Built on Activepieces (open-source) with defense-in-depth security architecture. Every component is network-isolated, all external access goes through a proxy whitelist, and comprehensive audit logs capture everything.</p>
-                        <p>We didn't add security features. We architected security into every layer—because we've seen what happens when you don't.</p>
+                        <p><strong>Flowpoint is a complete security-hardened automation appliance.</strong> It includes workflow automation (Activepieces), a temporary data store for processing (NocoDB), optional AI agent capabilities (Langflow), and a mandatory security layer (PAM, proxy whitelist, network isolation).</p>
+                        <p>Not three tools you assemble yourself—one integrated appliance where security is architected into every component and every connection between them.</p>
                         <div class="flowpoint-cta">
                             <a href="#contact" class="btn btn-primary">Request Demo</a>
                             <a href="#contact" class="btn btn-outline">See Architecture</a>
@@ -159,30 +159,90 @@
                         </div>
                     </div>
                 </div>
+                <div class="flowpoint-appliance">
+                    <div class="appliance-header">
+                        <h3>Complete Automation Appliance</h3>
+                        <p>Pre-integrated, security-hardened, ready to deploy. Not a collection of tools—an enterprise appliance.</p>
+                    </div>
+                    <div class="appliance-grid">
+                        <div class="appliance-component">
+                            <div class="component-badge">Base Platform</div>
+                            <h4>🔄 Automation Engine</h4>
+                            <p class="component-tech">Powered by Activepieces</p>
+                            <p>No-code workflow builder with 100+ pre-built integrations. Connect your apps, automate processes, orchestrate complex workflows.</p>
+                            <ul class="component-features">
+                                <li>Visual workflow builder</li>
+                                <li>100+ app integrations</li>
+                                <li>Conditional logic & branching</li>
+                                <li>Error handling & retries</li>
+                            </ul>
+                        </div>
+                        <div class="appliance-component">
+                            <div class="component-badge">Base Platform</div>
+                            <h4>🗄️ Temporary Data Store</h4>
+                            <p class="component-tech">Powered by NocoDB</p>
+                            <p>Airtable-like database for workflow data processing. Store, transform, and query data during automation runs—without exposing it to the internet.</p>
+                            <ul class="component-features">
+                                <li><strong>Network isolated</strong> (no external access)</li>
+                                <li>Spreadsheet-like interface</li>
+                                <li>Data transformations & lookups</li>
+                                <li>Temporary staging for ETL workflows</li>
+                            </ul>
+                        </div>
+                        <div class="appliance-component appliance-component-advanced">
+                            <div class="component-badge component-badge-advanced">Optional Add-On</div>
+                            <h4>🤖 Advanced AI Module</h4>
+                            <p class="component-tech">Powered by Langflow</p>
+                            <p>Build AI agent workflows with visual programming. Connect LLMs, vector databases, and custom logic—with the same security controls as everything else.</p>
+                            <ul class="component-features">
+                                <li>Visual AI workflow builder</li>
+                                <li>LLM integration (OpenAI, Anthropic, local models)</li>
+                                <li>RAG pipelines & vector databases</li>
+                                <li><strong>Air-gap mode:</strong> Run entirely offline with local models</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="appliance-security">
+                        <h4>🔐 Security Layer (Included with All Configurations)</h4>
+                        <div class="security-components">
+                            <div class="security-item">
+                                <strong>Warpgate PAM:</strong> MFA-enforced access control, session recording, role-based permissions
+                            </div>
+                            <div class="security-item">
+                                <strong>Squid Proxy:</strong> Whitelisted egress control—workflows only call approved domains
+                            </div>
+                            <div class="security-item">
+                                <strong>Network Isolation:</strong> Each component in separate security zone, mTLS between services
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="flowpoint-architecture">
                     <div class="architecture-header">
-                        <h3>Why Flowpoint's Architecture Matters</h3>
-                        <p>Security controls that competitors bolt on, we built in from day one</p>
+                        <h3>Why the Appliance Model Matters</h3>
+                        <p>Pre-integrated security vs DIY assembly</p>
                     </div>
                     <div class="architecture-comparison">
                         <div class="comparison-column">
-                            <h4>❌ Most Automation Platforms</h4>
+                            <h4>❌ DIY Approach</h4>
                             <ul class="comparison-list">
+                                <li>Assemble tools yourself (n8n + Airtable + custom scripts)</li>
                                 <li>Workflows call any external API</li>
-                                <li>Database accessible if host compromised</li>
-                                <li>Basic authentication only</li>
-                                <li>Execution logs, no user session context</li>
-                                <li>Cloud-only or DIY security</li>
+                                <li>Database exposed if host compromised</li>
+                                <li>You build all security controls</li>
+                                <li>Months of integration work</li>
+                                <li>Ongoing security maintenance</li>
                             </ul>
                         </div>
                         <div class="comparison-column">
-                            <h4>✅ Flowpoint</h4>
+                            <h4>✅ Flowpoint Appliance</h4>
                             <ul class="comparison-list">
+                                <li><strong>Pre-integrated:</strong> automation + data store + AI (optional)</li>
                                 <li><strong>Whitelisted domains enforced</strong> at proxy layer</li>
-                                <li><strong>Network isolation:</strong> data tier completely separated</li>
-                                <li><strong>PAM layer:</strong> MFA enforced, sessions recorded</li>
-                                <li><strong>Complete audit trail:</strong> user, network, data, application layers</li>
-                                <li><strong>Deploy anywhere:</strong> cloud to air-gapped bunker</li>
+                                <li><strong>Network isolation:</strong> data store has zero external access</li>
+                                <li><strong>Security built-in:</strong> PAM, MFA, audit logs, RBAC</li>
+                                <li><strong>Deploy in days,</strong> not months</li>
+                                <li><strong>Security updates included</strong></li>
                             </ul>
                         </div>
                     </div>
