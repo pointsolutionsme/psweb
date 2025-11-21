@@ -1047,11 +1047,15 @@ body {
 
 .footer-brand .logo {
     margin-bottom: 1rem;
-    color: white;
+    color: white !important;
 }
 
 .footer-brand .logo-icon {
-    color: var(--accent-color);
+    color: var(--accent-color) !important;
+}
+
+.footer-brand .logo-text {
+    color: white !important;
 }
 
 .footer-brand p {
