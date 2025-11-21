@@ -1030,10 +1030,10 @@ body {
 
 .contact-secondary {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
     text-align: left;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -1078,6 +1078,13 @@ body {
 
 .contact-value a:hover {
     color: var(--accent-color);
+}
+
+.contact-note {
+    font-size: 0.8125rem;
+    color: #64748b;
+    font-style: italic;
+    margin-top: 0.5rem;
 }
 
 /* ===========================
