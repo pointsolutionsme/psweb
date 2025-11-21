@@ -1045,17 +1045,18 @@ body {
     margin-bottom: 2rem;
 }
 
-.footer-brand .logo {
+.footer .footer-brand .logo {
     margin-bottom: 1rem;
-    color: white !important;
 }
 
-.footer-brand .logo-icon {
-    color: var(--accent-color) !important;
+.footer .footer-brand .logo,
+.footer .footer-brand .logo span,
+.footer .footer-brand .logo .logo-text {
+    color: #ffffff !important;
 }
 
-.footer-brand .logo-text {
-    color: white !important;
+.footer .footer-brand .logo .logo-icon {
+    color: #3b82f6 !important;
 }
 
 .footer-brand p {
