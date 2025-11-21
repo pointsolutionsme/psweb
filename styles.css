@@ -1047,6 +1047,11 @@ body {
 
 .footer-brand .logo {
     margin-bottom: 1rem;
+    color: white;
+}
+
+.footer-brand .logo-icon {
+    color: var(--accent-color);
 }
 
 .footer-brand p {
