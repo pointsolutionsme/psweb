@@ -23,7 +23,7 @@ Enterprise no-code automation built by security experts. Based on Activepieces, 
 ## Contact
 
 - **Email**: valery@pointsolutions.me
-- **Phone**: +972 54 789 3225
+- **Phone**: +382 68 538 207
 - **LinkedIn**: [linkedin.com/in/iamvalery](https://www.linkedin.com/in/iamvalery/)
 
 ## Geographic Coverage
