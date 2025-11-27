@@ -403,6 +403,30 @@ body {
     line-height: 1.8;
 }
 
+/* Override text color when flowpoint-description is in services section (white background) */
+.services .flowpoint-description p,
+.services .flowpoint-description li {
+    color: var(--text-secondary);
+}
+
+.services .flowpoint-description h3 {
+    color: var(--text-primary);
+}
+
+/* Override flowpoint-feature-group styles for white background in services section */
+.services .flowpoint-feature-group {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.services .flowpoint-feature-group h4 {
+    color: var(--text-primary);
+}
+
+.services .flowpoint-feature-group ul li {
+    color: var(--text-secondary);
+}
+
 .flowpoint-description ul {
     list-style: none;
     padding: 0;
