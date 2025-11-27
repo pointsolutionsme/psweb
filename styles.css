@@ -388,14 +388,42 @@ body {
 .flowpoint-description h3 {
     font-size: 1.5rem;
     font-weight: 600;
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
     line-height: 1.3;
+}
+
+.flowpoint-description h3:first-of-type {
+    margin-top: 0;
 }
 
 .flowpoint-description p {
     color: #cbd5e1;
     margin-bottom: 1.5rem;
     line-height: 1.8;
+}
+
+.flowpoint-description ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 2rem 0;
+}
+
+.flowpoint-description ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #cbd5e1;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.flowpoint-description ul li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: 600;
 }
 
 .flowpoint-cta {
