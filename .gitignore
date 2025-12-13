@@ -13,6 +13,14 @@ venv/
 .env.*
 .vscode/
 .idea/
+
+# Docker-related sensitive files
+secrets/
+data/
+ssl/*.key
+ssl/*.pem
+*.key
+*.pem
 dist/
 build/
 target/
