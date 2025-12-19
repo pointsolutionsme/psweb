@@ -1946,3 +1946,291 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================
+   ENHANCED CASE STUDIES (Improved Version)
+   ============================================ */
+
+/* Sticky Filters */
+.sticky-filters {
+    position: sticky;
+    top: 60px;
+    z-index: 900;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 2rem 0;
+}
+
+/* Industry Filter Buttons */
+.filter-btn-industry {
+    padding: 0.5rem 1.25rem;
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 2rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn-industry:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.filter-btn-industry.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+/* Expanded Case Card Format */
+.case-card-expanded {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.case-card-expanded:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+/* Case Expandable Content */
+.case-expandable-content {
+    margin-top: 1.5rem;
+}
+
+.case-expand-btn,
+.case-collapse-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.case-expand-btn:hover,
+.case-collapse-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.case-expanded-details {
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+    margin-top: 1.5rem;
+}
+
+/* Case Section Blocks */
+.case-section-block {
+    margin-bottom: 2.5rem;
+}
+
+.case-section-block h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.case-section-block p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.case-numbered-list {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.case-numbered-list li {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+.solution-category {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.tech-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tech-list li {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 0.25rem;
+    color: var(--text-secondary);
+}
+
+.tech-list strong {
+    color: var(--text-primary);
+}
+
+/* Results Block */
+.case-results-block {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--primary-color);
+}
+
+.results-grid-inline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.result-item-inline {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.result-item-inline .result-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.result-item-inline .result-content h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.result-item-inline .result-content p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Case Testimonial */
+.case-testimonial {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border-left: 4px solid var(--primary-color);
+    margin-top: 2rem;
+}
+
+.testimonial-quote {
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.testimonial-author {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 5rem 0;
+    background: var(--bg-secondary);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.testimonial-rating {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.testimonial-author strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.testimonial-author span {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Responsive - Enhanced Cases */
+@media (max-width: 768px) {
+    .case-card-expanded {
+        padding: 1.5rem;
+    }
+
+    .sticky-filters {
+        position: relative;
+        top: 0;
+    }
+
+    .results-grid-inline {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-section-block h4 {
+        font-size: 1.125rem;
+    }
+}
