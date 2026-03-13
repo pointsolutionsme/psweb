@@ -51,5 +51,21 @@ document.querySelectorAll('.service-card, .cert-badge').forEach(el => {
     observer.observe(el);
 });
 
-// Mobile menu toggle (if needed in future)
-// For now, the menu is hidden on mobile, but this can be expanded
+// Mobile hamburger menu toggle
+const hamburger = document.getElementById('navHamburger');
+const navMenu = document.getElementById('navMenu');
+
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navMenu.classList.toggle('open');
+    });
+
+    // Close menu when any link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navMenu.classList.remove('open');
+        });
+    });
+}
