@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Identity and Access Management and Zero Trust Network Access for European SMEs. Free audit, fixed-price implementation, and ongoing support. GDPR and NIS2 compliant.">
-    <meta name="keywords" content="IAM, ZTNA, Zero Trust, identity management, SME security, GDPR, NIS2, Okta, Entra ID, NetBird, Keycloak, EU cybersecurity">
+    <meta name="description" content="Identity and Access Management and Zero Trust Network Access for European SMEs. Free audit, fixed-price implementation, ongoing support. Addresses GDPR and NIS2 requirements. CISSP and MCSE Security certified team.">
+    <meta name="keywords" content="IAM, ZTNA, Zero Trust, identity management, SME security, GDPR, NIS2, Okta, Entra ID, NetBird, Keycloak, EU cybersecurity, European SME, access management, identity audit">
     <title>SME Identity &amp; Network Security - Point Solutions</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
@@ -22,7 +22,12 @@
                         <span class="logo-text">Point Solutions</span>
                     </a>
                 </div>
-                <ul class="nav-menu">
+                <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#contact" class="btn-contact">Get Free Audit</a></li>
                 </ul>
@@ -34,7 +39,8 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Identity &amp; Network Security for SMEs</h1>
-                <p class="hero-subtitle">Cyber attacks targeting EU-based organizations are increasing, and SMEs are often the entry point into larger supply chains.<br>We deploy Identity and Access Management and Zero Trust Network Access to secure your environment and address GDPR and NIS2 compliance requirements.</p>
+                <p class="hero-subtitle">Cyber attacks targeting EU-based organizations are increasing, and SMEs are often the entry point into larger supply chains.</p>
+                <p class="hero-subtitle" style="margin-top: -1rem;">We deploy Identity and Access Management and Zero Trust Network Access to secure your environment and address GDPR and NIS2 compliance requirements.</p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary">Get Your Free Audit</a>
                 </div>
@@ -143,7 +149,7 @@
                 <div class="service-card">
                     <div class="service-icon">🌍</div>
                     <h3>International Public Company</h3>
-                    <p>Following an audit that revealed significant access control gaps across their US, Europe, and Asia operations, we rebuilt their identity infrastructure and integrated a global ZTNA layer.</p>
+                    <p>Following an audit that revealed significant access control gaps across US, European, and Asia operations, we rebuilt their identity infrastructure and integrated a global ZTNA layer.</p>
                     <ul class="service-features">
                         <li>Thousands of orphaned accounts removed</li>
                         <li>Access rights properly scoped</li>
@@ -161,6 +167,31 @@
                         <li>Ongoing support manages distributed complexity</li>
                         <li>No intervention needed for routine access changes</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Who Does The Work</h2>
+                    <p class="lead">Valery Levchenko handles all complex security work personally.</p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <h4>Experience &amp; Credentials</h4>
+                            <p>15 years in security. NSO Group (cyber intelligence). Noname Security (API security). Qwilt (CDN infrastructure). CISSP certified. MCSE Security. AWS Security Specialty. IAM/CIAM specialist.</p>
+                        </div>
+                        <div class="highlight">
+                            <h4>Track Record</h4>
+                            <p>50+ security engagements completed, including identity infrastructure builds and ZTNA deployments across startups, international public companies, and distributed SMEs. The three cases above are direct engagements with ongoing support in place.</p>
+                        </div>
+                        <div class="highlight">
+                            <h4>How We Work</h4>
+                            <p>We do the architecture, design, and implementation. You review and approve. Point Solutions is registered in Montenegro and serves clients across Europe and internationally.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -235,7 +266,7 @@
                             <li><a href="index.html#services">AI Governance</a></li>
                             <li><a href="index.html#services">Compliance Certification</a></li>
                             <li><a href="index.html#services">Security Audit</a></li>
-                            <li><a href="iam-ztna.html">SME Identity &amp; ZTNA</a></li>
+                            <li><a href="sme.html">SME Identity &amp; ZTNA</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
@@ -248,7 +279,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Point Solutions. All rights reserved.</p>
+                <p>&copy; 2026 Point Solutions. All rights reserved.</p>
                 <p>Montenegro | Serving the World</p>
             </div>
         </div>
