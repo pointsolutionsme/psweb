@@ -136,6 +136,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-wrap: balance;
 }
 
 .hero-subtitle {
@@ -143,6 +144,7 @@ body {
     color: #cbd5e1;
     margin-bottom: 2rem;
     line-height: 1.8;
+    text-wrap: pretty;
 }
 
 .hero-cta {
