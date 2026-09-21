@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -64,35 +64,70 @@
 
     <section id="services" class="services">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">01 / Platform</span>
                 <h2>One Platform. Five Layers.</h2>
                 <p>Corporate AI adoption, delivered end to end — from the gateway that governs every model call to the agents your teams actually use.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🧭</div>
-                    <h3>Platform</h3>
-                    <p>A Kubernetes/OpenShift foundation built on open components. An AI Gateway as the single door to every model. An MCP Tool Hub as the single door to your systems. No license lock-in, no forced upgrade path.</p>
+            <div class="platform-system" role="region" aria-label="Five platform layers">
+                <div class="platform-stack" role="list">
+                    <div class="platform-slab" data-layer="0" role="listitem">
+                        <span class="slab-number">01</span>
+                        <span class="slab-name">Platform</span>
+                    </div>
+                    <div class="platform-slab" data-layer="1" role="listitem">
+                        <span class="slab-number">02</span>
+                        <span class="slab-name">Models</span>
+                    </div>
+                    <div class="platform-slab" data-layer="2" role="listitem">
+                        <span class="slab-number">03</span>
+                        <span class="slab-name">Applications & Agents</span>
+                    </div>
+                    <div class="platform-slab" data-layer="3" role="listitem">
+                        <span class="slab-number">04</span>
+                        <span class="slab-name">Data & Identity</span>
+                    </div>
+                    <div class="platform-slab" data-layer="4" role="listitem">
+                        <span class="slab-number">05</span>
+                        <span class="slab-name">Operations</span>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🧠</div>
-                    <h3>Models</h3>
-                    <p>Any provider, any open-weight model, routed by policy — including EU-resident routing for regulated data. Swapping a model is a config change in Git, not a rebuild.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>Applications & Agents</h3>
-                    <p>Agents connected to the systems you actually run — code, tickets, documents, CRM, ERP — acting with each user's own permissions. Writes to production always go through approval.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔐</div>
-                    <h3>Data & Identity</h3>
-                    <p>Classification, inventory and access control run through every other layer at once. This is what makes the rest of the platform auditable instead of assumed safe.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3>Operations</h3>
-                    <p>DevOps, SecOps and AIOps, continuous — including layers we didn't build. Everything as code: every change reviewed, tested, and rolled back if it breaks.</p>
+                <div class="platform-descriptions" role="list">
+                    <article class="platform-step" data-layer="0" role="listitem" aria-labelledby="platform-title-01">
+                        <div class="step-header">
+                            <span class="step-number">01</span>
+                            <h3 id="platform-title-01">Platform</h3>
+                        </div>
+                        <p>A Kubernetes/OpenShift foundation built on open components. An AI Gateway as the single door to every model. An MCP Tool Hub as the single door to your systems. No license lock-in, no forced upgrade path.</p>
+                    </article>
+                    <article class="platform-step" data-layer="1" role="listitem" aria-labelledby="platform-title-02">
+                        <div class="step-header">
+                            <span class="step-number">02</span>
+                            <h3 id="platform-title-02">Models</h3>
+                        </div>
+                        <p>Any provider, any open-weight model, routed by policy — including EU-resident routing for regulated data. Swapping a model is a config change in Git, not a rebuild.</p>
+                    </article>
+                    <article class="platform-step" data-layer="2" role="listitem" aria-labelledby="platform-title-03">
+                        <div class="step-header">
+                            <span class="step-number">03</span>
+                            <h3 id="platform-title-03">Applications & Agents</h3>
+                        </div>
+                        <p>Agents connected to the systems you actually run — code, tickets, documents, CRM, ERP — acting with each user's own permissions. Writes to production always go through approval.</p>
+                    </article>
+                    <article class="platform-step" data-layer="3" role="listitem" aria-labelledby="platform-title-04">
+                        <div class="step-header">
+                            <span class="step-number">04</span>
+                            <h3 id="platform-title-04">Data & Identity</h3>
+                        </div>
+                        <p>Classification, inventory and access control run through every other layer at once. This is what makes the rest of the platform auditable instead of assumed safe.</p>
+                    </article>
+                    <article class="platform-step" data-layer="4" role="listitem" aria-labelledby="platform-title-05">
+                        <div class="step-header">
+                            <span class="step-number">05</span>
+                            <h3 id="platform-title-05">Operations</h3>
+                        </div>
+                        <p>DevOps, SecOps and AIOps, continuous — including layers we didn't build. Everything as code: every change reviewed, tested, and rolled back if it breaks.</p>
+                    </article>
                 </div>
             </div>
         </div>
@@ -101,7 +136,8 @@
     <section id="sovereignty" class="sovereignty">
         <div class="container">
             <div class="sovereignty-content">
-                <div class="sovereignty-header">
+                <div class="sovereignty-header reveal">
+                    <span class="section-eyebrow">02 / Sovereignty</span>
                     <h2>Sovereignty Without the Hardware Bill</h2>
                     <p class="sovereignty-tagline">Your data stays under your jurisdiction — enforced by routing policy and a hard execution boundary, not by racks you have to own.</p>
                 </div>
@@ -116,7 +152,7 @@
                         </div>
                     </div>
                     <div class="sovereignty-features">
-                        <div class="sovereignty-feature-group">
+                        <div class="sovereignty-feature-group reveal">
                             <h4>EU-Resident Routing, Three Tiers</h4>
                             <ul>
                                 <li>EU API gateways — OpenAI-compatible routing to open-weight models, Article 28 DPAs, zero-retention defaults</li>
@@ -124,7 +160,7 @@
                                 <li>Managed EU cloud inference — open-weight models on EU infrastructure, no third-party gateway at all</li>
                             </ul>
                         </div>
-                        <div class="sovereignty-feature-group">
+                        <div class="sovereignty-feature-group reveal">
                             <h4>What Never Leaves the Boundary</h4>
                             <ul>
                                 <li>Tool execution and system credentials</li>
@@ -141,7 +177,8 @@
     <section id="compliance" class="expertise">
         <div class="container">
             <div class="expertise-content">
-                <div class="section-header">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">03 / Compliance</span>
                     <h2>One Build, Evidence for Every Framework</h2>
                     <p>Classification, inventory and access control are the shared foundation under every framework below. We gather that evidence once, during the build. Only the auditor changes.</p>
                 </div>
@@ -193,7 +230,8 @@
 
     <section id="process" class="services" style="background: var(--bg-secondary);">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">04 / Engagement</span>
                 <h2>Assess. Build. Operate.</h2>
                 <p>Most engagements start at the first step and never see a tender.</p>
             </div>
@@ -224,6 +262,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
+                    <span class="section-eyebrow">05 / About</span>
                     <h2>Who Does The Work</h2>
                     <p class="lead">I'm Valery Levchenko. I handle all complex security and AI platform work personally.</p>
                     <div class="about-highlights">
@@ -248,7 +287,8 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="contact-content">
-                <div class="contact-info">
+                <div class="contact-info reveal">
+                    <span class="section-eyebrow">06 / Contact</span>
                     <h2>Let's Talk</h2>
                     <p class="lead">30-minute consultation to discuss governed AI adoption for your organization.</p>
                     <div class="contact-primary">
