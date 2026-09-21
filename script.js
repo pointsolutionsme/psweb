@@ -13,43 +13,81 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Navbar scroll effect
-let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+    if (window.pageYOffset > 60) {
+        navbar.classList.add('scrolled');
     } else {
-        navbar.style.boxShadow = 'none';
+        navbar.classList.remove('scrolled');
     }
-
-    lastScroll = currentScroll;
 });
 
-// Intersection Observer for fade-in animations
+// Intersection Observer for reveal animations
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('revealed');
         }
     });
 }, observerOptions);
 
-// Observe service cards
-document.querySelectorAll('.service-card, .cert-badge').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+// Observe content blocks for staggered reveals
+document.querySelectorAll(
+    '.platform-slab, .platform-step, .service-card, .cert-badge, .highlight, .sovereignty-feature-group, .section-header, .sovereignty-header, .about-text, .contact-info'
+).forEach(el => {
+    el.classList.add('reveal');
     observer.observe(el);
 });
+
+
+// Platform layer active-state scrollytelling
+const platformSystem = document.querySelector('.platform-system');
+if (platformSystem) {
+    platformSystem.classList.add('has-js');
+}
+
+const platformSteps = document.querySelectorAll('.platform-step');
+const platformSlabs = document.querySelectorAll('.platform-slab');
+
+if (platformSteps.length && platformSlabs.length) {
+    const setActiveLayer = (targetStep) => {
+        const layer = targetStep.dataset.layer;
+        platformSteps.forEach(step => step.classList.toggle('is-active', step === targetStep));
+        platformSlabs.forEach(slab => slab.classList.toggle('is-active', slab.dataset.layer === layer));
+    };
+
+    const activeObserver = new IntersectionObserver((entries) => {
+        const intersecting = entries.filter(entry => entry.isIntersecting).map(entry => entry.target);
+        if (intersecting.length === 0) return;
+
+        const viewportCenter = window.innerHeight / 2;
+        let closestStep = intersecting[0];
+        let closestDistance = Infinity;
+
+        intersecting.forEach(step => {
+            const rect = step.getBoundingClientRect();
+            const stepCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(stepCenter - viewportCenter);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestStep = step;
+            }
+        });
+
+        setActiveLayer(closestStep);
+    }, {
+        threshold: 0,
+        rootMargin: '-42% 0px -42% 0px'
+    });
+
+    platformSteps.forEach(step => activeObserver.observe(step));
+}
 
 // Mobile hamburger menu toggle
 const hamburger = document.getElementById('navHamburger');
