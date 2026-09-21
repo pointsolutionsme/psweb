@@ -700,12 +700,11 @@ a {
 
 .service-card-featured {
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-    border: 1px solid var(--sgi-violet);
-    border-left: 3px solid var(--sgi-violet);
+    box-shadow: var(--shadow-md);
 }
 
 .service-card-featured::before {
-    border-color: transparent var(--sgi-violet) transparent transparent;
+    border-color: transparent var(--border-medium) transparent transparent;
 }
 
 .service-icon {
