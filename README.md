@@ -1,24 +1,26 @@
 # Point Solutions
 
-Official website for Point Solutions - Boutique AI & Security Solutions consultancy.
+Official website for Point Solutions - corporate AI adoption, built and operated for enterprise.
 
 ## About Point Solutions
 
-Point Solutions delivers enterprise-grade security and cloud infrastructure expertise to growing companies worldwide. Founded by Valery Levchenko, we combine deep technical expertise with hands-on delivery for cloud migration, information security audits, AI security frameworks, and infrastructure modernization projects.
+Point Solutions builds and runs governed AI adoption for enterprise: an AI gateway, an MCP tool hub, governed agents, EU-resident data sovereignty, and the compliance evidence to back it. Founded by Valery Levchenko, we deliver it end to end - Assess, Build, Operate - and stay on as the team that runs it.
 
 ## Website
 
 Visit us at: [www.pointsolutions.me](https://www.pointsolutions.me)
 
-## Services
+## Platform
 
-- **AI Governance & Transformation** - AI security frameworks, agentic application security, MLOps security, board-ready governance policies
-- **Compliance Certification** - ISO 27001, SOC 2, PCI DSS implementation and audit preparation
-- **Security Audit & Architecture** - Multi-cloud assessments, penetration testing, zero-trust architecture, DevSecOps
+One service, five layers:
 
-## Flowpoint Platform
+- **Platform** - Kubernetes/OpenShift foundation, AI Gateway, MCP Tool Hub
+- **Models** - policy-routed model access, EU-resident sovereignty options
+- **Applications & Agents** - agents connected to real corporate systems, not a sandbox
+- **Data & Identity** - classification, inventory and access control across every layer
+- **Operations** - DevOps, SecOps and AIOps, continuous, GitOps end to end
 
-Enterprise no-code automation built by security experts. Based on Activepieces, bundled with security-first integrations and compliance-ready workflows for regulated industries.
+Delivered as Assess -> Build -> Operate, with compliance evidence (ISO 27001, ISO 42001, SOC 2, NIST CSF, GDPR, PCI DSS, NIS2, EU AI Act) produced as a by-product of the build.
 
 ## Contact
 
