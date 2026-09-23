@@ -101,6 +101,10 @@
                 <rect x="3" y="5" width="18" height="14"/>
                 <path d="M3 6l9 7 9-7"/>
             </symbol>
+            <symbol id="icon-user" viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M6 21c0-3.5 3-5 6-5s6 1.5 6 5"/>
+            </symbol>
         </defs>
     </svg>
 
@@ -118,6 +122,7 @@
                 </button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#services">Platform</a></li>
+                    <li><a href="#architecture">Architecture</a></li>
                     <li><a href="#sovereignty">Sovereignty</a></li>
                     <li><a href="#compliance">Compliance</a></li>
                     <li><a href="#about">About</a></li>
@@ -224,20 +229,58 @@
         </div>
     </section>
 
+    <section id="architecture" class="architecture-preview">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">02 / Architecture</span>
+                <h2>How a Request Moves Through the Platform</h2>
+                <p>Two control points: an AI Gateway as the single door to every model and a Tool Hub as the single door to your systems — with execution staying inside your boundary.</p>
+            </div>
+            <div class="architecture-strip reveal" aria-label="Request flow overview">
+                <div class="architecture-step">
+                    <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg></div>
+                    <span class="architecture-label">Identity</span>
+                </div>
+                <div class="architecture-step">
+                    <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg></div>
+                    <span class="architecture-label">User channel</span>
+                </div>
+                <div class="architecture-step">
+                    <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-compass"></use></svg></div>
+                    <span class="architecture-label">AI Gateway</span>
+                </div>
+                <div class="architecture-step">
+                    <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chip"></use></svg></div>
+                    <span class="architecture-label">Model</span>
+                </div>
+                <div class="architecture-step">
+                    <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg></div>
+                    <span class="architecture-label">Tool Hub</span>
+                </div>
+                <div class="architecture-step">
+                    <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-monitor"></use></svg></div>
+                    <span class="architecture-label">Your systems</span>
+                </div>
+            </div>
+            <div class="architecture-preview-cta reveal">
+                <a href="architecture.html" class="btn btn-primary">See How a Request Flows</a>
+            </div>
+        </div>
+    </section>
+
     <section id="sovereignty" class="sovereignty">
         <div class="container">
             <div class="sovereignty-content">
                 <div class="sovereignty-header reveal">
-                    <span class="section-eyebrow">02 / Sovereignty</span>
+                    <span class="section-eyebrow">03 / Sovereignty</span>
                     <h2>Sovereignty Without the Hardware Bill</h2>
-                    <p class="sovereignty-tagline">Your data stays under your jurisdiction — enforced by routing policy and a hard execution boundary, not by racks you have to own.</p>
-                </div>
                 <div class="sovereignty-grid">
                     <div class="sovereignty-description">
                         <h3>How Routing Sovereignty Works</h3>
                         <p>Every model deployment carries a residency attribute. Confidential data is routed only to EU-resident providers under Article 28 data processing agreements with zero-retention defaults — no training on your prompts, no US CLOUD Act exposure. Restricted data goes further still: sovereign specialists, managed EU cloud inference, or a deployment you operate yourself.</p>
                         <h3>The Boundary That Actually Matters</h3>
                         <p>Models never execute tools directly. Every action against your systems runs through a Tool Hub inside your boundary — the model only ever sees a sanitized result back. That holds no matter which provider answers the prompt, so sovereignty doesn't depend on picking the "right" model vendor.</p>
+                        <p class="sovereignty-link"><a href="architecture.html" class="text-link">See it in the architecture →</a></p>
                         <div class="sovereignty-cta">
                             <a href="#contact" class="btn btn-primary">Discuss Your Data Residency Requirements</a>
                         </div>
@@ -269,7 +312,7 @@
         <div class="container">
             <div class="expertise-content">
                 <div class="section-header reveal">
-                    <span class="section-eyebrow">03 / Compliance</span>
+                    <span class="section-eyebrow">04 / Compliance</span>
                     <h2>One Build, Evidence for Every Framework</h2>
                     <p>Classification, inventory and access control are the shared foundation under every framework below. We gather that evidence once, during the build. Only the auditor changes.</p>
                 </div>
@@ -322,7 +365,7 @@
     <section id="process" class="services" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-eyebrow">04 / Engagement</span>
+                <span class="section-eyebrow">05 / Engagement</span>
                 <h2>Assess. Build. Operate.</h2>
                 <p>Most engagements start at the first step and never see a tender.</p>
             </div>
@@ -353,7 +396,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <span class="section-eyebrow">05 / About</span>
+                    <span class="section-eyebrow">06 / About</span>
                     <h2>Who Does the Work</h2>
                     <p class="lead">I'm Valery Levchenko. I handle all complex security and AI platform work personally.</p>
                     <div class="about-highlights">
@@ -379,7 +422,7 @@
         <div class="container">
             <div class="contact-content">
                 <div class="contact-info reveal">
-                    <span class="section-eyebrow">06 / Contact</span>
+                    <span class="section-eyebrow">07 / Contact</span>
                     <h2>Let's Talk</h2>
                     <p class="lead">30-minute consultation to discuss governed AI adoption for your organization.</p>
                     <div class="contact-primary">
@@ -417,6 +460,7 @@
                         <h4>Platform</h4>
                         <ul>
                             <li><a href="#services">The Five Layers</a></li>
+                            <li><a href="architecture.html">Architecture & Request Flow</a></li>
                             <li><a href="#sovereignty">Sovereignty & EU Routing</a></li>
                             <li><a href="#compliance">Compliance Mapping</a></li>
                             <li><a href="#process">Assess, Build, Operate</a></li>
