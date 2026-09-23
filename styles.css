@@ -610,18 +610,37 @@ a {
     }
 
     .platform-stack {
-        position: static;
-        max-width: 480px;
-        margin: 0 auto;
+        display: none;
     }
 
-    .platform-slab {
-        --slab-height: 56px;
+    .platform-descriptions {
+        gap: 0.75rem;
     }
 
     .platform-step {
         min-height: auto;
-        padding: 2rem 0;
+        padding: 1.5rem 1.25rem;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-light);
+        border-left: 2px solid transparent;
+        border-radius: var(--radius-slight);
+        transition:
+            opacity 0.6s ease,
+            transform 0.6s ease,
+            background 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .platform-step.is-active {
+        background: var(--bg-primary);
+        border-color: var(--border-medium);
+        border-left-color: var(--sgi-teal);
+        box-shadow: 0 4px 14px rgba(13, 12, 26, 0.08);
+    }
+
+    .step-header {
+        margin-bottom: 0.625rem;
     }
 }
 
