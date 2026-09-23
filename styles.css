@@ -2400,6 +2400,10 @@ a {
     margin-right: auto;
 }
 
+.flow-step-icon {
+    display: none;
+}
+
 /* Architecture CTA */
 .arch-cta {
     padding: 4rem 0 6rem;
@@ -2421,46 +2425,58 @@ a {
 
 @media (max-width: 960px) {
     .flow-panel {
-        position: static;
-        padding: 2rem 0;
+        display: none;
     }
 
-    .flow-panel-inner {
-        gap: 1.5rem;
+    .flow-section {
+        padding: 0;
     }
 
-    .flow-main {
+    .flow-descriptions {
         gap: 1rem;
-    }
-
-    .flow-node {
-        padding: 0.875rem;
-    }
-
-    .flow-plane {
-        padding: 0.875rem 1rem;
-    }
-
-    .flow-plane-marker {
-        width: 30px;
-        height: 30px;
-    }
-
-    .flow-plane-label {
-        font-size: 0.8125rem;
-    }
-
-    .flow-plane-sublabel {
-        font-size: 0.75rem;
+        padding: 3rem 0;
     }
 
     .flow-step {
         min-height: auto;
-        padding: 2rem 0;
+        padding: 1.5rem 1.25rem;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-light);
+        border-left: 2px solid transparent;
+        border-radius: var(--radius-sharp);
+        transition:
+            opacity 0.6s ease,
+            transform 0.6s ease,
+            background 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
     }
-}
 
-@media (max-width: 720px) {
+    .flow-step.is-active {
+        background: var(--bg-primary);
+        border-color: var(--border-medium);
+        border-left-color: var(--sgi-teal);
+        box-shadow: 0 4px 14px rgba(13, 12, 26, 0.08);
+    }
+
+    .flow-step-header {
+        margin-bottom: 0.625rem;
+    }
+
+    .flow-step-icon {
+        display: inline-block;
+        width: 1.25em;
+        height: 1.25em;
+        margin-left: 0.35em;
+        color: var(--sgi-teal);
+        vertical-align: middle;
+        transition: color 0.25s ease;
+    }
+
+    .flow-step.is-active .flow-step-icon {
+        color: var(--sgi-teal-dark);
+    }
+
     .flow-main {
         grid-template-columns: 1fr;
         gap: 1rem;
