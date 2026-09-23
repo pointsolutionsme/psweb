@@ -86,6 +86,13 @@ Under 600px, `.cert-badge` switches to a compact grid row (icon tile left,
 name + description right) instead of stacking the tile above the title —
 halves the height of the 8-card compliance section on phones.
 
+Platform layers (01 / Platform): on desktop the `.platform-stack` list is
+sticky and highlights as you scroll the descriptions. Under 960px it can't
+be sticky, so it's hidden entirely and each `.platform-step` becomes its own
+layer card that takes the active styling itself (teal left edge, white bg).
+Otherwise the highlight animates on a list that has already scrolled off
+screen, and the list just duplicates the step headings.
+
 Emoji were the original state of all these icons (🔒🤖📋🧭🇪🇺💳🛡️⚖️🔍⚙️📊📅📧)
 and were replaced because they render inconsistently across platforms/fonts
 and clashed with the site's deliberate geometric design system.
