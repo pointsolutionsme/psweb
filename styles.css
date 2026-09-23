@@ -1674,3 +1674,666 @@ a {
         margin-top: 0.125rem;
     }
 }
+
+/* =========================================
+   Architecture page
+   ========================================= */
+
+.nav-menu a.current {
+    color: var(--chrome-100);
+}
+
+.nav-menu a.current::after {
+    width: 100%;
+}
+
+.text-link,
+.sovereignty-description a[href^="architecture"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--sgi-teal-dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.text-link:hover,
+.sovereignty-description a[href^="architecture"]:hover {
+    color: var(--sgi-violet);
+}
+
+.sovereignty-link {
+    margin-top: 1.5rem;
+}
+
+/* Homepage architecture preview */
+.architecture-preview {
+    padding: 4rem 0;
+    background: var(--bg-primary);
+}
+
+.architecture-preview .section-header {
+    margin-bottom: 2rem;
+}
+
+.architecture-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin: 0 0 2rem;
+}
+
+.architecture-step {
+    flex: 1 1 0;
+    min-width: 140px;
+    max-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(176, 164, 200, 0.15);
+    border-radius: var(--radius-slight);
+    text-align: center;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.architecture-step:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 156, 166, 0.45);
+    transform: translateY(-3px);
+}
+
+.architecture-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sgi-teal);
+    transition: color 0.25s ease;
+}
+
+.architecture-icon .icon {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.architecture-step:hover .architecture-icon {
+    color: var(--sgi-teal-light);
+}
+
+.architecture-label {
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text-light);
+}
+
+.architecture-preview-cta {
+    text-align: left;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 720px) {
+    .architecture-strip {
+        gap: 0.5rem;
+    }
+
+    .architecture-step {
+        flex: 1 1 45%;
+        min-width: 120px;
+        max-width: none;
+    }
+
+    .architecture-preview .section-header h2 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .architecture-step {
+        transition: none !important;
+    }
+
+    .architecture-step:hover {
+        transform: none !important;
+    }
+}
+
+.arch-header {
+    padding: 8rem 0 2.5rem;
+    background: var(--bg-primary);
+}
+
+.arch-header .container {
+    max-width: 820px;
+}
+
+.arch-breadcrumb {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.arch-breadcrumb a {
+    color: var(--sgi-teal);
+}
+
+.arch-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.arch-breadcrumb .sep {
+    margin: 0 0.5rem;
+    opacity: 0.5;
+}
+
+.arch-header h1 {
+    font-size: 2.75rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+.arch-header p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    text-wrap: pretty;
+}
+
+/* Horizontal snake request-flow scrollytelling */
+.flow-section {
+    padding: 0 0 6rem;
+    background: var(--bg-primary);
+}
+
+.flow-panel {
+    position: sticky;
+    top: 76px;
+    z-index: 100;
+    width: 100%;
+    background: var(--sgi-chassis-dark);
+    border-top: 1px solid rgba(176, 164, 200, 0.15);
+    border-bottom: 1px solid rgba(176, 164, 200, 0.15);
+    padding: 2.5rem 0;
+    overflow: hidden;
+}
+
+.flow-panel-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.flow-main {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    gap: 1.5rem 0.75rem;
+    width: 100%;
+}
+
+.flow-node--r1c1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.flow-node--r1c2 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.flow-node--r1c3 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.flow-node--r2c3 {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.flow-node--r2c12 {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
+
+.flow-node {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(176, 164, 200, 0.15);
+    border-radius: var(--radius-slight);
+    color: var(--text-light);
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.flow-node.is-active {
+    background: rgba(95, 37, 159, 0.28);
+    border-color: var(--sgi-violet-bright);
+    color: var(--chrome-100);
+}
+
+.flow-node.is-governed,
+.flow-node.is-watched {
+    border-color: rgba(0, 156, 166, 0.55);
+}
+
+.flow-node-marker {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(176, 164, 200, 0.22);
+    border-radius: var(--radius-slight);
+    color: var(--sgi-teal-light);
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.flow-node.is-active .flow-node-marker {
+    background: rgba(95, 37, 159, 0.35);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: var(--chrome-100);
+}
+
+.flow-node-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.25s ease;
+}
+
+.flow-node:hover .flow-node-icon {
+    transform: scale(1.08);
+}
+
+.flow-node.is-governed .flow-node-marker,
+.flow-node.is-watched .flow-node-marker {
+    color: var(--chrome-100);
+}
+
+.flow-node-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+}
+
+.flow-node-label {
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+}
+
+.flow-node-sublabel {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: rgba(180, 174, 200, 0.85);
+    transition: color 0.3s ease;
+}
+
+.flow-node.is-active .flow-node-sublabel {
+    color: var(--text-light);
+}
+
+.flow-boundary {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.375rem;
+    border: 1px dashed rgba(0, 156, 166, 0.45);
+    border-radius: var(--radius-slight);
+}
+
+.flow-boundary > .flow-node {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.flow-boundary-label {
+    position: absolute;
+    top: -0.6rem;
+    left: 0.75rem;
+    padding: 0 0.5rem;
+    background: var(--sgi-chassis-dark);
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sgi-teal-light);
+}
+
+.flow-planes-below {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.flow-plane,
+.flow-plane-security,
+.flow-plane-observability {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(176, 164, 200, 0.15);
+    border-radius: var(--radius-slight);
+    text-align: left;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flow-plane.is-active,
+.flow-plane-security.is-active,
+.flow-plane-observability.is-active {
+    background: rgba(0, 132, 140, 0.12);
+    border-color: rgba(0, 156, 166, 0.55);
+    box-shadow: 0 0 24px rgba(0, 148, 166, 0.12);
+}
+
+.flow-plane-marker {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sgi-teal-light);
+    transition: color 0.3s ease;
+}
+
+.flow-plane-marker .icon {
+    width: 28px;
+    height: 28px;
+}
+
+.flow-plane.is-active .flow-plane-marker,
+.flow-plane-security.is-active .flow-plane-marker,
+.flow-plane-observability.is-active .flow-plane-marker {
+    color: var(--chrome-100);
+}
+
+.flow-plane-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.flow-plane-label {
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: rgba(180, 174, 200, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: color 0.3s ease;
+}
+
+.flow-plane.is-active .flow-plane-label,
+.flow-plane-security.is-active .flow-plane-label,
+.flow-plane-observability.is-active .flow-plane-label {
+    color: var(--chrome-100);
+}
+
+.flow-plane-sublabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: rgba(180, 174, 200, 0.85);
+    transition: color 0.3s ease;
+}
+
+.flow-plane.is-active .flow-plane-sublabel,
+.flow-plane-security.is-active .flow-plane-sublabel,
+.flow-plane-observability.is-active .flow-plane-sublabel {
+    color: var(--text-light);
+}
+
+.flow-descriptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.flow-step {
+    min-height: 60vh;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.flow-step.is-active,
+.flow-step.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.flow-step-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 860px;
+}
+
+.flow-step-number {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+}
+
+.flow-step.is-active .flow-step-number {
+    color: var(--sgi-teal);
+}
+
+.flow-step h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    transition: color 0.25s ease;
+}
+
+.flow-step.is-active h2 {
+    color: var(--sgi-teal-dark);
+}
+
+.flow-step p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Architecture CTA */
+.arch-cta {
+    padding: 4rem 0 6rem;
+    text-align: center;
+    background: var(--bg-secondary);
+}
+
+.arch-cta h2 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.arch-cta p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.0625rem;
+}
+
+@media (max-width: 960px) {
+    .flow-panel {
+        position: static;
+        padding: 2rem 0;
+    }
+
+    .flow-panel-inner {
+        gap: 1.5rem;
+    }
+
+    .flow-main {
+        gap: 1rem;
+    }
+
+    .flow-node {
+        padding: 0.875rem;
+    }
+
+    .flow-plane {
+        padding: 0.875rem 1rem;
+    }
+
+    .flow-plane-marker {
+        width: 30px;
+        height: 30px;
+    }
+
+    .flow-plane-label {
+        font-size: 0.8125rem;
+    }
+
+    .flow-plane-sublabel {
+        font-size: 0.75rem;
+    }
+
+    .flow-step {
+        min-height: auto;
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 720px) {
+    .flow-main {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .flow-node--r1c1,
+    .flow-node--r1c2,
+    .flow-node--r1c3,
+    .flow-node--r2c3,
+    .flow-node--r2c12 {
+        grid-column: 1;
+    }
+
+    .flow-node--r1c1 { grid-row: 1; }
+    .flow-node--r1c2 { grid-row: 2; }
+    .flow-node--r1c3 { grid-row: 3; }
+    .flow-node--r2c3 { grid-row: 4; }
+    .flow-node--r2c12 { grid-row: 5; }
+
+    .flow-boundary {
+        flex-direction: column-reverse;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    .flow-boundary > .flow-node {
+        flex: 1 1 auto;
+    }
+
+    .flow-planes-below {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .flow-panel-inner {
+        padding: 0 1rem;
+    }
+
+    .flow-node-label {
+        font-size: 0.875rem;
+    }
+
+    .flow-node-sublabel {
+        font-size: 0.6875rem;
+    }
+
+    .flow-step h2 {
+        font-size: 1.5rem;
+    }
+
+    .flow-step p {
+        font-size: 1rem;
+    }
+
+    .arch-cta h2 {
+        font-size: 1.625rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flow-node,
+    .flow-node-marker,
+    .flow-node-icon,
+    .flow-plane,
+    .flow-plane-marker,
+    .flow-step,
+    .flow-step h2,
+    .flow-step-number {
+        transition: none !important;
+    }
+
+    .flow-step {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

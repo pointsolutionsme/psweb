@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Step through how a governed request crosses the Point Solutions platform: identity, AI Gateway, model, Tool Hub, systems, policy, observability and cost.">
+    <meta name="keywords" content="AI architecture, AI gateway, agent platform, MCP Tool Hub, EU data sovereignty, AI request flow, enterprise AI security, AI boundary, AI observability">
+    <meta name="author" content="Point Solutions">
+    <title>Architecture — How the Point Solutions Platform Works</title>
+    <link rel="canonical" href="https://pointsolutions.me/architecture">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Architecture — How the Point Solutions Platform Works">
+    <meta property="og:description" content="Step through how a governed request crosses the Point Solutions platform: identity, gateway, model, Tool Hub, systems, policy and cost.">
+    <meta property="og:url" content="https://pointsolutions.me/architecture">
+
+    <noscript>
+        <style>
+            .flow-step,
+            .flow-node,
+            .flow-plane {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
+</head>
+<body>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="icon-logo" viewBox="0 0 100 100">
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#5F259F"/>
+                    <stop offset="55%" stop-color="#00848C"/>
+                    <stop offset="100%" stop-color="#009CA6"/>
+                </linearGradient>
+                <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" fill="url(#logoGrad)" stroke="none"/>
+                <path d="M35,30 L35,70 L45,70 L45,55 L55,55 C65,55 70,48 70,42.5 C70,37 65,30 55,30 L35,30 Z M45,38 L53,38 C58,38 60,40 60,42.5 C60,45 58,47 53,47 L45,47 L45,38 Z" fill="white" stroke="none"/>
+            </symbol>
+            <symbol id="icon-calendar" viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="7" y1="3" x2="7" y2="7"/>
+                <line x1="17" y1="3" x2="17" y2="7"/>
+                <line x1="7" y1="13" x2="10" y2="13"/>
+                <line x1="14" y1="13" x2="17" y2="13"/>
+                <line x1="7" y1="17" x2="10" y2="17"/>
+            </symbol>
+            <symbol id="icon-lock" viewBox="0 0 24 24">
+                <rect x="5" y="10" width="14" height="9"/>
+                <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                <line x1="12" y1="13.5" x2="12" y2="16"/>
+            </symbol>
+            <symbol id="icon-chip" viewBox="0 0 24 24">
+                <rect x="7" y="7" width="10" height="10"/>
+                <rect x="10" y="10" width="4" height="4"/>
+                <line x1="9" y1="3" x2="9" y2="7"/>
+                <line x1="15" y1="3" x2="15" y2="7"/>
+                <line x1="9" y1="17" x2="9" y2="21"/>
+                <line x1="15" y1="17" x2="15" y2="21"/>
+                <line x1="3" y1="9" x2="7" y2="9"/>
+                <line x1="3" y1="15" x2="7" y2="15"/>
+                <line x1="17" y1="9" x2="21" y2="9"/>
+                <line x1="17" y1="15" x2="21" y2="15"/>
+            </symbol>
+            <symbol id="icon-compass" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M15 9l-2 5-5 2 2-5 5-2z"/>
+            </symbol>
+            <symbol id="icon-layers" viewBox="0 0 24 24">
+                <path d="M12 3l9 4.5-9 4.5-9-4.5z"/>
+                <path d="M3 12l9 4.5 9-4.5"/>
+                <path d="M3 16.5l9 4.5 9-4.5"/>
+            </symbol>
+            <symbol id="icon-monitor" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="13"/>
+                <path d="M6 14l3-4 3 2 4-6 3 3"/>
+                <line x1="8" y1="20" x2="16" y2="20"/>
+                <line x1="12" y1="17" x2="12" y2="20"/>
+            </symbol>
+            <symbol id="icon-shield" viewBox="0 0 24 24">
+                <path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/>
+                <path d="M9 12h2l1-3 2 6 1-3h2"/>
+            </symbol>
+            <symbol id="icon-user" viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M6 21c0-3.5 3-5 6-5s6 1.5 6 5"/>
+            </symbol>
+            <symbol id="icon-chart" viewBox="0 0 24 24">
+                <line x1="3" y1="21" x2="21" y2="21"/>
+                <path d="M6 21v-6"/>
+                <path d="M10 21v-10"/>
+                <path d="M14 21v-7"/>
+                <path d="M18 21v-13"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
+                    <span class="logo-text">Point Solutions</span>
+                </a>
+                <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Platform</a></li>
+                    <li><a href="index.html#architecture" class="current" aria-current="page">Architecture</a></li>
+                    <li><a href="index.html#sovereignty">Sovereignty</a></li>
+                    <li><a href="index.html#compliance">Compliance</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact" class="btn-contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header class="arch-header">
+            <div class="container">
+                <p class="arch-breadcrumb"><a href="index.html">Home</a> <span class="sep">›</span> Architecture</p>
+                <h1>How a Request Moves Through the Platform</h1>
+                <p>Every governed request starts with identity and passes through two control points — the AI Gateway for models and the Tool Hub for systems — with two cross-cutting planes that enforce policy and watch cost.</p>
+            </div>
+        </header>
+
+        <section class="flow-section" id="request-flow">
+            <div class="flow-panel" role="img" aria-label="Request flow diagram">
+                <div class="flow-panel-inner">
+                    <div class="flow-main">
+
+                        <div class="flow-node flow-node--r1c1 is-active" data-flow="0">
+                            <div class="flow-node-marker">
+                                <svg class="icon flow-node-icon" aria-hidden="true"><use href="#icon-lock"></use></svg>
+                            </div>
+                            <div class="flow-node-text">
+                                <span class="flow-node-label">Identity (SSO)</span>
+                                <span class="flow-node-sublabel">authentication · groups · clearance</span>
+                            </div>
+                        </div>
+
+                        <div class="flow-node flow-node--r1c2" data-flow="1">
+                            <div class="flow-node-marker">
+                                <svg class="icon flow-node-icon" aria-hidden="true"><use href="#icon-user"></use></svg>
+                            </div>
+                            <div class="flow-node-text">
+                                <span class="flow-node-label">User channel</span>
+                                <span class="flow-node-sublabel">agent, app, IDE or automation</span>
+                            </div>
+                        </div>
+
+                        <div class="flow-node flow-node--r1c3" data-flow="2">
+                            <div class="flow-node-marker">
+                                <svg class="icon flow-node-icon" aria-hidden="true"><use href="#icon-compass"></use></svg>
+                            </div>
+                            <div class="flow-node-text">
+                                <span class="flow-node-label">AI Gateway</span>
+                                <span class="flow-node-sublabel">virtual keys · guardrails · routing · budgets</span>
+                            </div>
+                        </div>
+
+                        <div class="flow-boundary flow-node--r2c12" aria-label="Customer boundary">
+                            <span class="flow-boundary-label">Your boundary</span>
+
+                            <div class="flow-node" data-flow="5">
+                                <div class="flow-node-marker">
+                                    <svg class="icon flow-node-icon" aria-hidden="true"><use href="#icon-monitor"></use></svg>
+                                </div>
+                                <div class="flow-node-text">
+                                    <span class="flow-node-label">Your systems</span>
+                                    <span class="flow-node-sublabel">code, tickets, documents, CRM, ERP</span>
+                                </div>
+                            </div>
+
+                            <div class="flow-node" data-flow="4">
+                                <div class="flow-node-marker">
+                                    <svg class="icon flow-node-icon" aria-hidden="true"><use href="#icon-layers"></use></svg>
+                                </div>
+                                <div class="flow-node-text">
+                                    <span class="flow-node-label">Tool Hub</span>
+                                    <span class="flow-node-sublabel">per-tool authorization · credential broker · approvals</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-node flow-node--r2c3" data-flow="3">
+                            <div class="flow-node-marker">
+                                <svg class="icon flow-node-icon" aria-hidden="true"><use href="#icon-chip"></use></svg>
+                            </div>
+                            <div class="flow-node-text">
+                                <span class="flow-node-label">Model</span>
+                                <span class="flow-node-sublabel">generates; never executes tools</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flow-planes-below">
+                        <div class="flow-plane flow-plane-security" data-flow="6" aria-label="Security and policy plane">
+                            <svg class="icon flow-plane-marker" aria-hidden="true"><use href="#icon-shield"></use></svg>
+                            <div class="flow-plane-text">
+                                <span class="flow-plane-label">Security and policy</span>
+                                <span class="flow-plane-sublabel">PDP · tiers · guardrails · approvals</span>
+                            </div>
+                        </div>
+
+                        <div class="flow-plane flow-plane-observability" data-flow="7" aria-label="Observability and cost plane">
+                            <svg class="icon flow-plane-marker" aria-hidden="true"><use href="#icon-chart"></use></svg>
+                            <div class="flow-plane-text">
+                                <span class="flow-plane-label">Observability and cost</span>
+                                <span class="flow-plane-sublabel">traces · budgets · SIEM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="flow-descriptions" role="list">
+                    <article class="flow-step" data-flow="0" role="listitem" aria-labelledby="flow-title-01">
+                        <div class="flow-step-header">
+                            <span class="flow-step-number">01</span>
+                            <h2 id="flow-title-01">Identity (SSO)</h2>
+                        </div>
+                        <p>Every request starts with who you are. The identity provider authenticates the user or agent, returns group membership, and maps it to a clearance tier. The virtual key handed to the gateway is bound to that IdP identity — not to a shared service account — so every downstream action is traceable to a person.</p>
+                    </article>
+
+                    <article class="flow-step" data-flow="1" role="listitem" aria-labelledby="flow-title-02">
+                        <div class="flow-step-header">
+                            <span class="flow-step-number">02</span>
+                            <h2 id="flow-title-02">User channel</h2>
+                        </div>
+                        <p>The request enters through a channel: an agent, an internal app, an IDE assistant or an automation. Agents plan the call and pick tools, but they do not hold credentials to your systems. They only decide what to ask and interpret the sanitized result.</p>
+                    </article>
+
+                    <article class="flow-step" data-flow="2" role="listitem" aria-labelledby="flow-title-03">
+                        <div class="flow-step-header">
+                            <span class="flow-step-number">03</span>
+                            <h2 id="flow-title-03">AI Gateway</h2>
+                        </div>
+                        <p>The gateway is the single door to every model. It applies guardrails, checks policy, and routes by residency attribute. Confidential data goes only to EU-resident providers under Article 28 DPAs with zero-retention defaults; Restricted data can be routed to a sovereign EU provider or to a self-hosted deployment.</p>
+                    </article>
+
+                    <article class="flow-step" data-flow="3" role="listitem" aria-labelledby="flow-title-04">
+                        <div class="flow-step-header">
+                            <span class="flow-step-number">04</span>
+                            <h2 id="flow-title-04">Model</h2>
+                        </div>
+                        <p>The model generates a response or a structured intent. It never executes tools directly, and it never holds credentials. If the response requires an action against your systems, the request is delegated back to the Tool Hub inside your boundary.</p>
+                    </article>
+
+                    <article class="flow-step" data-flow="4" role="listitem" aria-labelledby="flow-title-05">
+                        <div class="flow-step-header">
+                            <span class="flow-step-number">05</span>
+                            <h2 id="flow-title-05">Tool Hub</h2>
+                        </div>
+                        <p>The Tool Hub is the single door to your systems. It authenticates each call via the IdP, authorizes per tool and per user and brokers credentials without exposing them. Production writes go through approval gates; reads are allowed only within the caller's own permissions.</p>
+                    </article>
+
+                    <article class="flow-step" data-flow="5" role="listitem" aria-labelledby="flow-title-06">
+                        <div class="flow-step-header">
+                            <span class="flow-step-number">06</span>
+                            <h2 id="flow-title-06">Your systems</h2>
+                        </div>
+                        <p>Your existing systems — code, tickets, documents, CRM, ERP — execute the action. The model only ever sees a sanitized result back. Because tool execution and credentials live inside your boundary, sovereignty does not depend on choosing the right model provider.</p>
+                    </article>
+
+                    <article class="flow-step" data-flow="6" role="listitem" aria-labelledby="flow-title-07">
+                        <div class="flow-step-header">
+                            <span class="flow-step-number">07</span>
+                            <h2 id="flow-title-07">Security and policy</h2>
+                        </div>
+                        <p>One policy decision point evaluates every model call and tool call. Guardrails check input and output, classify the request against Public / Internal / Confidential / Restricted tiers and route sensitive data to the right model and approval path. Decision is separated from enforcement: the gateway and tool hub consult the PDP, then enforce it.</p>
+                    </article>
+
+                    <article class="flow-step" data-flow="7" role="listitem" aria-labelledby="flow-title-08">
+                        <div class="flow-step-header">
+                            <span class="flow-step-number">08</span>
+                            <h2 id="flow-title-08">Observability and cost</h2>
+                        </div>
+                        <p>Every request emits a trace that follows it end to end: channel, agent, model call, tool call, policy decision and approval. Usage and cost are attributed per team, agent and virtual key; budgets trigger soft alerts and hard blocks at the gateway. Metadata and audit logs flow to the existing SIEM; content is logged only where policy allows.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="arch-cta">
+            <div class="container">
+                <h2>Discuss your architecture</h2>
+                <p>Walk through your identity provider, data tiers and approval workflows with the team that builds and runs the platform.</p>
+                <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                    <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
+                        <span class="logo-text">Point Solutions</span>
+                    </a>
+                    <p>Governed AI adoption for enterprise — from the model gateway to production agents, audit-ready by design.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="index.html#services">The Five Layers</a></li>
+                            <li><a href="architecture.html">Architecture & Request Flow</a></li>
+                            <li><a href="index.html#sovereignty">Sovereignty & EU Routing</a></li>
+                            <li><a href="index.html#compliance">Compliance Mapping</a></li>
+                            <li><a href="index.html#process">Assess, Build, Operate</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#about">About Valery</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Point Solutions. All rights reserved.</p>
+                <p>Montenegro | Serving the World</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="architecture.js"></script>
+</body>
+</html>
