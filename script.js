@@ -39,7 +39,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe content blocks for staggered reveals
 document.querySelectorAll(
-    '.platform-slab, .platform-step, .flow-slab, .flow-step, .flow-node, .service-card, .cert-badge, .highlight, .sovereignty-feature-group, .section-header, .sovereignty-header, .about-text, .contact-info, .architecture-strip, .architecture-preview-cta'
+    '.platform-slab, .platform-step, .flow-slab, .flow-step, .flow-node, .service-card, .cert-badge, .highlight, .sovereignty-feature-group, .section-header, .sovereignty-header, .about-text, .contact-info, .architecture-strip, .architecture-preview-cta, .case-panel, .outcome-chip, .process-closing'
 ).forEach(el => {
     el.classList.add('reveal');
     observer.observe(el);

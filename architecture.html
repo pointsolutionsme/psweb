@@ -229,7 +229,7 @@
                     <article class="flow-step" data-flow="0" role="listitem" aria-labelledby="flow-title-01">
                         <div class="flow-step-header">
                             <span class="flow-step-number">01</span>
-                            <h2 id="flow-title-01">Identity (SSO)</h2>
+                            <h2 id="flow-title-01">Identity (SSO) <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-lock"></use></svg></h2>
                         </div>
                         <p>Every request starts with who you are. The identity provider authenticates the user or agent, returns group membership, and maps it to a clearance tier. The virtual key handed to the gateway is bound to that IdP identity — not to a shared service account — so every downstream action is traceable to a person.</p>
                     </article>
@@ -237,7 +237,7 @@
                     <article class="flow-step" data-flow="1" role="listitem" aria-labelledby="flow-title-02">
                         <div class="flow-step-header">
                             <span class="flow-step-number">02</span>
-                            <h2 id="flow-title-02">User channel</h2>
+                            <h2 id="flow-title-02">User channel <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-user"></use></svg></h2>
                         </div>
                         <p>The request enters through a channel: an agent, an internal app, an IDE assistant or an automation. Agents plan the call and pick tools, but they do not hold credentials to your systems. They only decide what to ask and interpret the sanitized result.</p>
                     </article>
@@ -245,7 +245,7 @@
                     <article class="flow-step" data-flow="2" role="listitem" aria-labelledby="flow-title-03">
                         <div class="flow-step-header">
                             <span class="flow-step-number">03</span>
-                            <h2 id="flow-title-03">AI Gateway</h2>
+                            <h2 id="flow-title-03">AI Gateway <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-compass"></use></svg></h2>
                         </div>
                         <p>The gateway is the single door to every model. It applies guardrails, checks policy, and routes by residency attribute. Confidential data goes only to EU-resident providers under Article 28 DPAs with zero-retention defaults; Restricted data can be routed to a sovereign EU provider or to a self-hosted deployment.</p>
                     </article>
@@ -253,7 +253,7 @@
                     <article class="flow-step" data-flow="3" role="listitem" aria-labelledby="flow-title-04">
                         <div class="flow-step-header">
                             <span class="flow-step-number">04</span>
-                            <h2 id="flow-title-04">Model</h2>
+                            <h2 id="flow-title-04">Model <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-chip"></use></svg></h2>
                         </div>
                         <p>The model generates a response or a structured intent. It never executes tools directly, and it never holds credentials. If the response requires an action against your systems, the request is delegated back to the Tool Hub inside your boundary.</p>
                     </article>
@@ -261,7 +261,7 @@
                     <article class="flow-step" data-flow="4" role="listitem" aria-labelledby="flow-title-05">
                         <div class="flow-step-header">
                             <span class="flow-step-number">05</span>
-                            <h2 id="flow-title-05">Tool Hub</h2>
+                            <h2 id="flow-title-05">Tool Hub <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-layers"></use></svg></h2>
                         </div>
                         <p>The Tool Hub is the single door to your systems. It authenticates each call via the IdP, authorizes per tool and per user and brokers credentials without exposing them. Production writes go through approval gates; reads are allowed only within the caller's own permissions.</p>
                     </article>
@@ -269,7 +269,7 @@
                     <article class="flow-step" data-flow="5" role="listitem" aria-labelledby="flow-title-06">
                         <div class="flow-step-header">
                             <span class="flow-step-number">06</span>
-                            <h2 id="flow-title-06">Your systems</h2>
+                            <h2 id="flow-title-06">Your systems <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-monitor"></use></svg></h2>
                         </div>
                         <p>Your existing systems — code, tickets, documents, CRM, ERP — execute the action. The model only ever sees a sanitized result back. Because tool execution and credentials live inside your boundary, sovereignty does not depend on choosing the right model provider.</p>
                     </article>
@@ -277,7 +277,7 @@
                     <article class="flow-step" data-flow="6" role="listitem" aria-labelledby="flow-title-07">
                         <div class="flow-step-header">
                             <span class="flow-step-number">07</span>
-                            <h2 id="flow-title-07">Security and policy</h2>
+                            <h2 id="flow-title-07">Security and policy <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-shield"></use></svg></h2>
                         </div>
                         <p>One policy decision point evaluates every model call and tool call. Guardrails check input and output, classify the request against Public / Internal / Confidential / Restricted tiers and route sensitive data to the right model and approval path. Decision is separated from enforcement: the gateway and tool hub consult the PDP, then enforce it.</p>
                     </article>
@@ -285,7 +285,7 @@
                     <article class="flow-step" data-flow="7" role="listitem" aria-labelledby="flow-title-08">
                         <div class="flow-step-header">
                             <span class="flow-step-number">08</span>
-                            <h2 id="flow-title-08">Observability and cost</h2>
+                            <h2 id="flow-title-08">Observability and cost <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-chart"></use></svg></h2>
                         </div>
                         <p>Every request emits a trace that follows it end to end: channel, agent, model call, tool call, policy decision and approval. Usage and cost are attributed per team, agent and virtual key; budgets trigger soft alerts and hard blocks at the gateway. Metadata and audit logs flow to the existing SIEM; content is logged only where policy allows.</p>
                     </article>
