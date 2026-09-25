@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Point Solutions designs EU-resident AI routing and sovereign architecture for enterprise: data stays under Article 28 DPAs, tool execution stays in your boundary.">
+    <title>EU Data Sovereignty & AI Routing | Point Solutions</title>
+    <link rel="canonical" href="https://www.pointsolutions.me/data-sovereignty">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="EU Data Sovereignty & AI Routing | Point Solutions">
+    <meta property="og:description" content="Point Solutions designs EU-resident AI routing and sovereign architecture for enterprise: data stays under Article 28 DPAs, tool execution stays in your boundary.">
+    <meta property="og:url" content="https://www.pointsolutions.me/data-sovereignty">
+    <meta property="og:site_name" content="Point Solutions">
+    <meta property="og:image" content="https://www.pointsolutions.me/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EU Data Sovereignty & AI Routing | Point Solutions">
+    <meta name="twitter:description" content="Point Solutions designs EU-resident AI routing and sovereign architecture for enterprise: data stays under Article 28 DPAs, tool execution stays in your boundary.">
+    <meta name="twitter:image" content="https://www.pointsolutions.me/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Point Solutions",
+      "url": "https://www.pointsolutions.me",
+      "logo": "https://www.pointsolutions.me/logo.png",
+      "description": "Enterprise AI platform engineering, governance, and operations.",
+      "founder": {
+        "@type": "Person",
+        "name": "Valery Levchenko",
+        "jobTitle": "Founder & Technical Lead",
+        "hasCredential": [
+          {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "CISSP"},
+          {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "AWS Security Specialty"},
+          {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "MCSE Security"}
+        ],
+        "knowsAbout": ["Cybersecurity", "API Security", "AI Governance", "Cloud Infrastructure"]
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/iamvalery/",
+        "https://nl.linkedin.com/company/pointsolutions-sme"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="icon-logo" viewBox="0 0 100 100">
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#5F259F"/>
+                    <stop offset="55%" stop-color="#00848C"/>
+                    <stop offset="100%" stop-color="#009CA6"/>
+                </linearGradient>
+                <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" fill="url(#logoGrad)" stroke="none"/>
+                <path d="M35,30 L35,70 L45,70 L45,55 L55,55 C65,55 70,48 70,42.5 C70,37 65,30 55,30 L35,30 Z M45,38 L53,38 C58,38 60,40 60,42.5 C60,45 58,47 53,47 L45,47 L45,38 Z" fill="white" stroke="none"/>
+            </symbol>
+            <symbol id="icon-lock" viewBox="0 0 24 24">
+                <rect x="5" y="10" width="14" height="9"/>
+                <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                <line x1="12" y1="13.5" x2="12" y2="16"/>
+            </symbol>
+            <symbol id="icon-chip" viewBox="0 0 24 24">
+                <rect x="7" y="7" width="10" height="10"/>
+                <rect x="10" y="10" width="4" height="4"/>
+                <line x1="9" y1="3" x2="9" y2="7"/>
+                <line x1="15" y1="3" x2="15" y2="7"/>
+                <line x1="9" y1="17" x2="9" y2="21"/>
+                <line x1="15" y1="17" x2="15" y2="21"/>
+                <line x1="3" y1="9" x2="7" y2="9"/>
+                <line x1="3" y1="15" x2="7" y2="15"/>
+                <line x1="17" y1="9" x2="21" y2="9"/>
+                <line x1="17" y1="15" x2="21" y2="15"/>
+            </symbol>
+            <symbol id="icon-clipboard" viewBox="0 0 24 24">
+                <rect x="6" y="4" width="12" height="17"/>
+                <rect x="9" y="2" width="6" height="4"/>
+                <path d="M9 12l2 2 4-5"/>
+            </symbol>
+            <symbol id="icon-compass" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M15 9l-2 5-5 2 2-5 5-2z"/>
+            </symbol>
+            <symbol id="icon-eu" viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="14"/>
+                <path d="M12 9.2l1.02 2.13 2.35.28-1.74 1.6.5 2.32-2.13-1.2-2.13 1.2.5-2.32-1.74-1.6 2.35-.28z"/>
+            </symbol>
+            <symbol id="icon-card" viewBox="0 0 24 24">
+                <rect x="3" y="6" width="18" height="13"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+                <line x1="6" y1="15" x2="11" y2="15"/>
+                <line x1="6" y1="17.5" x2="9" y2="17.5"/>
+            </symbol>
+            <symbol id="icon-shield" viewBox="0 0 24 24">
+                <path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/>
+                <path d="M9 12h2l1-3 2 6 1-3h2"/>
+            </symbol>
+            <symbol id="icon-scale" viewBox="0 0 24 24">
+                <line x1="12" y1="3" x2="12" y2="19"/>
+                <line x1="5" y1="7" x2="19" y2="7"/>
+                <path d="M5 7l-3 6a3 3 0 0 0 6 0l-3-6z"/>
+                <path d="M19 7l-3 6a3 3 0 0 0 6 0l-3-6z"/>
+                <path d="M8 21h8"/>
+                <line x1="12" y1="19" x2="12" y2="21"/>
+            </symbol>
+            <symbol id="icon-scan" viewBox="0 0 24 24">
+                <circle cx="10" cy="10" r="6.5"/>
+                <path d="M7.25 10.25l1.9 1.9 3.6-4"/>
+                <line x1="14.75" y1="14.75" x2="20.5" y2="20.5"/>
+            </symbol>
+            <symbol id="icon-layers" viewBox="0 0 24 24">
+                <path d="M12 3l9 4.5-9 4.5-9-4.5z"/>
+                <path d="M3 12l9 4.5 9-4.5"/>
+                <path d="M3 16.5l9 4.5 9-4.5"/>
+            </symbol>
+            <symbol id="icon-monitor" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="13"/>
+                <path d="M6 14l3-4 3 2 4-6 3 3"/>
+                <line x1="8" y1="20" x2="16" y2="20"/>
+                <line x1="12" y1="17" x2="12" y2="20"/>
+            </symbol>
+            <symbol id="icon-calendar" viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="7" y1="3" x2="7" y2="7"/>
+                <line x1="17" y1="3" x2="17" y2="7"/>
+                <line x1="7" y1="13" x2="10" y2="13"/>
+                <line x1="14" y1="13" x2="17" y2="13"/>
+                <line x1="7" y1="17" x2="10" y2="17"/>
+            </symbol>
+            <symbol id="icon-mail" viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="14"/>
+                <path d="M3 6l9 7 9-7"/>
+            </symbol>
+            <symbol id="icon-user" viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M6 21c0-3.5 3-5 6-5s6 1.5 6 5"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
+                    <span class="logo-text">Point Solutions</span>
+                </a>
+                <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="/ai-gateway">Platform</a></li>
+                    <li><a href="/architecture">Architecture</a></li>
+                    <li><a href="/data-sovereignty" class="current" aria-current="page">Sovereignty</a></li>
+                    <li><a href="/compliance">Compliance</a></li>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#contact" class="btn-contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header class="page-header">
+            <div class="container">
+                <div class="page-header-content reveal">
+                    <span class="section-eyebrow">Sovereignty</span>
+                    <h1>EU Data Sovereignty & AI Routing</h1>
+                    <p class="lead">Sovereignty without the hardware bill. Keep confidential data in the EU, tool execution inside your boundary, and compliance evidence ready from day one.</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="services" id="routing">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Routing</span>
+                    <h2>How Routing Sovereignty Works</h2>
+                    <p>Every model deployment carries a residency attribute. Data is classified, then routed by tier — with the strictest tiers never leaving infrastructure you control.</p>
+                </div>
+                <div class="sovereignty-grid">
+                    <div class="sovereignty-description">
+                        <h3>Confidential Data Stays EU-Resident</h3>
+                        <p>Confidential data is routed only to EU-resident providers under Article 28 data processing agreements with zero-retention defaults — no training on your prompts, with routing designed to minimize exposure to extraterritorial data-access requests.</p>
+                        <h3>Restricted Data Goes Further Still</h3>
+                        <p>Restricted data can be routed to sovereign specialists, managed EU cloud inference, or a deployment you operate yourself. The model only ever sees a sanitized result back; raw access to source systems never crosses the boundary.</p>
+                        <p class="sovereignty-link"><a href="/architecture" class="text-link">See it in the architecture →</a></p>
+                    </div>
+                    <div class="sovereignty-features">
+                        <div class="sovereignty-feature-group reveal">
+                            <h4>EU-Resident Routing, Three Tiers</h4>
+                            <ul>
+                                <li>EU API gateways — OpenAI-compatible routing to open-weight models, Article 28 DPAs, zero-retention defaults</li>
+                                <li>Sovereign specialists — built for regulated industries, NIS2-aligned</li>
+                                <li>Managed EU cloud inference — open-weight models on EU infrastructure, no third-party gateway at all</li>
+                            </ul>
+                        </div>
+                        <div class="sovereignty-feature-group reveal">
+                            <h4>What Never Leaves the Boundary</h4>
+                            <ul>
+                                <li>Tool execution and system credentials</li>
+                                <li>Raw access to source systems</li>
+                                <li>Confidential and Restricted data, by default</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sovereignty" id="boundary">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Boundary</span>
+                    <h2>The Boundary That Actually Matters</h2>
+                    <p>Models never execute tools directly. Every action against your systems runs through a Tool Hub inside your boundary.</p>
+                </div>
+                <div class="sovereignty-grid">
+                    <div class="sovereignty-description">
+                        <h3>Credential Broker, Not Credential Store</h3>
+                        <p>The Tool Hub authenticates each call via the identity provider, authorizes per tool and per user, and brokers credentials without exposing them. Production writes go through approval gates; reads are allowed only within the caller's own permissions.</p>
+                        <h3>Sovereignty Independent of Model Choice</h3>
+                        <p>Because tool execution and credentials live inside your boundary, sovereignty does not depend on choosing the right model provider. You can swap models by configuration; the boundary stays the same.</p>
+                        <p class="sovereignty-link"><a href="/ai-gateway" class="text-link">Explore the AI Gateway & Tool Hub →</a></p>
+                    </div>
+                    <div class="sovereignty-features">
+                        <div class="sovereignty-feature-group reveal">
+                            <h4>Tool Hub Controls</h4>
+                            <ul>
+                                <li>Per-tool and per-user authorization from the IdP</li>
+                                <li>Credential brokering without sharing keys</li>
+                                <li>Approval gates for production writes</li>
+                                <li>Sanitized results returned to the model</li>
+                            </ul>
+                        </div>
+                        <div class="sovereignty-feature-group reveal">
+                            <h4>Audit Evidence Gathered Now</h4>
+                            <ul>
+                                <li>Records of processing and data tiers</li>
+                                <li>Residency attributes per model deployment</li>
+                                <li>Logs of every model call and tool call</li>
+                                <li>Human oversight records for restricted actions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="architecture-preview" id="sovereignty-flow">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>The Governed Request Path</h2>
+                    <p>From identity to system, the same flow enforces residency and boundary at every step.</p>
+                </div>
+                <div class="architecture-strip reveal" aria-label="Request flow overview">
+                    <div class="architecture-step">
+                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg></div>
+                        <span class="architecture-label">Identity</span>
+                    </div>
+                    <div class="architecture-step">
+                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg></div>
+                        <span class="architecture-label">User channel</span>
+                    </div>
+                    <div class="architecture-step">
+                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-compass"></use></svg></div>
+                        <span class="architecture-label">AI Gateway</span>
+                    </div>
+                    <div class="architecture-step">
+                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chip"></use></svg></div>
+                        <span class="architecture-label">Model</span>
+                    </div>
+                    <div class="architecture-step">
+                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg></div>
+                        <span class="architecture-label">Tool Hub</span>
+                    </div>
+                    <div class="architecture-step">
+                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-monitor"></use></svg></div>
+                        <span class="architecture-label">Your systems</span>
+                    </div>
+                </div>
+                <div class="architecture-preview-cta reveal">
+                    <a href="/architecture" class="btn btn-primary">See the Full Request Flow</a>
+                    <a href="/compliance" class="text-link">How compliance maps to this →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info reveal">
+                        <span class="section-eyebrow">Contact</span>
+                        <h2>Discuss Your Data Residency Requirements</h2>
+                        <p class="lead">30-minute consultation to map your data tiers, residency needs and approval workflows.</p>
+                        <div class="contact-primary">
+                            <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                                <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
+                            </a>
+                            <a href="mailto:hello@pointsolutions.me" class="btn btn-secondary btn-large">
+                                <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-mail"></use></svg> Email Us
+                            </a>
+                        </div>
+                        <div class="contact-alt">
+                            <a href="https://wa.me/38268538207" target="_blank" rel="noopener" class="contact-alt-link">WhatsApp</a>
+                            <span class="contact-alt-sep">|</span>
+                            <a href="https://www.linkedin.com/in/iamvalery/" target="_blank" rel="noopener" class="contact-alt-link">LinkedIn</a>
+                            <span class="contact-alt-sep">|</span>
+                            <span class="contact-alt-text">Slack, Signal, Telegram on request</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
+                        <span class="logo-text">Point Solutions</span>
+                    </a>
+                    <p>Governed AI adoption for enterprise — from the model gateway to production agents, audit-ready by design.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="/ai-gateway">The Five Layers</a></li>
+                            <li><a href="/architecture">Architecture & Request Flow</a></li>
+                            <li><a href="/data-sovereignty">Sovereignty & EU Routing</a></li>
+                            <li><a href="/compliance">Compliance Mapping</a></li>
+                            <li><a href="/services">Assess, Build, Operate</a></li>
+                            <li><a href="/#case-study">A Representative Engagement</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/#about">About Valery</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Point Solutions. All rights reserved.</p>
+                <p>Montenegro | Serving the World</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
