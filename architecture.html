@@ -262,7 +262,7 @@
                             <span class="flow-step-number">01</span>
                             <h2 id="flow-title-01">Identity (SSO) <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-lock"></use></svg></h2>
                         </div>
-                        <p>Every request starts with who you are. The identity provider authenticates the user or agent, returns group membership, and maps it to a clearance tier. The virtual key handed to the gateway is bound to that IdP identity — not to a shared service account — so every downstream action is traceable to a person.</p>
+                        <p>Every request starts with who you are. The identity provider authenticates the user or agent, returns group membership, and maps it to a clearance tier. The virtual key handed to the gateway is bound to an authenticated principal — a user, a workload, or a delegated user+agent identity — not to a shared service account — so every downstream action is attributable.</p>
                     </article>
 
                     <article class="flow-step" data-flow="1" role="listitem" aria-labelledby="flow-title-02">
@@ -270,7 +270,7 @@
                             <span class="flow-step-number">02</span>
                             <h2 id="flow-title-02">User channel <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-user"></use></svg></h2>
                         </div>
-                        <p>The request enters through a channel: an agent, an internal app, an IDE assistant or an automation. Agents plan the call and pick tools, but they do not hold credentials to your systems. They only decide what to ask and interpret the sanitized result.</p>
+                        <p>The request enters through a channel: an agent, an internal app, an IDE assistant or an automation. Agents plan the call and pick tools, but they do not hold credentials to your systems. They only decide what to ask and interpret the policy-checked result.</p>
                     </article>
 
                     <article class="flow-step" data-flow="2" role="listitem" aria-labelledby="flow-title-03">
@@ -302,7 +302,7 @@
                             <span class="flow-step-number">06</span>
                             <h2 id="flow-title-06">Your systems <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-monitor"></use></svg></h2>
                         </div>
-                        <p>Your existing systems — code, tickets, documents, CRM, ERP — execute the action. The model only ever sees a sanitized result back. Because tool execution and credentials live inside your boundary, sovereignty does not depend on choosing the right model provider.</p>
+                        <p>Your existing systems — code, tickets, documents, CRM, ERP — execute the action. The model only ever sees a schema-validated, policy-filtered result back. Because tool execution and credentials live inside your boundary, sovereignty does not depend on choosing the right model provider.</p>
                     </article>
 
                     <article class="flow-step" data-flow="6" role="listitem" aria-labelledby="flow-title-07">
@@ -310,7 +310,7 @@
                             <span class="flow-step-number">07</span>
                             <h2 id="flow-title-07">Security and policy <svg class="icon flow-step-icon" aria-hidden="true"><use href="#icon-shield"></use></svg></h2>
                         </div>
-                        <p>One policy decision point evaluates every model call and tool call. Guardrails check input and output, classify the request against Public / Internal / Confidential / Restricted tiers and route sensitive data to the right model and approval path. Decision is separated from enforcement: the gateway and tool hub consult the PDP, then enforce it.</p>
+                        <p>One policy model governs every model call and tool call — centralized decisions, distributed enforcement. Guardrails check input and output, classify the request against Public / Internal / Confidential / Restricted tiers and route sensitive data to the right model and approval path. Decision is separated from enforcement: the gateway and tool hub consult the PDP, then enforce it.</p>
                     </article>
 
                     <article class="flow-step" data-flow="7" role="listitem" aria-labelledby="flow-title-08">
@@ -343,7 +343,7 @@
                         <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
                         <span class="logo-text">Point Solutions</span>
                     </a>
-                    <p>Governed AI adoption for enterprise — from the model gateway to production agents, audit-ready by design.</p>
+                    <p>Governed AI infrastructure for enterprise — from the model gateway to production agents, audit-ready by design.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">

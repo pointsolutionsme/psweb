@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Point Solutions builds an AI Gateway and MCP Tool Hub that governs every model call, routes data by residency, and connects agents to your systems without scattering credentials.">
-    <title>AI Gateway & MCP Tool Hub for Enterprise | Point Solutions</title>
+    <meta name="description" content="Secure enterprise AI adoption with a governed AI Gateway and MCP Tool Hub. Centralize model routing, enforce data tiers, and connect agents to internal systems safely via LiteLLM and agentgateway.">
+    <title>Enterprise AI Gateway & MCP Tool Hub | Point Solutions</title>
     <link rel="canonical" href="https://www.pointsolutions.me/ai-gateway">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <noscript>
+        <style>
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="AI Gateway & MCP Tool Hub for Enterprise | Point Solutions">
-    <meta property="og:description" content="Point Solutions builds an AI Gateway and MCP Tool Hub that governs every model call, routes data by residency, and connects agents to your systems without scattering credentials.">
+    <meta property="og:title" content="Enterprise AI Gateway & MCP Tool Hub | Point Solutions">
+    <meta property="og:description" content="Secure enterprise AI adoption with a governed AI Gateway and MCP Tool Hub. Centralize model routing, enforce data tiers, and connect agents to internal systems safely via LiteLLM and agentgateway.">
     <meta property="og:url" content="https://www.pointsolutions.me/ai-gateway">
     <meta property="og:site_name" content="Point Solutions">
     <meta property="og:image" content="https://www.pointsolutions.me/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI Gateway & MCP Tool Hub for Enterprise | Point Solutions">
-    <meta name="twitter:description" content="Point Solutions builds an AI Gateway and MCP Tool Hub that governs every model call, routes data by residency, and connects agents to your systems without scattering credentials.">
+    <meta name="twitter:title" content="Enterprise AI Gateway & MCP Tool Hub | Point Solutions">
+    <meta name="twitter:description" content="Secure enterprise AI adoption with a governed AI Gateway and MCP Tool Hub. Centralize model routing, enforce data tiers, and connect agents to internal systems safely via LiteLLM and agentgateway.">
     <meta name="twitter:image" content="https://www.pointsolutions.me/og-image.png">
 
     <script type="application/ld+json">
@@ -47,6 +55,41 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pointsolutions.me/"},
+        {"@type": "ListItem", "position": 2, "name": "AI Gateway & MCP Tool Hub", "item": "https://www.pointsolutions.me/ai-gateway"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an MCP Tool Hub?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An MCP Tool Hub is a centrally governed gateway for Model Context Protocol tools. It exposes enterprise systems such as source code, project management, documents and CRM as a single curated endpoint, so agents and IDE assistants never hold system credentials or connect to backends directly. The hub authenticates each call, authorizes per tool and per user, brokers credentials, applies rate limits and output guardrails, and emits an audit trace for every action."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you prevent AI prompt injection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prompt injection cannot be eliminated completely, but the platform reduces frequency and limits blast radius through a layered defence: tool outputs pass output guardrails before reaching the model; results are tagged as data and separated from instructions in the agent prompt; each agent has a minimal allow-listed tool set; egress is restricted to prevent exfiltration; and anomaly rules in the SIEM detect unusual tool sequences. High-impact tools remain behind human approval even with all controls enabled."
+          }
+        }
+      ]
+    }
+    </script>
+
 </head>
 <body>
     <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -59,6 +102,15 @@
                 </linearGradient>
                 <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" fill="url(#logoGrad)" stroke="none"/>
                 <path d="M35,30 L35,70 L45,70 L45,55 L55,55 C65,55 70,48 70,42.5 C70,37 65,30 55,30 L35,30 Z M45,38 L53,38 C58,38 60,40 60,42.5 C60,45 58,47 53,47 L45,47 L45,38 Z" fill="white" stroke="none"/>
+            </symbol>
+            <symbol id="icon-calendar" viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="7" y1="3" x2="7" y2="7"/>
+                <line x1="17" y1="3" x2="17" y2="7"/>
+                <line x1="7" y1="13" x2="10" y2="13"/>
+                <line x1="14" y1="13" x2="17" y2="13"/>
+                <line x1="7" y1="17" x2="10" y2="17"/>
             </symbol>
             <symbol id="icon-lock" viewBox="0 0 24 24">
                 <rect x="5" y="10" width="14" height="9"/>
@@ -77,41 +129,9 @@
                 <line x1="17" y1="9" x2="21" y2="9"/>
                 <line x1="17" y1="15" x2="21" y2="15"/>
             </symbol>
-            <symbol id="icon-clipboard" viewBox="0 0 24 24">
-                <rect x="6" y="4" width="12" height="17"/>
-                <rect x="9" y="2" width="6" height="4"/>
-                <path d="M9 12l2 2 4-5"/>
-            </symbol>
             <symbol id="icon-compass" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="9"/>
                 <path d="M15 9l-2 5-5 2 2-5 5-2z"/>
-            </symbol>
-            <symbol id="icon-eu" viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="14"/>
-                <path d="M12 9.2l1.02 2.13 2.35.28-1.74 1.6.5 2.32-2.13-1.2-2.13 1.2.5-2.32-1.74-1.6 2.35-.28z"/>
-            </symbol>
-            <symbol id="icon-card" viewBox="0 0 24 24">
-                <rect x="3" y="6" width="18" height="13"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-                <line x1="6" y1="15" x2="11" y2="15"/>
-                <line x1="6" y1="17.5" x2="9" y2="17.5"/>
-            </symbol>
-            <symbol id="icon-shield" viewBox="0 0 24 24">
-                <path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/>
-                <path d="M9 12h2l1-3 2 6 1-3h2"/>
-            </symbol>
-            <symbol id="icon-scale" viewBox="0 0 24 24">
-                <line x1="12" y1="3" x2="12" y2="19"/>
-                <line x1="5" y1="7" x2="19" y2="7"/>
-                <path d="M5 7l-3 6a3 3 0 0 0 6 0l-3-6z"/>
-                <path d="M19 7l-3 6a3 3 0 0 0 6 0l-3-6z"/>
-                <path d="M8 21h8"/>
-                <line x1="12" y1="19" x2="12" y2="21"/>
-            </symbol>
-            <symbol id="icon-scan" viewBox="0 0 24 24">
-                <circle cx="10" cy="10" r="6.5"/>
-                <path d="M7.25 10.25l1.9 1.9 3.6-4"/>
-                <line x1="14.75" y1="14.75" x2="20.5" y2="20.5"/>
             </symbol>
             <symbol id="icon-layers" viewBox="0 0 24 24">
                 <path d="M12 3l9 4.5-9 4.5-9-4.5z"/>
@@ -124,26 +144,20 @@
                 <line x1="8" y1="20" x2="16" y2="20"/>
                 <line x1="12" y1="17" x2="12" y2="20"/>
             </symbol>
-            <symbol id="icon-calendar" viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="16"/>
-                <line x1="3" y1="9" x2="21" y2="9"/>
-                <line x1="7" y1="3" x2="7" y2="7"/>
-                <line x1="17" y1="3" x2="17" y2="7"/>
-                <line x1="7" y1="13" x2="10" y2="13"/>
-                <line x1="14" y1="13" x2="17" y2="13"/>
-                <line x1="7" y1="17" x2="10" y2="17"/>
-            </symbol>
-            <symbol id="icon-mail" viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="14"/>
-                <path d="M3 6l9 7 9-7"/>
+            <symbol id="icon-shield" viewBox="0 0 24 24">
+                <path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/>
+                <path d="M9 12h2l1-3 2 6 1-3h2"/>
             </symbol>
             <symbol id="icon-user" viewBox="0 0 24 24">
                 <circle cx="12" cy="8" r="4"/>
                 <path d="M6 21c0-3.5 3-5 6-5s6 1.5 6 5"/>
             </symbol>
-            <symbol id="icon-arrow" viewBox="0 0 24 24">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12,5 19,12 12,19"/>
+            <symbol id="icon-chart" viewBox="0 0 24 24">
+                <line x1="3" y1="21" x2="21" y2="21"/>
+                <path d="M6 21v-6"/>
+                <path d="M10 21v-10"/>
+                <path d="M14 21v-7"/>
+                <path d="M18 21v-13"/>
             </symbol>
         </defs>
     </svg>
@@ -161,10 +175,11 @@
                     <span></span>
                 </button>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="/ai-gateway" class="current" aria-current="page">Platform</a></li>
-                    <li><a href="/architecture">Architecture</a></li>
-                    <li><a href="/data-sovereignty">Sovereignty</a></li>
-                    <li><a href="/compliance">Compliance</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#services" class="current" aria-current="page">Platform</a></li>
+                    <li><a href="/#architecture">Architecture</a></li>
+                    <li><a href="/#sovereignty">Sovereignty</a></li>
+                    <li><a href="/#compliance">Compliance</a></li>
                     <li><a href="/#about">About</a></li>
                     <li><a href="/#contact" class="btn-contact">Contact</a></li>
                 </ul>
@@ -173,229 +188,179 @@
     </nav>
 
     <main>
-        <header class="page-header">
+        <header class="arch-header">
             <div class="container">
-                <div class="page-header-content reveal">
-                    <span class="section-eyebrow">Platform</span>
-                    <h1>The Governed AI Gateway & Tool Hub</h1>
-                    <p class="lead">Corporate AI adoption, delivered end to end — from the gateway that governs every model call to the agents your teams actually use.</p>
+                <p class="arch-breadcrumb"><a href="/">Home</a> <span class="sep">›</span> AI Gateway & MCP Tool Hub</p>
+                <h1>The Governed AI Gateway & MCP Tool Hub</h1>
+                <p class="section-lead">One door to every model. One door to every system. No shared credentials.</p>
+                <div class="arch-header-cta">
+                    <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                        <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
+                    </a>
                 </div>
             </div>
         </header>
 
-        <section class="services" id="platform-layers">
+        <section class="breakdown-section" id="ai-gateway">
             <div class="container">
-                <div class="section-header reveal">
-                    <h2>One Platform. Five Layers.</h2>
-                    <p>Every layer is connected to the others through classification, identity and policy. That is what makes the platform auditable instead of assumed safe.</p>
-                </div>
-                <div class="platform-system" role="region" aria-label="Five platform layers">
-                    <div class="platform-stack" role="list">
-                        <div class="platform-slab" data-layer="0" role="listitem">
-                            <span class="slab-number">01</span>
-                            <span class="slab-name">Platform</span>
-                        </div>
-                        <div class="platform-slab" data-layer="1" role="listitem">
-                            <span class="slab-number">02</span>
-                            <span class="slab-name">Models</span>
-                        </div>
-                        <div class="platform-slab" data-layer="2" role="listitem">
-                            <span class="slab-number">03</span>
-                            <span class="slab-name">Applications & Agents</span>
-                        </div>
-                        <div class="platform-slab" data-layer="3" role="listitem">
-                            <span class="slab-number">04</span>
-                            <span class="slab-name">Data & Identity</span>
-                        </div>
-                        <div class="platform-slab" data-layer="4" role="listitem">
-                            <span class="slab-number">05</span>
-                            <span class="slab-name">Operations</span>
-                        </div>
-                    </div>
-                    <div class="platform-descriptions" role="list">
-                        <article class="platform-step" data-layer="0" role="listitem" aria-labelledby="platform-title-01">
-                            <div class="step-header">
-                                <span class="step-number">01</span>
-                                <h3 id="platform-title-01">Platform</h3>
-                            </div>
-                            <p>An open foundation built on modern infrastructure approaches. An AI Gateway as the single door to every model. An MCP Tool Hub as the single door to your systems. No license lock-in, no forced upgrade path.</p>
-                        </article>
-                        <article class="platform-step" data-layer="1" role="listitem" aria-labelledby="platform-title-02">
-                            <div class="step-header">
-                                <span class="step-number">02</span>
-                                <h3 id="platform-title-02">Models</h3>
-                            </div>
-                            <p>Any provider, any open-weight model, routed by policy — including EU-resident routing for regulated data. Swapping a model is a config change in Git, not a rebuild.</p>
-                        </article>
-                        <article class="platform-step" data-layer="2" role="listitem" aria-labelledby="platform-title-03">
-                            <div class="step-header">
-                                <span class="step-number">03</span>
-                                <h3 id="platform-title-03">Applications & Agents</h3>
-                            </div>
-                            <p>Agents connected to the systems you actually run — code, tickets, documents, CRM, ERP — acting with each user's own permissions. Writes to production always go through approval.</p>
-                        </article>
-                        <article class="platform-step" data-layer="3" role="listitem" aria-labelledby="platform-title-04">
-                            <div class="step-header">
-                                <span class="step-number">04</span>
-                                <h3 id="platform-title-04">Data & Identity</h3>
-                            </div>
-                            <p>Classification, inventory and access control run through every other layer at once. This is what makes the rest of the platform auditable instead of assumed safe.</p>
-                        </article>
-                        <article class="platform-step" data-layer="4" role="listitem" aria-labelledby="platform-title-05">
-                            <div class="step-header">
-                                <span class="step-number">05</span>
-                                <h3 id="platform-title-05">Operations</h3>
-                            </div>
-                            <p>DevOps, SecOps and AIOps, continuous — including layers we didn't build. Everything as code: every change reviewed, tested, and rolled back if it breaks.</p>
-                        </article>
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">01</div>
+                    <div class="breakdown-content">
+                        <h2>The AI Gateway</h2>
+                        <p>The AI Gateway is a single OpenAI-compatible endpoint that fronts every model the enterprise uses: commercial APIs, open-weight providers and self-hosted inference. Provider swaps become configuration changes rather than code rewrites, and no application or team holds a raw provider key. Reference implementation is <span class="tech-pill">LiteLLM</span> running its Rust hot path in production. Where SSO, RBAC at scale and full audit logs must remain in the free tier, the gateway can be fronted with <span class="tech-pill">Kong AI Gateway 2.0</span>.</p>
+                        <p>Authorization is enforced per virtual key. Each key is bound to an authenticated principal — a user, a workload, or a delegated user+agent identity — and carries its own allowed model list, allowed tool set, data-tier clearance, rate limits (RPM/TPM) and budget. Keys expire automatically and rotate without reconfiguring clients. The gateway consults the policy decision point on every call, so tier checks and custom rules are not bolted on afterwards but evaluated inline before any provider is reached.</p>
+                        <p>Reliability is built in: retry with backoff, cross-provider fallback and load balancing. A fallback target must satisfy the same clearance tier and residency attribute as the primary target, so resilience never becomes a data-leak path. Availability is treated seriously because the gateway is a dependency for all AI usage. It runs at least three replicas across zones, stores state in a managed PostgreSQL HA pair and keeps rate-limit counters in Redis. The gateway is exposed only through the corporate ZTNA or internal network; for Confidential and Restricted tiers it fails closed. Break-glass credentials for Public and Internal use are time-boxed, individually issued and fully audited. In production, the admin UI is read-only; every real change flows through Git.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Capability</th>
+                                    <th>Mechanism</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Capability">Authentication</td>
+                                    <td data-label="Mechanism">SSO for admin UI; virtual keys bound to IdP identity with short expiry and automatic rotation</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Capability">Authorization</td>
+                                    <td data-label="Mechanism">Per key: allowed models, allowed tools, clearance tier, RPM/TPM, budget</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Capability">Reliability</td>
+                                    <td data-label="Mechanism">Retry/backoff, cross-provider fallback, load balancing; fallback must match tier and residency</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Capability">Residency routing</td>
+                                    <td data-label="Mechanism">Each model deployment carries a residency attribute; routing and fallback respect it</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Capability">Availability</td>
+                                    <td data-label="Mechanism">3+ replicas across zones; managed PostgreSQL HA; Redis rate counters; private ZTNA endpoint; fail-closed for Confidential/Restricted</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Capability">Break glass</td>
+                                    <td data-label="Mechanism">Time-boxed credentials for Public/Internal, individually issued, every use alerted and audited</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Capability">Configuration</td>
+                                    <td data-label="Mechanism">All config in Git, applied by Argo CD; admin UI read-only in production</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="architecture-preview" id="request-flow">
+        <section class="breakdown-section" id="guardrails">
             <div class="container">
-                <div class="section-header reveal">
-                    <span class="section-eyebrow">Request Flow</span>
-                    <h2>How a Request Moves Through the Platform</h2>
-                    <p>Two control points: an AI Gateway as the single door to every model and a Tool Hub as the single door to your systems — with execution staying inside your boundary.</p>
-                </div>
-                <div class="architecture-strip reveal" aria-label="Request flow overview">
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg></div>
-                        <span class="architecture-label">Identity</span>
-                    </div>
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg></div>
-                        <span class="architecture-label">User channel</span>
-                    </div>
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-compass"></use></svg></div>
-                        <span class="architecture-label">AI Gateway</span>
-                    </div>
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chip"></use></svg></div>
-                        <span class="architecture-label">Model</span>
-                    </div>
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg></div>
-                        <span class="architecture-label">Tool Hub</span>
-                    </div>
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-monitor"></use></svg></div>
-                        <span class="architecture-label">Your systems</span>
-                    </div>
-                </div>
-                <div class="architecture-preview-cta reveal">
-                    <a href="/architecture" class="btn btn-primary">See the Full Request Flow</a>
-                    <a href="/data-sovereignty" class="text-link">How data residency is enforced →</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="sovereignty" id="gateway-sovereignty">
-            <div class="container">
-                <div class="section-header reveal">
-                    <span class="section-eyebrow">Sovereignty</span>
-                    <h2>Why the Gateway Makes Sovereignty Stick</h2>
-                    <p>Models never execute tools directly. Every action against your systems runs through a Tool Hub inside your boundary — the model only ever sees a sanitized result back.</p>
-                </div>
-                <div class="sovereignty-grid">
-                    <div class="sovereignty-description">
-                        <h3>Routing by Residency Attribute</h3>
-                        <p>Every model deployment carries a residency attribute. Confidential data is routed only to EU-resident providers under Article 28 data processing agreements with zero-retention defaults — no training on your prompts, with routing designed to minimize exposure to extraterritorial data-access requests.</p>
-                        <h3>One Policy Decision Point</h3>
-                        <p>One policy decision point evaluates every model call and tool call. Guardrails check input and output, classify the request against Public / Internal / Confidential / Restricted tiers and route sensitive data to the right model and approval path.</p>
-                        <p class="sovereignty-link"><a href="/data-sovereignty" class="text-link">Read the full sovereignty model →</a></p>
-                    </div>
-                    <div class="sovereignty-features">
-                        <div class="sovereignty-feature-group reveal">
-                            <h4>What the Gateway Controls</h4>
-                            <ul>
-                                <li>Virtual keys bound to IdP identity, not shared accounts</li>
-                                <li>Guardrails and content policy at the edge</li>
-                                <li>Model routing by data tier and residency</li>
-                                <li>Usage budgets and cost attribution per team</li>
-                            </ul>
-                        </div>
-                        <div class="sovereignty-feature-group reveal">
-                            <h4>What the Tool Hub Controls</h4>
-                            <ul>
-                                <li>Per-tool and per-user authorization</li>
-                                <li>Credential brokering without exposure</li>
-                                <li>Approval gates for production writes</li>
-                                <li>Execution stays inside your boundary</li>
-                            </ul>
-                        </div>
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">02</div>
+                    <div class="breakdown-content">
+                        <h2>Inline Guardrails & DLP</h2>
+                        <p>Every request and response passes through a guardrail chain designed to enforce policy without adding unacceptable latency for interactive use. The inline input chain runs on CPU and acts as a fast gate: <span class="tech-pill">Llama Prompt Guard 2</span> classifies prompt-injection attempts in under 20 ms; <span class="tech-pill">Presidio</span> detects and masks PII, credentials and customer identifiers before they reach a model or are stored; <span class="tech-pill">NeMo Guardrails</span> enforces topic and workflow constraints; and <span class="tech-pill">OPA</span> evaluates the data-tier check against the policy decision point. Flagged or sampled traffic is then classified asynchronously by <span class="tech-pill">Llama Guard 4</span> where a GPU is budgeted.</p>
+                        <p>The output side is just as important. Tool outputs and model responses are not simply sanitized and forwarded. The chain is: schema validation first, then content and DLP policy, then output filtering, then provenance and trust tagging, and only then the result is passed to the model or user. This ordering matters because it prevents a downstream detector from being bypassed by an earlier transformation. Provenance tags separate tool data from system instructions in the agent prompt, which is one layer of the prompt-injection defence.</p>
+                        <p>On prompt injection specifically, the platform is honest about residual risk. There is no complete mitigation for prompt injection. The controls reduce how often an injection succeeds and limit the blast radius when one does: tool outputs pass guardrails, results are tagged as data, each agent carries a minimal allow-listed tool set, egress is restricted to block exfiltration, and SIEM rules watch for unusual tool sequences. Because risk remains, high-impact tools stay behind human approval even when all automated controls are enabled.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="services" id="gateway-next">
+        <section class="breakdown-section" id="tool-hub">
             <div class="container">
-                <div class="section-header reveal">
-                    <h2>From Gateway to Running Operation</h2>
-                    <p>Most engagements start with an assessment and move into build and operate only when the design is accepted. You can step off after any phase.</p>
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">03</div>
+                    <div class="breakdown-content">
+                        <h2>The MCP Tool Hub</h2>
+                        <p>The Tool Hub is the single door to enterprise systems. Source code, project management, documents, CRM, ERP, delivery, observability and data platforms are exposed as MCP tools through one authenticated Streamable HTTP endpoint. Agents and IDE assistants never hold system credentials, and no client connects directly to a backend MCP server. Reference implementation is <span class="tech-pill">agentgateway</span> from the Linux Foundation; it authenticates callers via OAuth 2.1, authorizes each tool call with per-tool CEL policies checked against the PDP, exchanges or injects downstream credentials, applies rate limits and output guardrails, and emits OpenTelemetry spans and audit logs.</p>
+                        <p>The architecture has four layers. The MCP gateway is the data plane. Virtual servers sit above it: curated toolsets per role or agent, such as "engineering-read" or "sre-operations", which keep the number of tools per session small and improve selection accuracy while lowering token cost. Backend servers run centrally on Kubernetes, one deployment per system and scope variant, with vendor-hosted remote MCP servers proxied through the gateway rather than called directly. The registry is the control plane: one entry per server capturing system, owner, data tier, scope, auth pattern, version, pinned tool-definition hash, approval status and cost tags. That registry feeds gateway config, MDM allow-lists, policies and FinOps tags.</p>
+                        <p>Downstream authentication follows four patterns, chosen per system. On-behalf-of token exchange is preferred for systems federated with the IdP, such as source code, documents and project management. Per-user OAuth brokered by the gateway is used for SaaS without token exchange, common for CRM and many project tools. Scoped service accounts are reserved for ERP and similar systems without per-user API auth, always combined with task-level tools and approvals for writes. Workload identity is used for cloud and Kubernetes APIs, where the server's service account binds to a project-scoped token. Every request carries an authenticated principal: a user, a workload, or a delegated user+agent identity; unattended agents run under workload identity, not a user's identity.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Auth pattern</th>
+                                    <th>How it works</th>
+                                    <th>Use for</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Auth pattern">On-behalf-of token exchange</td>
+                                    <td data-label="How it works">Gateway exchanges the user's IdP token for a system token scoped to that user</td>
+                                    <td data-label="Use for">Code, documents, project management when federated with IdP</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Auth pattern">Per-user OAuth, brokered</td>
+                                    <td data-label="How it works">User consents once; gateway stores refresh tokens in the secrets vault and injects them</td>
+                                    <td data-label="Use for">SaaS without token exchange, such as many CRM tools</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Auth pattern">Scoped service account</td>
+                                    <td data-label="How it works">Technical user with minimal permissions; gateway restricts tools and arguments per caller</td>
+                                    <td data-label="Use for">ERP and systems without per-user API auth</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Auth pattern">Workload identity</td>
+                                    <td data-label="How it works">Cloud or Kubernetes identity bound to the server's service account</td>
+                                    <td data-label="Use for">Argo CD, Kubernetes, cloud APIs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>MCP servers enter the catalog in order of preference. Vendor official servers are used when available and maintained; maintained open-source servers are forked, pinned to a reviewed version and built internally; systems with OpenAPI or OData specs generate a filtered, read-only-by-default tool set; and custom task-level tools built with <span class="tech-pill">FastMCP</span> cover ERP business actions and cross-system tasks. The design rule is task-level tools over raw API mirrors: a small set of well-defined business actions is easier to authorize, test and audit than hundreds of endpoints.</p>
+                    </div>
                 </div>
-                <div class="services-grid services-grid-four">
-                    <div class="service-card reveal">
-                        <span class="service-step-number">01</span>
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"></use></svg></div>
-                        <h3>Talk</h3>
-                        <p>We map your AI exposure and tell you honestly if we're a fit.</p>
-                        <p class="service-timeline">Free · 30 minutes</p>
-                    </div>
-                    <div class="service-card service-card-featured reveal">
-                        <span class="service-step-number">02</span>
-                        <span class="service-badge">Most start here</span>
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-scan"></use></svg></div>
-                        <h3>Assess</h3>
-                        <p>A regulatory exposure report and a costed technical design — yours to keep, whoever implements it.</p>
-                        <p class="service-timeline">2–6 weeks · flat fee · remote</p>
-                    </div>
-                    <div class="service-card reveal">
-                        <span class="service-step-number">03</span>
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg></div>
-                        <h3>Build</h3>
-                        <p>Gateway, tool hub, agents — connected to what you already run, not a sandbox.</p>
-                        <p class="service-timeline">Project priced · per layer</p>
-                    </div>
-                    <div class="service-card reveal">
-                        <span class="service-step-number">04</span>
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-monitor"></use></svg></div>
-                        <h3>Operate</h3>
-                        <p>DevOps, SecOps and AIOps against agreed service levels — including systems we didn't build.</p>
-                        <p class="service-timeline">Monthly retainer · ongoing</p>
-                    </div>
-                </div>
-                <p class="process-closing reveal">Want the full delivery model? <a href="/services" class="text-link">Explore how we start →</a></p>
             </div>
         </section>
 
-        <section class="contact" id="contact">
+        <section class="breakdown-section" id="supply-chain">
             <div class="container">
-                <div class="contact-content">
-                    <div class="contact-info reveal">
-                        <span class="section-eyebrow">Contact</span>
-                        <h2>Discuss Your AI Gateway</h2>
-                        <p class="lead">30-minute consultation to walk through your model providers, data tiers and integration points.</p>
-                        <div class="contact-primary">
-                            <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
-                                <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
-                            </a>
-                            <a href="mailto:hello@pointsolutions.me" class="btn btn-secondary btn-large">
-                                <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-mail"></use></svg> Email Us
-                            </a>
-                        </div>
-                        <div class="contact-alt">
-                            <a href="https://wa.me/38268538207" target="_blank" rel="noopener" class="contact-alt-link">WhatsApp</a>
-                            <span class="contact-alt-sep">|</span>
-                            <a href="https://www.linkedin.com/in/iamvalery/" target="_blank" rel="noopener" class="contact-alt-link">LinkedIn</a>
-                            <span class="contact-alt-sep">|</span>
-                            <span class="contact-alt-text">Slack, Signal, Telegram on request</span>
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">04</div>
+                    <div class="breakdown-content">
+                        <h2>Tool Poisoning & Supply Chain Defense</h2>
+                        <p>The "rug pull" threat — a silent change to a tool's name, description or schema that tricks a model into calling the wrong action — is blocked by treating the tool registry as immutable code. The registry stores a hash of each tool's name, description and schema. The gateway rejects any definition whose hash does not match the approved entry, so a compromised package cannot alter tool semantics without a reviewed pull request. Before a definition reaches the registry, a CI pipeline scans it in three stages: <span class="tech-pill">mcp-scan</span> from OWASP as the fast gate, <span class="tech-pill">NVIDIA SkillSpector</span> for skill packages, and <span class="tech-pill">AI-Infra-Guard</span> for MCP servers.</p>
+                        <p>Runtime isolation limits blast radius. Each backend server runs in its own namespace, as a non-root container, with a read-only filesystem and a network policy that allows egress only to its target system. Credentials are scoped to that system. The default variant is read-only; write variants are separate servers with their own identity and are granted only to the virtual servers that need them. Argument-level PDP checks enforce allowed Argo CD projects, repositories, SQL templates, record types and amount limits for ERP actions. Output size limits, PII masking and tier tagging prevent leakage through oversized or over-privileged results. Rate limits protect backend systems, and every call is audited with user, agent, virtual server, tool, argument hash, result size, policy decision and approval ID.</p>
+                        <p>Tool design rules reinforce this. Virtual servers contain tens of tools, not hundreds; very large APIs use a search-and-execute pair only when argument-level policy checks are in place. Naming follows <code>system_object_action</code>, pagination and result limits apply to every list tool, and every tool has an owner, a tier, a read/write flag and test cases in the agent evaluation suite. Quarterly re-certification retires unused tools before they become forgotten attack surface.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">FAQ</span>
+                    <h2>Common Questions</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item reveal">
+                        <h3 class="faq-question">What is an MCP Tool Hub?</h3>
+                        <div class="faq-answer">
+                            <p>An MCP Tool Hub is a centrally governed gateway for Model Context Protocol tools. It exposes enterprise systems such as source code, project management, documents and CRM as a single curated endpoint, so agents and IDE assistants never hold system credentials or connect to backends directly. The hub authenticates each call, authorizes per tool and per user, brokers credentials, applies rate limits and output guardrails, and emits an audit trace for every action.</p>
                         </div>
                     </div>
+                    <div class="faq-item reveal">
+                        <h3 class="faq-question">How do you prevent AI prompt injection?</h3>
+                        <div class="faq-answer">
+                            <p>Prompt injection cannot be eliminated completely, but the platform reduces frequency and limits blast radius through a layered defence: tool outputs pass output guardrails before reaching the model; results are tagged as data and separated from instructions in the agent prompt; each agent has a minimal allow-listed tool set; egress is restricted to prevent exfiltration; and anomaly rules in the SIEM detect unusual tool sequences. High-impact tools remain behind human approval even with all controls enabled.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer-cta">
+            <div class="container">
+                <div class="footer-cta-content reveal">
+                    <h2>One door for models. One door for tools. Let's build yours.</h2>
+                    <p>Walk through your identity provider, data tiers and integration points with the team that designs and operates the platform.</p>
+                    <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                        <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
+                    </a>
                 </div>
             </div>
         </section>
@@ -409,23 +374,23 @@
                         <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
                         <span class="logo-text">Point Solutions</span>
                     </a>
-                    <p>Governed AI adoption for enterprise — from the model gateway to production agents, audit-ready by design.</p>
+                    <p>Governed AI infrastructure for enterprise — from the model gateway to production agents, audit-ready by design.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">
                         <h4>Platform</h4>
                         <ul>
-                            <li><a href="/ai-gateway">The Five Layers</a></li>
-                            <li><a href="/architecture">Architecture & Request Flow</a></li>
-                            <li><a href="/data-sovereignty">Sovereignty & EU Routing</a></li>
-                            <li><a href="/compliance">Compliance Mapping</a></li>
-                            <li><a href="/services">Assess, Build, Operate</a></li>
-                            <li><a href="/#case-study">A Representative Engagement</a></li>
+                            <li><a href="/#services">The Five Layers</a></li>
+                            <li><a href="architecture.html">Architecture & Request Flow</a></li>
+                            <li><a href="/#sovereignty">Sovereignty & EU Routing</a></li>
+                            <li><a href="/#compliance">Compliance Mapping</a></li>
+                            <li><a href="/#process">Assess, Build, Operate</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h4>Company</h4>
                         <ul>
+                            <li><a href="/">Home</a></li>
                             <li><a href="/#about">About Valery</a></li>
                             <li><a href="/#contact">Contact</a></li>
                         </ul>

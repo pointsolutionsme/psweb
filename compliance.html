@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Point Solutions maps one governed AI build to ISO 27001, ISO 42001, SOC 2, GDPR, NIS2, PCI DSS, NIST CSF and EU AI Act evidence — gathered once.">
+    <meta name="description" content="Map one governed AI build to ISO 42001, SOC 2, GDPR, NIS2, and the EU AI Act. We generate audit-ready evidence automatically via GitOps, human-in-the-loop approvals, and strict data tiering.">
     <title>AI Compliance: ISO 42001, NIS2 & EU AI Act | Point Solutions</title>
     <link rel="canonical" href="https://www.pointsolutions.me/compliance">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <noscript>
+        <style>
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta property="og:type" content="website">
     <meta property="og:title" content="AI Compliance: ISO 42001, NIS2 & EU AI Act | Point Solutions">
-    <meta property="og:description" content="Point Solutions maps one governed AI build to ISO 27001, ISO 42001, SOC 2, GDPR, NIS2, PCI DSS, NIST CSF and EU AI Act evidence — gathered once.">
+    <meta property="og:description" content="Map one governed AI build to ISO 42001, SOC 2, GDPR, NIS2, and the EU AI Act. We generate audit-ready evidence automatically via GitOps, human-in-the-loop approvals, and strict data tiering.">
     <meta property="og:url" content="https://www.pointsolutions.me/compliance">
     <meta property="og:site_name" content="Point Solutions">
     <meta property="og:image" content="https://www.pointsolutions.me/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI Compliance: ISO 42001, NIS2 & EU AI Act | Point Solutions">
-    <meta name="twitter:description" content="Point Solutions maps one governed AI build to ISO 27001, ISO 42001, SOC 2, GDPR, NIS2, PCI DSS, NIST CSF and EU AI Act evidence — gathered once.">
+    <meta name="twitter:description" content="Map one governed AI build to ISO 42001, SOC 2, GDPR, NIS2, and the EU AI Act. We generate audit-ready evidence automatically via GitOps, human-in-the-loop approvals, and strict data tiering.">
     <meta name="twitter:image" content="https://www.pointsolutions.me/og-image.png">
 
     <script type="application/ld+json">
@@ -47,6 +55,41 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pointsolutions.me/"},
+        {"@type": "ListItem", "position": 2, "name": "AI Compliance", "item": "https://www.pointsolutions.me/compliance"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does GitOps help with ISO 42001 audits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ISO 42001 requires an AI management system with controlled policies, roles, risk assessment and monitoring. GitOps makes every change to prompts, policies, tool definitions, guardrails and model configurations a reviewed, tested, versioned pull request. The Git history becomes the audit trail: who changed what, when, why, and which automated checks passed. Argo CD self-heal prevents manual drift, so the running state always matches the approved state."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you handle human oversight for AI agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Human oversight is enforced at the action layer, not bolted on afterwards. Read operations within a user's scope run autonomously. Writes to production or business records require approval via Slack Block Kit interactive messages. The agent workflow pauses at a LangGraph interrupt; a posted message shows the action, arguments and context with Approve and Reject buttons. The click is verified with Slack request signature, nonce replay protection, approver binding to an IdP role, and a hash-chained audit record."
+          }
+        }
+      ]
+    }
+    </script>
+
 </head>
 <body>
     <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -60,41 +103,19 @@
                 <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" fill="url(#logoGrad)" stroke="none"/>
                 <path d="M35,30 L35,70 L45,70 L45,55 L55,55 C65,55 70,48 70,42.5 C70,37 65,30 55,30 L35,30 Z M45,38 L53,38 C58,38 60,40 60,42.5 C60,45 58,47 53,47 L45,47 L45,38 Z" fill="white" stroke="none"/>
             </symbol>
-            <symbol id="icon-lock" viewBox="0 0 24 24">
-                <rect x="5" y="10" width="14" height="9"/>
-                <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-                <line x1="12" y1="13.5" x2="12" y2="16"/>
-            </symbol>
-            <symbol id="icon-chip" viewBox="0 0 24 24">
-                <rect x="7" y="7" width="10" height="10"/>
-                <rect x="10" y="10" width="4" height="4"/>
-                <line x1="9" y1="3" x2="9" y2="7"/>
-                <line x1="15" y1="3" x2="15" y2="7"/>
-                <line x1="9" y1="17" x2="9" y2="21"/>
-                <line x1="15" y1="17" x2="15" y2="21"/>
-                <line x1="3" y1="9" x2="7" y2="9"/>
-                <line x1="3" y1="15" x2="7" y2="15"/>
-                <line x1="17" y1="9" x2="21" y2="9"/>
-                <line x1="17" y1="15" x2="21" y2="15"/>
+            <symbol id="icon-calendar" viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="7" y1="3" x2="7" y2="7"/>
+                <line x1="17" y1="3" x2="17" y2="7"/>
+                <line x1="7" y1="13" x2="10" y2="13"/>
+                <line x1="14" y1="13" x2="17" y2="13"/>
+                <line x1="7" y1="17" x2="10" y2="17"/>
             </symbol>
             <symbol id="icon-clipboard" viewBox="0 0 24 24">
                 <rect x="6" y="4" width="12" height="17"/>
                 <rect x="9" y="2" width="6" height="4"/>
                 <path d="M9 12l2 2 4-5"/>
-            </symbol>
-            <symbol id="icon-compass" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-                <path d="M15 9l-2 5-5 2 2-5 5-2z"/>
-            </symbol>
-            <symbol id="icon-eu" viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="14"/>
-                <path d="M12 9.2l1.02 2.13 2.35.28-1.74 1.6.5 2.32-2.13-1.2-2.13 1.2.5-2.32-1.74-1.6 2.35-.28z"/>
-            </symbol>
-            <symbol id="icon-card" viewBox="0 0 24 24">
-                <rect x="3" y="6" width="18" height="13"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-                <line x1="6" y1="15" x2="11" y2="15"/>
-                <line x1="6" y1="17.5" x2="9" y2="17.5"/>
             </symbol>
             <symbol id="icon-shield" viewBox="0 0 24 24">
                 <path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/>
@@ -107,39 +128,6 @@
                 <path d="M19 7l-3 6a3 3 0 0 0 6 0l-3-6z"/>
                 <path d="M8 21h8"/>
                 <line x1="12" y1="19" x2="12" y2="21"/>
-            </symbol>
-            <symbol id="icon-scan" viewBox="0 0 24 24">
-                <circle cx="10" cy="10" r="6.5"/>
-                <path d="M7.25 10.25l1.9 1.9 3.6-4"/>
-                <line x1="14.75" y1="14.75" x2="20.5" y2="20.5"/>
-            </symbol>
-            <symbol id="icon-layers" viewBox="0 0 24 24">
-                <path d="M12 3l9 4.5-9 4.5-9-4.5z"/>
-                <path d="M3 12l9 4.5 9-4.5"/>
-                <path d="M3 16.5l9 4.5 9-4.5"/>
-            </symbol>
-            <symbol id="icon-monitor" viewBox="0 0 24 24">
-                <rect x="3" y="4" width="18" height="13"/>
-                <path d="M6 14l3-4 3 2 4-6 3 3"/>
-                <line x1="8" y1="20" x2="16" y2="20"/>
-                <line x1="12" y1="17" x2="12" y2="20"/>
-            </symbol>
-            <symbol id="icon-calendar" viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="16"/>
-                <line x1="3" y1="9" x2="21" y2="9"/>
-                <line x1="7" y1="3" x2="7" y2="7"/>
-                <line x1="17" y1="3" x2="17" y2="7"/>
-                <line x1="7" y1="13" x2="10" y2="13"/>
-                <line x1="14" y1="13" x2="17" y2="13"/>
-                <line x1="7" y1="17" x2="10" y2="17"/>
-            </symbol>
-            <symbol id="icon-mail" viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="14"/>
-                <path d="M3 6l9 7 9-7"/>
-            </symbol>
-            <symbol id="icon-user" viewBox="0 0 24 24">
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M6 21c0-3.5 3-5 6-5s6 1.5 6 5"/>
             </symbol>
         </defs>
     </svg>
@@ -157,10 +145,11 @@
                     <span></span>
                 </button>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="/ai-gateway">Platform</a></li>
-                    <li><a href="/architecture">Architecture</a></li>
-                    <li><a href="/data-sovereignty">Sovereignty</a></li>
-                    <li><a href="/compliance" class="current" aria-current="page">Compliance</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#services">Platform</a></li>
+                    <li><a href="/#architecture">Architecture</a></li>
+                    <li><a href="/#sovereignty">Sovereignty</a></li>
+                    <li><a href="/#compliance" class="current" aria-current="page">Compliance</a></li>
                     <li><a href="/#about">About</a></li>
                     <li><a href="/#contact" class="btn-contact">Contact</a></li>
                 </ul>
@@ -169,161 +158,249 @@
     </nav>
 
     <main>
-        <header class="page-header">
+        <header class="arch-header">
             <div class="container">
-                <div class="page-header-content reveal">
-                    <span class="section-eyebrow">Compliance</span>
-                    <h1>AI Compliance: ISO 42001, NIS2 & EU AI Act</h1>
-                    <p class="lead">Classification, inventory and access control are the shared foundation under every framework. We gather that evidence once, during the build. Only the auditor changes.</p>
+                <p class="arch-breadcrumb"><a href="/">Home</a> <span class="sep">›</span> AI Compliance</p>
+                <h1>AI Compliance: ISO 42001, NIS2 & EU AI Act</h1>
+                <p class="section-lead">One governed build. Evidence for every framework. Audit trails generated by GitOps, not manual spreadsheets.</p>
+                <div class="arch-header-cta">
+                    <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                        <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
+                    </a>
                 </div>
             </div>
         </header>
 
-        <section class="expertise" id="frameworks">
+        <section class="breakdown-section" id="eu-ai-act">
             <div class="container">
-                <div class="section-header reveal">
-                    <span class="section-eyebrow">Frameworks</span>
-                    <h2>One Build, Evidence for Every Framework</h2>
-                    <p>The same controls satisfy security, privacy, AI management and sector-specific regimes — because they all start with knowing what data you have, who can touch it, and what the system did.</p>
-                </div>
-                <div class="certifications">
-                    <div class="cert-badge">
-                        <div class="cert-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg></div>
-                        <div class="cert-name">ISO 27001</div>
-                        <div class="cert-desc">Information security management — the base layer under the rest.</div>
-                    </div>
-                    <div class="cert-badge">
-                        <div class="cert-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chip"></use></svg></div>
-                        <div class="cert-name">ISO 42001</div>
-                        <div class="cert-desc">AI management system — the certifiable target for AI governance.</div>
-                    </div>
-                    <div class="cert-badge">
-                        <div class="cert-icon"><svg class="icon" aria-hidden="true"><use href="#icon-clipboard"></use></svg></div>
-                        <div class="cert-name">SOC 2</div>
-                        <div class="cert-desc">Service organization controls, including for what we operate on your behalf.</div>
-                    </div>
-                    <div class="cert-badge">
-                        <div class="cert-icon"><svg class="icon" aria-hidden="true"><use href="#icon-compass"></use></svg></div>
-                        <div class="cert-name">NIST CSF</div>
-                        <div class="cert-desc">Identify and Protect functions map onto classification and access design.</div>
-                    </div>
-                    <div class="cert-badge">
-                        <div class="cert-icon"><svg class="icon" aria-hidden="true"><use href="#icon-eu"></use></svg></div>
-                        <div class="cert-name">GDPR</div>
-                        <div class="cert-desc">Records of processing, data minimization and residency.</div>
-                    </div>
-                    <div class="cert-badge">
-                        <div class="cert-icon"><svg class="icon" aria-hidden="true"><use href="#icon-card"></use></svg></div>
-                        <div class="cert-name">PCI DSS</div>
-                        <div class="cert-desc">Scoping and segmentation of the cardholder environment.</div>
-                    </div>
-                    <div class="cert-badge">
-                        <div class="cert-icon"><svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg></div>
-                        <div class="cert-name">NIS2</div>
-                        <div class="cert-desc">Broader than most assume — reaches far past critical infrastructure.</div>
-                    </div>
-                    <div class="cert-badge">
-                        <div class="cert-icon"><svg class="icon" aria-hidden="true"><use href="#icon-scale"></use></svg></div>
-                        <div class="cert-name">EU AI Act</div>
-                        <div class="cert-desc">Core obligations apply since August 2026: system inventory, risk classification, logging, human oversight.</div>
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">01</div>
+                    <div class="breakdown-content">
+                        <h2>EU AI Act: Deployer Duties</h2>
+                        <p>Article 26 of the EU AI Act imposes deployer duties including use in accordance with instructions, human oversight, input quality and log retention. The platform generates evidence for each obligation from built-in controls rather than after-the-fact documentation. The mapping below is not a slide-deck promise; each control is produced by the same GitOps pipeline that deploys the platform.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Article 26 duty</th>
+                                    <th>Platform control</th>
+                                    <th>Evidence generated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Article 26 duty">Use in accordance with instructions</td>
+                                    <td data-label="Platform control">Agent profiles, system prompts and tool scopes versioned in Git</td>
+                                    <td data-label="Evidence generated">Git history of approved prompts and profiles</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Article 26 duty">Human oversight</td>
+                                    <td data-label="Platform control">Slack Block Kit approvals for write and destructive actions</td>
+                                    <td data-label="Evidence generated">Approval ID, action hash, approver, timestamp, Slack signature</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Article 26 duty">Input quality</td>
+                                    <td data-label="Platform control">Inline guardrails and DLP at the gateway</td>
+                                    <td data-label="Evidence generated">Guardrail hit logs and policy decision traces</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Article 26 duty">Log retention</td>
+                                    <td data-label="Platform control">OpenTelemetry traces and Langfuse session records</td>
+                                    <td data-label="Evidence generated">Trace ID linking channel, agent, model, tool and policy decision</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>The "use in accordance with instructions" obligation is met because every agent profile, system prompt and tool scope is a versioned file. The approved version is the instruction set; any deviation requires a reviewed pull request. Human oversight is enforced at the action layer: reads within a user's scope run autonomously, while writes to production or business records pause at a LangGraph interrupt and request approval through a Slack Block Kit interactive message. The click is verified with Slack request signature, nonce replay protection and approver-to-IdP-role binding, then recorded as a hash-chained audit event. Input quality is not assumed; Presidio, Prompt Guard 2, NeMo Guardrails and the policy decision point evaluate every model and tool call. Log retention follows the published logging policy, with OpenTelemetry traces and Langfuse sessions providing the end-to-end traceability that Article 26 expects.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="services" id="controls">
+        <section class="breakdown-section" id="iso-nist">
             <div class="container">
-                <div class="section-header reveal">
-                    <h2>Controls That Cover Multiple Frameworks</h2>
-                    <p>Instead of building a separate evidence packet for each auditor, we design the platform so the same artifacts satisfy overlapping requirements.</p>
-                </div>
-                <div class="services-grid services-grid-three">
-                    <div class="service-card reveal">
-                        <span class="service-step-number">01</span>
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-scan"></use></svg></div>
-                        <h3>Inventory & Classification</h3>
-                        <p>A system inventory with risk classification feeds ISO 42001, EU AI Act, NIST CSF and GDPR records of processing in one pass.</p>
-                    </div>
-                    <div class="service-card reveal">
-                        <span class="service-step-number">02</span>
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg></div>
-                        <h3>Access & Identity</h3>
-                        <p>Per-user virtual keys, per-tool authorization and SSO integration provide ISO 27001, SOC 2 and PCI DSS evidence from the same logs.</p>
-                    </div>
-                    <div class="service-card reveal">
-                        <span class="service-step-number">03</span>
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-monitor"></use></svg></div>
-                        <h3>Logging & Oversight</h3>
-                        <p>Every model call and tool call is logged with metadata; restricted actions require human approval. This maps directly to EU AI Act, NIS2 and GDPR accountability.</p>
-                    </div>
-                </div>
-                <p class="process-closing reveal">See how residency supports these controls: <a href="/data-sovereignty" class="text-link">Explore data sovereignty →</a></p>
-            </div>
-        </section>
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">02</div>
+                    <div class="breakdown-content">
+                        <h2>ISO/IEC 42001 & NIST AI RMF</h2>
+                        <p>ISO/IEC 42001 requires an AI management system: roles, risk assessment, controls and continuous monitoring. The NIST AI RMF frames the same work as Govern, Map, Measure and Manage. The reference architecture assigns clear ownership so responsibilities do not fall between teams. The AI Gateway and Tool Hub are owned by Platform / DevOps; policies and classification by Security; the agent runtime and memory by the AI platform team; individual agents by business or engineering owners; observability and SLOs by Platform / SRE; FinOps by Finance plus Platform; and GitOps repositories by Platform / DevOps with Security as code owner for policies and guardrails.</p>
+                        <p>Risk assessment becomes operational through the four-tier classification model. Every tool, agent, virtual key and model deployment is mapped to Public, Internal, Confidential or Restricted. The policy decision point enforces the mapping at runtime, so a risk decision made during assessment is not ignored in production. Detection sources cover the full stack: the gateway watches for budget spikes, repeated guardrail hits, unusual key locations and tier violations; the agent runtime reports denied policy decisions, unusual tool sequences and write attempts without approval; the PDP logs deny-rate changes and bypass attempts; corporate controls including EDR, NGFW/ZTNA and CASB correlate with platform events to catch provider access that bypasses the gateway or unapproved local MCP servers; AI SaaS admin audit and identity-provider logs round out the picture. All logs are normalized and forwarded to the existing SIEM.</p>
+                        <p>Continuous monitoring is backed by explicit service-level objectives. Gateway availability is targeted at 99.9% monthly. The gateway's added latency, excluding guardrail calls, is kept under p95 50 ms; including inline guardrails, under p95 800 ms for interactive use, tuned per customer. The tool hub targets 99.5% availability per critical tool. Agent task success is baselined in the pilot and then tracked per agent. These SLOs are not vanity metrics; failed canary rolls and SLO breaches trigger automatic rollback.</p>
 
-        <section class="sovereignty" id="eu-ai-act">
-            <div class="container">
-                <div class="section-header reveal">
-                    <span class="section-eyebrow">EU AI Act</span>
-                    <h2>Core Obligations Since August 2026</h2>
-                    <p>The EU AI Act is not a future problem. The controls below are built into the platform from the first sprint.</p>
-                </div>
-                <div class="sovereignty-grid">
-                    <div class="sovereignty-description">
-                        <h3>System Inventory & Risk Classification</h3>
-                        <p>We maintain an inventory of every AI system, classify risk, and document intended purpose, data sources and affected users. That inventory feeds both EU AI Act and ISO 42001 registers.</p>
-                        <h3>Logging & Human Oversight</h3>
-                        <p>Every prompt, model call, tool call and approval is logged with attribution. Human oversight is enforced at the gateway for restricted actions and high-risk outputs — not as an afterthought.</p>
-                        <p class="sovereignty-link"><a href="/services" class="text-link">How the assessment captures this →</a></p>
-                    </div>
-                    <div class="sovereignty-features">
-                        <div class="sovereignty-feature-group reveal">
-                            <h4>EU AI Act Checklist</h4>
-                            <ul>
-                                <li>System inventory with risk tier</li>
-                                <li>Technical documentation per system</li>
-                                <li>Logging of operation and outputs</li>
-                                <li>Human oversight for high-risk cases</li>
-                                <li>Accuracy, robustness and security testing</li>
-                            </ul>
-                        </div>
-                        <div class="sovereignty-feature-group reveal">
-                            <h4>Overlaps with ISO 42001</h4>
-                            <ul>
-                                <li>AI risk assessment register</li>
-                                <li>AI system impact evaluation</li>
-                                <li>Lifecycle governance and review</li>
-                                <li>Roles, responsibilities and training</li>
-                            </ul>
-                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>SLO</th>
+                                    <th>Target</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="SLO">Gateway availability</td>
+                                    <td data-label="Target">99.9% monthly</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="SLO">Gateway added latency, excluding guardrails</td>
+                                    <td data-label="Target">p95 under 50 ms</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="SLO">Gateway added latency, including inline guardrails</td>
+                                    <td data-label="Target">p95 under 800 ms for interactive use, tuned per customer</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="SLO">Tool hub availability per critical tool</td>
+                                    <td data-label="Target">99.5%</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="SLO">Agent task success rate</td>
+                                    <td data-label="Target">Baselined in pilot, then tracked per agent</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="contact" id="contact">
+        <section class="breakdown-section" id="gitops">
             <div class="container">
-                <div class="contact-content">
-                    <div class="contact-info reveal">
-                        <span class="section-eyebrow">Contact</span>
-                        <h2>Map Your Compliance Exposure</h2>
-                        <p class="lead">30-minute consultation to identify which frameworks apply to your AI systems and what evidence you already have.</p>
-                        <div class="contact-primary">
-                            <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
-                                <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
-                            </a>
-                            <a href="mailto:hello@pointsolutions.me" class="btn btn-secondary btn-large">
-                                <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-mail"></use></svg> Email Us
-                            </a>
-                        </div>
-                        <div class="contact-alt">
-                            <a href="https://wa.me/38268538207" target="_blank" rel="noopener" class="contact-alt-link">WhatsApp</a>
-                            <span class="contact-alt-sep">|</span>
-                            <a href="https://www.linkedin.com/in/iamvalery/" target="_blank" rel="noopener" class="contact-alt-link">LinkedIn</a>
-                            <span class="contact-alt-sep">|</span>
-                            <span class="contact-alt-text">Slack, Signal, Telegram on request</span>
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">03</div>
+                    <div class="breakdown-content">
+                        <h2>GitOps as the Ultimate Audit Trail</h2>
+                        <p>The desired state of the whole platform lives in source control. Prompts, configurations, policies, tool definitions, agent profiles and deployments are versioned files; every change reaches production through a reviewed pull request and automation. Nobody changes production by hand: admin UIs are read-only in production and used only for inspection or non-production experiments.</p>
+                        <p>Git holds infrastructure, platform deployments, gateway configuration, the tool hub registry, agents, prompts, policies, evaluation suites, dashboards, FinOps transforms and integration artifacts such as generated MDM profiles and ZTNA application definitions. It also holds documentation and runbooks. What Git does not hold are secret values (only references; values live in OpenBao / Vault and are synced by External Secrets Operator, or are SOPS-encrypted), issued virtual key values, and runtime data such as memory, traces, logs and cost records.</p>
+                        <p>The change flow has six steps. First, a proposal arrives as a pull request by an engineer, by the agent lifecycle agent, or by a self-learning agent proposing a skill. Second, automated checks run: lint and schema validation, OPA policy unit tests, secret scanning, container and dependency scans, image signing, skill and MCP definition scans, and the agent evaluation suite with regression thresholds. Third, human code owners review by area: Security for policies and guardrails, system owners for tool scopes, agent owners for prompts. Fourth, the change is merged and Argo CD applies it through development, staging and production. Fifth, verification runs canary rollouts, smoke tests and SLO watching. Sixth, automatic rollback triggers on failed checks or SLO breach; manual rollback is a git revert.</p>
+                        <p>Drift control keeps the running state honest. Argo CD self-heal reverts manual changes and raises drift alerts. Git history is the audit trail for every platform change and is forwarded to the SIEM. Renovate opens pull requests for platform components, container images, MCP servers and model price tables, so dependencies stay fresh through the same gates. Environments are reproducible from Git plus backups of stateful stores; restore is tested as part of disaster recovery exercises.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Step</th>
+                                    <th>What happens</th>
+                                    <th>Automated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Step">1. Propose</td>
+                                    <td data-label="What happens">Pull request by engineer, lifecycle agent or self-learning skill proposal</td>
+                                    <td data-label="Automated">Partly</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Step">2. Check</td>
+                                    <td data-label="What happens">Lint, schema validation, policy tests, secret scanning, container scans, image signing, MCP/skill scans, evaluation suite with regression thresholds</td>
+                                    <td data-label="Automated">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Step">3. Review</td>
+                                    <td data-label="What happens">Code owners approve by area: security, system owners, agent owners</td>
+                                    <td data-label="Automated">No</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Step">4. Merge and sync</td>
+                                    <td data-label="What happens">Argo CD applies change to dev, then staging and production through the same pipeline</td>
+                                    <td data-label="Automated">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Step">5. Verify</td>
+                                    <td data-label="What happens">Canary rollout, smoke tests, SLO and quality metrics watched</td>
+                                    <td data-label="Automated">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Step">6. Roll back</td>
+                                    <td data-label="What happens">Automatic rollback on failed checks or SLO breach; manual rollback is a git revert</td>
+                                    <td data-label="Automated">Yes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="breakdown-section" id="privacy">
+            <div class="container">
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">04</div>
+                    <div class="breakdown-content">
+                        <h2>Privacy by Default & Employee Monitoring</h2>
+                        <p>GDPR and works-council consultation require a clear logging privacy policy. The default balances audit needs against employee privacy: metadata is always logged, but prompt content is off by default for human interactive use. Agents and automations need content logging for debugging and audit, so their content is on with retention per use case. Redaction of secrets and PII runs before storage in every case. Access to content is restricted to Security on incident for human interactive use, and to agent owners plus Security for agents; every access is logged.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Human interactive use</th>
+                                    <th>Agents and automations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Data">Metadata (user, model, tokens, cost, latency, tools, policy result)</td>
+                                    <td data-label="Human interactive use">Always</td>
+                                    <td data-label="Agents and automations">Always</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Prompt and response content</td>
+                                    <td data-label="Human interactive use">Off by default; enabled per team on request, or captured only on policy violation</td>
+                                    <td data-label="Agents and automations">On, for debugging and audit</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Retention of content</td>
+                                    <td data-label="Human interactive use">Short (for example 30 days)</td>
+                                    <td data-label="Agents and automations">Per use case (for example 90 days)</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Access to content</td>
+                                    <td data-label="Human interactive use">Security on incident only, access logged</td>
+                                    <td data-label="Agents and automations">Agent owners and security</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Redaction</td>
+                                    <td data-label="Human interactive use">Secrets and PII masked before storage</td>
+                                    <td data-label="Agents and automations">Secrets and PII masked before storage</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>The logging privacy policy is owned jointly by Security and HR / Legal, with consultation of employee representatives. Logs containing content inherit the highest tier of the session, so a trace that captured Confidential content is handled as Confidential data. The policy is published to employees, not buried in an admin guide. This ownership and transparency are what make the logging default defensible under GDPR and works-council rules, rather than relying on a technical toggle alone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">FAQ</span>
+                    <h2>Common Questions</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item reveal">
+                        <h3 class="faq-question">How does GitOps help with ISO 42001 audits?</h3>
+                        <div class="faq-answer">
+                            <p>ISO 42001 requires an AI management system with controlled policies, roles, risk assessment and monitoring. GitOps makes every change to prompts, policies, tool definitions, guardrails and model configurations a reviewed, tested, versioned pull request. The Git history becomes the audit trail: who changed what, when, why, and which automated checks passed. Argo CD self-heal prevents manual drift, so the running state always matches the approved state.</p>
                         </div>
                     </div>
+                    <div class="faq-item reveal">
+                        <h3 class="faq-question">How do you handle human oversight for AI agents?</h3>
+                        <div class="faq-answer">
+                            <p>Human oversight is enforced at the action layer, not bolted on afterwards. Read operations within a user's scope run autonomously. Writes to production or business records require approval via Slack Block Kit interactive messages. The agent workflow pauses at a LangGraph interrupt; a posted message shows the action, arguments and context with Approve and Reject buttons. The click is verified with Slack request signature, nonce replay protection, approver binding to an IdP role, and a hash-chained audit record.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer-cta">
+            <div class="container">
+                <div class="footer-cta-content reveal">
+                    <h2>Evidence your auditor accepts. Generated by the build.</h2>
+                    <p>Map your compliance exposure to ISO 42001, EU AI Act, NIS2 and GDPR in a single assessment.</p>
+                    <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                        <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
+                    </a>
                 </div>
             </div>
         </section>
@@ -337,23 +414,23 @@
                         <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
                         <span class="logo-text">Point Solutions</span>
                     </a>
-                    <p>Governed AI adoption for enterprise — from the model gateway to production agents, audit-ready by design.</p>
+                    <p>Governed AI infrastructure for enterprise — from the model gateway to production agents, audit-ready by design.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">
                         <h4>Platform</h4>
                         <ul>
-                            <li><a href="/ai-gateway">The Five Layers</a></li>
-                            <li><a href="/architecture">Architecture & Request Flow</a></li>
-                            <li><a href="/data-sovereignty">Sovereignty & EU Routing</a></li>
-                            <li><a href="/compliance">Compliance Mapping</a></li>
-                            <li><a href="/services">Assess, Build, Operate</a></li>
-                            <li><a href="/#case-study">A Representative Engagement</a></li>
+                            <li><a href="/#services">The Five Layers</a></li>
+                            <li><a href="architecture.html">Architecture & Request Flow</a></li>
+                            <li><a href="/#sovereignty">Sovereignty & EU Routing</a></li>
+                            <li><a href="/#compliance">Compliance Mapping</a></li>
+                            <li><a href="/#process">Assess, Build, Operate</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h4>Company</h4>
                         <ul>
+                            <li><a href="/">Home</a></li>
                             <li><a href="/#about">About Valery</a></li>
                             <li><a href="/#contact">Contact</a></li>
                         </ul>
