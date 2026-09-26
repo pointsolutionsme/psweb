@@ -917,6 +917,33 @@ a {
     align-items: start;
 }
 
+/* Sovereignty exit CTA: grid item; gap governs spacing, not the class margin */
+#sovereignty .sovereignty-grid > .section-cta {
+    margin-top: 0;
+}
+
+/* Desktop: pin the CTA under the left text column; mobile stacks in DOM order */
+@media (min-width: 901px) {
+    #sovereignty .sovereignty-grid {
+        grid-template-areas:
+            "desc features"
+            "cta features";
+    }
+
+    #sovereignty .sovereignty-description {
+        grid-area: desc;
+    }
+
+    #sovereignty .sovereignty-features {
+        grid-area: features;
+    }
+
+    #sovereignty .sovereignty-grid > .section-cta {
+        grid-area: cta;
+        align-self: start;
+    }
+}
+
 .sovereignty-description h3 {
     font-family: var(--font-display);
     font-size: 1.375rem;
