@@ -1808,6 +1808,11 @@ a {
         display: none;
     }
 
+    .section-cta,
+    .architecture-preview-cta {
+        margin-top: 2rem;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
     }
@@ -1978,9 +1983,10 @@ a {
     color: var(--text-light);
 }
 
+.section-cta,
 .architecture-preview-cta {
     text-align: left;
-    margin-top: 0.5rem;
+    margin-top: 2.5rem;
 }
 
 @media (max-width: 720px) {
