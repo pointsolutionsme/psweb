@@ -195,29 +195,29 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Tool / MCP server</td>
-                                    <td>Maximum data tier it can return</td>
-                                    <td>Registration in the tool hub</td>
+                                    <td data-label="Object">Tool / MCP server</td>
+                                    <td data-label="Carries">Maximum data tier it can return</td>
+                                    <td data-label="Set by">Registration in the tool hub</td>
                                 </tr>
                                 <tr>
-                                    <td>Agent profile</td>
-                                    <td>Clearance tier</td>
-                                    <td>Agent registry</td>
+                                    <td data-label="Object">Agent profile</td>
+                                    <td data-label="Carries">Clearance tier</td>
+                                    <td data-label="Set by">Agent registry</td>
                                 </tr>
                                 <tr>
-                                    <td>Virtual key / user group</td>
-                                    <td>Clearance tier</td>
-                                    <td>Identity group mapping</td>
+                                    <td data-label="Object">Virtual key / user group</td>
+                                    <td data-label="Carries">Clearance tier</td>
+                                    <td data-label="Set by">Identity group mapping</td>
                                 </tr>
                                 <tr>
-                                    <td>Model deployment</td>
-                                    <td>Maximum tier and residency attribute</td>
-                                    <td>Gateway model config</td>
+                                    <td data-label="Object">Model deployment</td>
+                                    <td data-label="Carries">Maximum tier and residency attribute</td>
+                                    <td data-label="Set by">Gateway model config</td>
                                 </tr>
                                 <tr>
-                                    <td>Request / session</td>
-                                    <td>Highest tier touched so far (taint)</td>
-                                    <td>Runtime, updated when tools return data</td>
+                                    <td data-label="Object">Request / session</td>
+                                    <td data-label="Carries">Highest tier touched so far (taint)</td>
+                                    <td data-label="Set by">Runtime, updated when tools return data</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -245,22 +245,22 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>EU API gateways</td>
-                                    <td><span class="tech-pill">Requesty</span> <span class="tech-pill">EUrouter</span> <span class="tech-pill">Eden AI</span></td>
-                                    <td>OpenAI-compatible aggregation of open-weight models routed only through EU data centers. Article 28 DPAs, zero-retention payload defaults.</td>
-                                    <td>Roughly 5-15% premium over global aggregators; smaller catalog; EU GPU pools can mean peak-hour latency.</td>
+                                    <td data-label="Provider class">EU API gateways</td>
+                                    <td data-label="Examples"><span class="tech-pill">Requesty</span> <span class="tech-pill">EUrouter</span> <span class="tech-pill">Eden AI</span></td>
+                                    <td data-label="What it provides">OpenAI-compatible aggregation of open-weight models routed only through EU data centers. Article 28 DPAs, zero-retention payload defaults.</td>
+                                    <td data-label="Cost / trade-offs">Roughly 5-15% premium over global aggregators; smaller catalog; EU GPU pools can mean peak-hour latency.</td>
                                 </tr>
                                 <tr>
-                                    <td>Sovereign specialists</td>
-                                    <td><span class="tech-pill">Apertus AI</span> <span class="tech-pill">Nordference</span></td>
-                                    <td>Built for regulated industries. NIS2 compliance, zero retention, strict sovereignty guarantees.</td>
-                                    <td>Higher prices, narrower model catalog.</td>
+                                    <td data-label="Provider class">Sovereign specialists</td>
+                                    <td data-label="Examples"><span class="tech-pill">Apertus AI</span> <span class="tech-pill">Nordference</span></td>
+                                    <td data-label="What it provides">Built for regulated industries. NIS2 compliance, zero retention, strict sovereignty guarantees.</td>
+                                    <td data-label="Cost / trade-offs">Higher prices, narrower model catalog.</td>
                                 </tr>
                                 <tr>
-                                    <td>Managed EU cloud inference</td>
-                                    <td><span class="tech-pill">Scaleway</span> <span class="tech-pill">OVHcloud</span> <span class="tech-pill">IONOS</span></td>
-                                    <td>Open-weight models on EU infrastructure via managed endpoints or GPU instances. No third-party gateway.</td>
-                                    <td>Customer operates more of the stack; closest to self-hosting without owning GPUs.</td>
+                                    <td data-label="Provider class">Managed EU cloud inference</td>
+                                    <td data-label="Examples"><span class="tech-pill">Scaleway</span> <span class="tech-pill">OVHcloud</span> <span class="tech-pill">IONOS</span></td>
+                                    <td data-label="What it provides">Open-weight models on EU infrastructure via managed endpoints or GPU instances. No third-party gateway.</td>
+                                    <td data-label="Cost / trade-offs">Customer operates more of the stack; closest to self-hosting without owning GPUs.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -291,24 +291,24 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Article 28 DPA</td>
-                                    <td>Contractual default binding the processor to the customer's data-protection rules</td>
+                                    <td data-label="Control">Article 28 DPA</td>
+                                    <td data-label="What it means in practice">Contractual default binding the processor to the customer's data-protection rules</td>
                                 </tr>
                                 <tr>
-                                    <td>Zero-retention payloads</td>
-                                    <td>Gateway logs carry metadata only; payload logging off by default for Confidential and above</td>
+                                    <td data-label="Control">Zero-retention payloads</td>
+                                    <td data-label="What it means in practice">Gateway logs carry metadata only; payload logging off by default for Confidential and above</td>
                                 </tr>
                                 <tr>
-                                    <td>No training use</td>
-                                    <td>DPA explicitly forbids using API traffic to train, fine-tune or improve future models</td>
+                                    <td data-label="Control">No training use</td>
+                                    <td data-label="What it means in practice">DPA explicitly forbids using API traffic to train, fine-tune or improve future models</td>
                                 </tr>
                                 <tr>
-                                    <td>Residency + upstream tracking</td>
-                                    <td>Catalog records gateway and upstream provider; fallback blocked to non-EU upstream nodes</td>
+                                    <td data-label="Control">Residency + upstream tracking</td>
+                                    <td data-label="What it means in practice">Catalog records gateway and upstream provider; fallback blocked to non-EU upstream nodes</td>
                                 </tr>
                                 <tr>
-                                    <td>Minimized extraterritorial exposure</td>
-                                    <td>EU jurisdiction, DPAs and zero-retention defaults reduce exposure to extraterritorial data-access requests</td>
+                                    <td data-label="Control">Minimized extraterritorial exposure</td>
+                                    <td data-label="What it means in practice">EU jurisdiction, DPAs and zero-retention defaults reduce exposure to extraterritorial data-access requests</td>
                                 </tr>
                             </tbody>
                         </table>
