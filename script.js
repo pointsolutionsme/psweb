@@ -45,6 +45,12 @@ document.querySelectorAll(
     observer.observe(el);
 });
 
+// Also observe any elements that already carry the reveal class in markup
+// (pillar pages hardcode .reveal on breakdown/faq/footer-cta components)
+document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+});
+
 
 // Platform layer active-state scrollytelling
 const platformSystem = document.querySelector('.platform-system');

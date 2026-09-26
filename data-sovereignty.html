@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Point Solutions designs EU-resident AI routing and sovereign architecture for enterprise: data stays under Article 28 DPAs, tool execution stays in your boundary.">
-    <title>EU Data Sovereignty & AI Routing | Point Solutions</title>
+    <meta name="description" content="Keep enterprise AI data inside the EU. Our architecture routes confidential prompts to EU-resident providers under Article 28 DPAs with zero-retention defaults, designed to minimize exposure to extraterritorial data-access requests.">
+    <title>EU Data Sovereignty & Sovereign AI Routing | Point Solutions</title>
     <link rel="canonical" href="https://www.pointsolutions.me/data-sovereignty">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <noscript>
+        <style>
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="EU Data Sovereignty & AI Routing | Point Solutions">
-    <meta property="og:description" content="Point Solutions designs EU-resident AI routing and sovereign architecture for enterprise: data stays under Article 28 DPAs, tool execution stays in your boundary.">
+    <meta property="og:title" content="EU Data Sovereignty & Sovereign AI Routing | Point Solutions">
+    <meta property="og:description" content="Keep enterprise AI data inside the EU. Our architecture routes confidential prompts to EU-resident providers under Article 28 DPAs with zero-retention defaults, designed to minimize exposure to extraterritorial data-access requests.">
     <meta property="og:url" content="https://www.pointsolutions.me/data-sovereignty">
     <meta property="og:site_name" content="Point Solutions">
     <meta property="og:image" content="https://www.pointsolutions.me/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="EU Data Sovereignty & AI Routing | Point Solutions">
-    <meta name="twitter:description" content="Point Solutions designs EU-resident AI routing and sovereign architecture for enterprise: data stays under Article 28 DPAs, tool execution stays in your boundary.">
+    <meta name="twitter:title" content="EU Data Sovereignty & Sovereign AI Routing | Point Solutions">
+    <meta name="twitter:description" content="Keep enterprise AI data inside the EU. Our architecture routes confidential prompts to EU-resident providers under Article 28 DPAs with zero-retention defaults, designed to minimize exposure to extraterritorial data-access requests.">
     <meta name="twitter:image" content="https://www.pointsolutions.me/og-image.png">
 
     <script type="application/ld+json">
@@ -47,6 +55,41 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pointsolutions.me/"},
+        {"@type": "ListItem", "position": 2, "name": "EU Data Sovereignty & Sovereign AI Routing", "item": "https://www.pointsolutions.me/data-sovereignty"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does using an EU AI gateway protect against the US CLOUD Act?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Using EU-based providers that are not US-controlled and operate under EU jurisdiction is designed to minimize exposure to extraterritorial data-access requests, including those issued under the US CLOUD Act. These providers are bound by Article 28 Data Processing Agreements with zero-retention payload defaults and explicit contractual prohibitions on training use. No provider choice can eliminate every legal risk, but the combination of EU jurisdiction, DPAs and zero-retention defaults materially reduces exposure compared with US-controlled providers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Restricted data handled differently than Confidential data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Confidential data is routed to EU-resident API gateways with Article 28 DPAs and zero-retention defaults. Restricted data is blocked by default and allowed only through an exception flow approved per use case. When approved, Restricted data uses sovereign specialists such as Apertus AI or Nordference, managed EU cloud inference on Scaleway, OVHcloud or IONOS, or a customer-operated vLLM deployment on EU infrastructure. Restricted data also requires dedicated deployments, full audit and alerting."
+          }
+        }
+      ]
+    }
+    </script>
+
 </head>
 <body>
     <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -60,70 +103,6 @@
                 <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" fill="url(#logoGrad)" stroke="none"/>
                 <path d="M35,30 L35,70 L45,70 L45,55 L55,55 C65,55 70,48 70,42.5 C70,37 65,30 55,30 L35,30 Z M45,38 L53,38 C58,38 60,40 60,42.5 C60,45 58,47 53,47 L45,47 L45,38 Z" fill="white" stroke="none"/>
             </symbol>
-            <symbol id="icon-lock" viewBox="0 0 24 24">
-                <rect x="5" y="10" width="14" height="9"/>
-                <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-                <line x1="12" y1="13.5" x2="12" y2="16"/>
-            </symbol>
-            <symbol id="icon-chip" viewBox="0 0 24 24">
-                <rect x="7" y="7" width="10" height="10"/>
-                <rect x="10" y="10" width="4" height="4"/>
-                <line x1="9" y1="3" x2="9" y2="7"/>
-                <line x1="15" y1="3" x2="15" y2="7"/>
-                <line x1="9" y1="17" x2="9" y2="21"/>
-                <line x1="15" y1="17" x2="15" y2="21"/>
-                <line x1="3" y1="9" x2="7" y2="9"/>
-                <line x1="3" y1="15" x2="7" y2="15"/>
-                <line x1="17" y1="9" x2="21" y2="9"/>
-                <line x1="17" y1="15" x2="21" y2="15"/>
-            </symbol>
-            <symbol id="icon-clipboard" viewBox="0 0 24 24">
-                <rect x="6" y="4" width="12" height="17"/>
-                <rect x="9" y="2" width="6" height="4"/>
-                <path d="M9 12l2 2 4-5"/>
-            </symbol>
-            <symbol id="icon-compass" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-                <path d="M15 9l-2 5-5 2 2-5 5-2z"/>
-            </symbol>
-            <symbol id="icon-eu" viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="14"/>
-                <path d="M12 9.2l1.02 2.13 2.35.28-1.74 1.6.5 2.32-2.13-1.2-2.13 1.2.5-2.32-1.74-1.6 2.35-.28z"/>
-            </symbol>
-            <symbol id="icon-card" viewBox="0 0 24 24">
-                <rect x="3" y="6" width="18" height="13"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-                <line x1="6" y1="15" x2="11" y2="15"/>
-                <line x1="6" y1="17.5" x2="9" y2="17.5"/>
-            </symbol>
-            <symbol id="icon-shield" viewBox="0 0 24 24">
-                <path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/>
-                <path d="M9 12h2l1-3 2 6 1-3h2"/>
-            </symbol>
-            <symbol id="icon-scale" viewBox="0 0 24 24">
-                <line x1="12" y1="3" x2="12" y2="19"/>
-                <line x1="5" y1="7" x2="19" y2="7"/>
-                <path d="M5 7l-3 6a3 3 0 0 0 6 0l-3-6z"/>
-                <path d="M19 7l-3 6a3 3 0 0 0 6 0l-3-6z"/>
-                <path d="M8 21h8"/>
-                <line x1="12" y1="19" x2="12" y2="21"/>
-            </symbol>
-            <symbol id="icon-scan" viewBox="0 0 24 24">
-                <circle cx="10" cy="10" r="6.5"/>
-                <path d="M7.25 10.25l1.9 1.9 3.6-4"/>
-                <line x1="14.75" y1="14.75" x2="20.5" y2="20.5"/>
-            </symbol>
-            <symbol id="icon-layers" viewBox="0 0 24 24">
-                <path d="M12 3l9 4.5-9 4.5-9-4.5z"/>
-                <path d="M3 12l9 4.5 9-4.5"/>
-                <path d="M3 16.5l9 4.5 9-4.5"/>
-            </symbol>
-            <symbol id="icon-monitor" viewBox="0 0 24 24">
-                <rect x="3" y="4" width="18" height="13"/>
-                <path d="M6 14l3-4 3 2 4-6 3 3"/>
-                <line x1="8" y1="20" x2="16" y2="20"/>
-                <line x1="12" y1="17" x2="12" y2="20"/>
-            </symbol>
             <symbol id="icon-calendar" viewBox="0 0 24 24">
                 <rect x="3" y="5" width="18" height="16"/>
                 <line x1="3" y1="9" x2="21" y2="9"/>
@@ -133,13 +112,18 @@
                 <line x1="14" y1="13" x2="17" y2="13"/>
                 <line x1="7" y1="17" x2="10" y2="17"/>
             </symbol>
-            <symbol id="icon-mail" viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="14"/>
-                <path d="M3 6l9 7 9-7"/>
+            <symbol id="icon-lock" viewBox="0 0 24 24">
+                <rect x="5" y="10" width="14" height="9"/>
+                <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                <line x1="12" y1="13.5" x2="12" y2="16"/>
             </symbol>
-            <symbol id="icon-user" viewBox="0 0 24 24">
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M6 21c0-3.5 3-5 6-5s6 1.5 6 5"/>
+            <symbol id="icon-shield" viewBox="0 0 24 24">
+                <path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/>
+                <path d="M9 12h2l1-3 2 6 1-3h2"/>
+            </symbol>
+            <symbol id="icon-eu" viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="14"/>
+                <path d="M12 9.2l1.02 2.13 2.35.28-1.74 1.6.5 2.32-2.13-1.2-2.13 1.2.5-2.32-1.74-1.6 2.35-.28z"/>
             </symbol>
         </defs>
     </svg>
@@ -157,10 +141,11 @@
                     <span></span>
                 </button>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="/ai-gateway">Platform</a></li>
-                    <li><a href="/architecture">Architecture</a></li>
-                    <li><a href="/data-sovereignty" class="current" aria-current="page">Sovereignty</a></li>
-                    <li><a href="/compliance">Compliance</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#services">Platform</a></li>
+                    <li><a href="/#architecture">Architecture</a></li>
+                    <li><a href="/#sovereignty" class="current" aria-current="page">Sovereignty</a></li>
+                    <li><a href="/#compliance">Compliance</a></li>
                     <li><a href="/#about">About</a></li>
                     <li><a href="/#contact" class="btn-contact">Contact</a></li>
                 </ul>
@@ -169,154 +154,206 @@
     </nav>
 
     <main>
-        <header class="page-header">
+        <header class="arch-header">
             <div class="container">
-                <div class="page-header-content reveal">
-                    <span class="section-eyebrow">Sovereignty</span>
-                    <h1>EU Data Sovereignty & AI Routing</h1>
-                    <p class="lead">Sovereignty without the hardware bill. Keep confidential data in the EU, tool execution inside your boundary, and compliance evidence ready from day one.</p>
+                <p class="arch-breadcrumb"><a href="/">Home</a> <span class="sep">›</span> EU Data Sovereignty & Sovereign AI Routing</p>
+                <h1>EU Data Sovereignty & Sovereign AI Routing</h1>
+                <p class="section-lead">Keep your prompts, tool outputs, and embeddings inside EU jurisdiction. Minimize extraterritorial data-access exposure.</p>
+                <div class="arch-header-cta">
+                    <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                        <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
+                    </a>
                 </div>
             </div>
         </header>
 
-        <section class="services" id="routing">
+        <section class="breakdown-section" id="residency">
+            <div class="container">
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">01</div>
+                    <div class="breakdown-content">
+                        <h2>The Residency Attribute & Tiered Routing</h2>
+                        <p>The gateway cannot infer sensitivity from a prompt alone. Every object that the platform controls therefore carries either a tier or a residency attribute: tools and MCP servers are registered with a maximum data tier they may return; agent profiles and virtual keys carry a clearance tier; model deployments carry both a maximum tier and a residency attribute such as EU or US. The request or session carries the highest tier touched so far as a runtime taint. The policy evaluated on every call is simple and enforceable: <code>data tier touched &lt;= min(user clearance, agent clearance, model max tier)</code>. Once a session has read Confidential data, it cannot be sent to a model deployment approved only for Internal.</p>
+                        <p>DLP detectors add a second signal. Secrets, credentials, PII and customer identifiers are scanned on input and output, and a detector hit can raise the session tier. The combination of declared tier and detected content means the routing decision is checkable and reproducible, not a guess. Fallback is also governed: a fallback target must satisfy the same tier and residency as the primary target, so a reliability event never becomes a routing escape.</p>
+                        <p>The sovereignty model is built on three boundaries, not one. The <strong>Customer boundary</strong> holds credentials, tool execution and raw source-system access; these never leave it. The <strong>Approved processing boundary</strong> allows Confidential data to be processed by approved EU-resident processors under Article 28 DPAs. The <strong>Restricted boundary</strong> is reserved for self-hosted or sovereign deployments, or is blocked by default. Because tool execution and credentials live inside the customer boundary, sovereignty does not depend on trusting every model provider perfectly.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Object</th>
+                                    <th>Carries</th>
+                                    <th>Set by</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Object">Tool / MCP server</td>
+                                    <td data-label="Carries">Maximum data tier it can return</td>
+                                    <td data-label="Set by">Registration in the tool hub</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Object">Agent profile</td>
+                                    <td data-label="Carries">Clearance tier</td>
+                                    <td data-label="Set by">Agent registry</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Object">Virtual key / user group</td>
+                                    <td data-label="Carries">Clearance tier</td>
+                                    <td data-label="Set by">Identity group mapping</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Object">Model deployment</td>
+                                    <td data-label="Carries">Maximum tier and residency attribute</td>
+                                    <td data-label="Set by">Gateway model config</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Object">Request / session</td>
+                                    <td data-label="Carries">Highest tier touched so far (taint)</td>
+                                    <td data-label="Set by">Runtime, updated when tools return data</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="breakdown-section" id="providers">
+            <div class="container">
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">02</div>
+                    <div class="breakdown-content">
+                        <h2>EU API Gateways vs. Sovereign Specialists</h2>
+                        <p>EU routing comes in three classes, from least to most control. The right choice depends on the data tier, latency tolerance and how much of the stack the customer wants to operate. An EU API gateway is a routing and billing layer; inference still runs on upstream GPUs inside the EU. Sovereign specialists add stricter legal guarantees and NIS2 compliance. Managed EU cloud inference removes the third-party gateway entirely but requires the customer to operate more of the stack.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Provider class</th>
+                                    <th>Examples</th>
+                                    <th>What it provides</th>
+                                    <th>Cost / trade-offs</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Provider class">EU API gateways</td>
+                                    <td data-label="Examples"><span class="tech-pill">Requesty</span> <span class="tech-pill">EUrouter</span> <span class="tech-pill">Eden AI</span></td>
+                                    <td data-label="What it provides">OpenAI-compatible aggregation of open-weight models routed only through EU data centers. Article 28 DPAs, zero-retention payload defaults.</td>
+                                    <td data-label="Cost / trade-offs">Roughly 5-15% premium over global aggregators; smaller catalog; EU GPU pools can mean peak-hour latency.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Provider class">Sovereign specialists</td>
+                                    <td data-label="Examples"><span class="tech-pill">Apertus AI</span> <span class="tech-pill">Nordference</span></td>
+                                    <td data-label="What it provides">Built for regulated industries. NIS2 compliance, zero retention, strict sovereignty guarantees.</td>
+                                    <td data-label="Cost / trade-offs">Higher prices, narrower model catalog.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Provider class">Managed EU cloud inference</td>
+                                    <td data-label="Examples"><span class="tech-pill">Scaleway</span> <span class="tech-pill">OVHcloud</span> <span class="tech-pill">IONOS</span></td>
+                                    <td data-label="What it provides">Open-weight models on EU infrastructure via managed endpoints or GPU instances. No third-party gateway.</td>
+                                    <td data-label="Cost / trade-offs">Customer operates more of the stack; closest to self-hosting without owning GPUs.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>The EU premium reality</h3>
+                        <p>The cost gap is smaller than often assumed. For mainstream open models such as <span class="tech-pill">Qwen 2.5 72B</span> and <span class="tech-pill">Kimi K2.6</span>, EU gateway prices are within about 5% of global aggregators; Requesty states it adds only a ~5% margin. The premium reaches 10-15% mainly on new or supply-constrained models. Provider prompt caching offsets part of the difference: cache-hit input costs for <span class="tech-pill">DeepSeek V4 Flash</span> can drop to $0.007 per 1M tokens. EU provider spend appears as separate cost lines in FinOps so the premium is visible and allocable, not hidden.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="breakdown-section" id="dpas">
+            <div class="container">
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">03</div>
+                    <div class="breakdown-content">
+                        <h2>Article 28 DPAs & Zero-Retention Defaults</h2>
+                        <p>EU providers operate under GDPR Article 28 Data Processing Agreements that legally bind them to the customer's data protection rules. This is a contractual default, not an opt-in privacy mode. The contrast with many US providers is operational: the latter often require manual toggling of a "privacy mode" to stop prompt logging, which creates audit risk if a toggle is missed. The EU default removes that dependency.</p>
+                        <p>Zero-retention applies to payloads. Gateway logs carry metadata only: timestamps, token counts, model requested, cost, latency. Payload logging is off by default for Confidential and above, matching the logging privacy policy. EU DPAs also include explicit prohibitions on using API traffic for training, fine-tuning or improving future models. For EU customers, the combination of EU jurisdiction, Article 28 DPAs and zero-retention defaults is designed to minimize exposure to extraterritorial data-access requests, including those issued under the US CLOUD Act. No legal structure can eliminate every risk, but the architecture deliberately reduces exposure compared with routing the same data through US-controlled providers.</p>
+                        <p>NIS2 alignment matters for essential and important entities. Sovereign specialists such as <span class="tech-pill">Nordference</span> are NIS2-compliant, and the provider catalog records both the gateway and the upstream inference provider so routing policy can forbid fallback to non-EU upstream nodes. Prompts live transiently in GPU memory for seconds; the logging, residency and retention controls are what remain as evidence.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Control</th>
+                                    <th>What it means in practice</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Control">Article 28 DPA</td>
+                                    <td data-label="What it means in practice">Contractual default binding the processor to the customer's data-protection rules</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Control">Zero-retention payloads</td>
+                                    <td data-label="What it means in practice">Gateway logs carry metadata only; payload logging off by default for Confidential and above</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Control">No training use</td>
+                                    <td data-label="What it means in practice">DPA explicitly forbids using API traffic to train, fine-tune or improve future models</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Control">Residency + upstream tracking</td>
+                                    <td data-label="What it means in practice">Catalog records gateway and upstream provider; fallback blocked to non-EU upstream nodes</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Control">Minimized extraterritorial exposure</td>
+                                    <td data-label="What it means in practice">EU jurisdiction, DPAs and zero-retention defaults reduce exposure to extraterritorial data-access requests</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="breakdown-section" id="memory">
+            <div class="container">
+                <div class="breakdown-grid reveal">
+                    <div class="breakdown-number">04</div>
+                    <div class="breakdown-content">
+                        <h2>Localized Memory & Vector Stores</h2>
+                        <p>Embeddings of Confidential content and above never leave the platform. The memory service scopes data per user, per agent, per team and organization knowledge, and each item carries the tier of its source. Retrieval checks the requester's clearance before returning a memory item, so a user with Internal clearance cannot recall a Confidential team memory. Cross-scope reads are blocked by policy and tested in the evaluation suite.</p>
+                        <p>The vector store runs on <span class="tech-pill">pgvector</span> on managed PostgreSQL, keeping embeddings in-house. There is no external memory SaaS for Confidential or Restricted data. Self-hosted embeddings, such as <span class="tech-pill">BGE</span> served by <span class="tech-pill">Infinity</span>, keep Confidential text out of provider embedding APIs. Reference memory options include <span class="tech-pill">Mem0</span> for user, agent and session scopes, and <span class="tech-pill">Cognee</span> where explicit forget and delete APIs on a single Postgres are valued. Graphiti remains an option for temporal incident history but requires Neo4j or FalkorDB.</p>
+                        <p>Retention and deletion are first-class functions, not afterthoughts. Each memory scope has a TTL. Users can view and delete personal memory. Offboarding triggers verified deletion that is propagated to backups within the backup retention window. This keeps the data lifecycle aligned with GDPR and works-council expectations, not just the live query path.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-eyebrow">Routing</span>
-                    <h2>How Routing Sovereignty Works</h2>
-                    <p>Every model deployment carries a residency attribute. Data is classified, then routed by tier — with the strictest tiers never leaving infrastructure you control.</p>
+                    <span class="section-eyebrow">FAQ</span>
+                    <h2>Common Questions</h2>
                 </div>
-                <div class="sovereignty-grid">
-                    <div class="sovereignty-description">
-                        <h3>Confidential Data Stays EU-Resident</h3>
-                        <p>Confidential data is routed only to EU-resident providers under Article 28 data processing agreements with zero-retention defaults — no training on your prompts, with routing designed to minimize exposure to extraterritorial data-access requests.</p>
-                        <h3>Restricted Data Goes Further Still</h3>
-                        <p>Restricted data can be routed to sovereign specialists, managed EU cloud inference, or a deployment you operate yourself. The model only ever sees a sanitized result back; raw access to source systems never crosses the boundary.</p>
-                        <p class="sovereignty-link"><a href="/architecture" class="text-link">See it in the architecture →</a></p>
-                    </div>
-                    <div class="sovereignty-features">
-                        <div class="sovereignty-feature-group reveal">
-                            <h4>EU-Resident Routing, Three Tiers</h4>
-                            <ul>
-                                <li>EU API gateways — OpenAI-compatible routing to open-weight models, Article 28 DPAs, zero-retention defaults</li>
-                                <li>Sovereign specialists — built for regulated industries, NIS2-aligned</li>
-                                <li>Managed EU cloud inference — open-weight models on EU infrastructure, no third-party gateway at all</li>
-                            </ul>
+                <div class="faq-list">
+                    <div class="faq-item reveal">
+                        <h3 class="faq-question">Does using an EU AI gateway protect against the US CLOUD Act?</h3>
+                        <div class="faq-answer">
+                            <p>Using EU-based providers that are not US-controlled and operate under EU jurisdiction is designed to minimize exposure to extraterritorial data-access requests, including those issued under the US CLOUD Act. These providers are bound by Article 28 Data Processing Agreements with zero-retention payload defaults and explicit contractual prohibitions on training use. No provider choice can eliminate every legal risk, but the combination of EU jurisdiction, DPAs and zero-retention defaults materially reduces exposure compared with US-controlled providers.</p>
                         </div>
-                        <div class="sovereignty-feature-group reveal">
-                            <h4>What Never Leaves the Boundary</h4>
-                            <ul>
-                                <li>Tool execution and system credentials</li>
-                                <li>Raw access to source systems</li>
-                                <li>Confidential and Restricted data, by default</li>
-                            </ul>
+                    </div>
+                    <div class="faq-item reveal">
+                        <h3 class="faq-question">How is Restricted data handled differently than Confidential data?</h3>
+                        <div class="faq-answer">
+                            <p>Confidential data is routed to EU-resident API gateways with Article 28 DPAs and zero-retention defaults. Restricted data is blocked by default and allowed only through an exception flow approved per use case. When approved, Restricted data uses sovereign specialists such as Apertus AI or Nordference, managed EU cloud inference on Scaleway, OVHcloud or IONOS, or a customer-operated vLLM deployment on EU infrastructure. Restricted data also requires dedicated deployments, full audit and alerting.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="sovereignty" id="boundary">
+        <section class="footer-cta">
             <div class="container">
-                <div class="section-header reveal">
-                    <span class="section-eyebrow">Boundary</span>
-                    <h2>The Boundary That Actually Matters</h2>
-                    <p>Models never execute tools directly. Every action against your systems runs through a Tool Hub inside your boundary.</p>
-                </div>
-                <div class="sovereignty-grid">
-                    <div class="sovereignty-description">
-                        <h3>Credential Broker, Not Credential Store</h3>
-                        <p>The Tool Hub authenticates each call via the identity provider, authorizes per tool and per user, and brokers credentials without exposing them. Production writes go through approval gates; reads are allowed only within the caller's own permissions.</p>
-                        <h3>Sovereignty Independent of Model Choice</h3>
-                        <p>Because tool execution and credentials live inside your boundary, sovereignty does not depend on choosing the right model provider. You can swap models by configuration; the boundary stays the same.</p>
-                        <p class="sovereignty-link"><a href="/ai-gateway" class="text-link">Explore the AI Gateway & Tool Hub →</a></p>
-                    </div>
-                    <div class="sovereignty-features">
-                        <div class="sovereignty-feature-group reveal">
-                            <h4>Tool Hub Controls</h4>
-                            <ul>
-                                <li>Per-tool and per-user authorization from the IdP</li>
-                                <li>Credential brokering without sharing keys</li>
-                                <li>Approval gates for production writes</li>
-                                <li>Sanitized results returned to the model</li>
-                            </ul>
-                        </div>
-                        <div class="sovereignty-feature-group reveal">
-                            <h4>Audit Evidence Gathered Now</h4>
-                            <ul>
-                                <li>Records of processing and data tiers</li>
-                                <li>Residency attributes per model deployment</li>
-                                <li>Logs of every model call and tool call</li>
-                                <li>Human oversight records for restricted actions</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="architecture-preview" id="sovereignty-flow">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2>The Governed Request Path</h2>
-                    <p>From identity to system, the same flow enforces residency and boundary at every step.</p>
-                </div>
-                <div class="architecture-strip reveal" aria-label="Request flow overview">
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg></div>
-                        <span class="architecture-label">Identity</span>
-                    </div>
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg></div>
-                        <span class="architecture-label">User channel</span>
-                    </div>
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-compass"></use></svg></div>
-                        <span class="architecture-label">AI Gateway</span>
-                    </div>
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chip"></use></svg></div>
-                        <span class="architecture-label">Model</span>
-                    </div>
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg></div>
-                        <span class="architecture-label">Tool Hub</span>
-                    </div>
-                    <div class="architecture-step">
-                        <div class="architecture-icon"><svg class="icon" aria-hidden="true"><use href="#icon-monitor"></use></svg></div>
-                        <span class="architecture-label">Your systems</span>
-                    </div>
-                </div>
-                <div class="architecture-preview-cta reveal">
-                    <a href="/architecture" class="btn btn-primary">See the Full Request Flow</a>
-                    <a href="/compliance" class="text-link">How compliance maps to this →</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact" id="contact">
-            <div class="container">
-                <div class="contact-content">
-                    <div class="contact-info reveal">
-                        <span class="section-eyebrow">Contact</span>
-                        <h2>Discuss Your Data Residency Requirements</h2>
-                        <p class="lead">30-minute consultation to map your data tiers, residency needs and approval workflows.</p>
-                        <div class="contact-primary">
-                            <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
-                                <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
-                            </a>
-                            <a href="mailto:hello@pointsolutions.me" class="btn btn-secondary btn-large">
-                                <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-mail"></use></svg> Email Us
-                            </a>
-                        </div>
-                        <div class="contact-alt">
-                            <a href="https://wa.me/38268538207" target="_blank" rel="noopener" class="contact-alt-link">WhatsApp</a>
-                            <span class="contact-alt-sep">|</span>
-                            <a href="https://www.linkedin.com/in/iamvalery/" target="_blank" rel="noopener" class="contact-alt-link">LinkedIn</a>
-                            <span class="contact-alt-sep">|</span>
-                            <span class="contact-alt-text">Slack, Signal, Telegram on request</span>
-                        </div>
-                    </div>
+                <div class="footer-cta-content reveal">
+                    <h2>Your data stays in the EU. Let's prove it architecturally.</h2>
+                    <p>Map your data tiers, residency requirements and model catalog to the right EU provider class.</p>
+                    <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                        <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
+                    </a>
                 </div>
             </div>
         </section>
@@ -330,23 +367,23 @@
                         <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
                         <span class="logo-text">Point Solutions</span>
                     </a>
-                    <p>Governed AI adoption for enterprise — from the model gateway to production agents, audit-ready by design.</p>
+                    <p>Governed AI infrastructure for enterprise — from the model gateway to production agents, audit-ready by design.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">
                         <h4>Platform</h4>
                         <ul>
-                            <li><a href="/ai-gateway">The Five Layers</a></li>
-                            <li><a href="/architecture">Architecture & Request Flow</a></li>
-                            <li><a href="/data-sovereignty">Sovereignty & EU Routing</a></li>
-                            <li><a href="/compliance">Compliance Mapping</a></li>
-                            <li><a href="/services">Assess, Build, Operate</a></li>
-                            <li><a href="/#case-study">A Representative Engagement</a></li>
+                            <li><a href="/#services">The Five Layers</a></li>
+                            <li><a href="architecture.html">Architecture & Request Flow</a></li>
+                            <li><a href="/#sovereignty">Sovereignty & EU Routing</a></li>
+                            <li><a href="/#compliance">Compliance Mapping</a></li>
+                            <li><a href="/#process">Assess, Build, Operate</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h4>Company</h4>
                         <ul>
+                            <li><a href="/">Home</a></li>
                             <li><a href="/#about">About Valery</a></li>
                             <li><a href="/#contact">Contact</a></li>
                         </ul>
