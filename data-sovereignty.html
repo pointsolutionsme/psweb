@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Keep enterprise AI data inside the EU. Our architecture routes confidential prompts to EU-resident providers under Article 28 DPAs with zero-retention defaults, eliminating US CLOUD Act exposure.">
+    <meta name="description" content="Keep enterprise AI data inside the EU. Our architecture routes confidential prompts to EU-resident providers under Article 28 DPAs with zero-retention defaults, designed to minimize exposure to extraterritorial data-access requests.">
     <title>EU Data Sovereignty & Sovereign AI Routing | Point Solutions</title>
     <link rel="canonical" href="https://www.pointsolutions.me/data-sovereignty">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -13,13 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta property="og:type" content="website">
     <meta property="og:title" content="EU Data Sovereignty & Sovereign AI Routing | Point Solutions">
-    <meta property="og:description" content="Keep enterprise AI data inside the EU. Our architecture routes confidential prompts to EU-resident providers under Article 28 DPAs with zero-retention defaults, eliminating US CLOUD Act exposure.">
+    <meta property="og:description" content="Keep enterprise AI data inside the EU. Our architecture routes confidential prompts to EU-resident providers under Article 28 DPAs with zero-retention defaults, designed to minimize exposure to extraterritorial data-access requests.">
     <meta property="og:url" content="https://www.pointsolutions.me/data-sovereignty">
     <meta property="og:site_name" content="Point Solutions">
     <meta property="og:image" content="https://www.pointsolutions.me/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="EU Data Sovereignty & Sovereign AI Routing | Point Solutions">
-    <meta name="twitter:description" content="Keep enterprise AI data inside the EU. Our architecture routes confidential prompts to EU-resident providers under Article 28 DPAs with zero-retention defaults, eliminating US CLOUD Act exposure.">
+    <meta name="twitter:description" content="Keep enterprise AI data inside the EU. Our architecture routes confidential prompts to EU-resident providers under Article 28 DPAs with zero-retention defaults, designed to minimize exposure to extraterritorial data-access requests.">
     <meta name="twitter:image" content="https://www.pointsolutions.me/og-image.png">
 
     <script type="application/ld+json">
@@ -67,7 +67,7 @@
           "name": "Does using an EU AI gateway protect against the US CLOUD Act?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, for data processed by EU providers on EU infrastructure. The US CLOUD Act allows US authorities to compel US-controlled companies to disclose data regardless of where it is physically stored. EU-based providers that are not US-controlled and operate under EU jurisdiction are outside the direct reach of those disclosure orders. Data is also covered by Article 28 Data Processing Agreements with zero-retention payload defaults and explicit contractual prohibitions on training use."
+            "text": "Using EU-based providers that are not US-controlled and operate under EU jurisdiction is designed to minimize exposure to extraterritorial data-access requests, including those issued under the US CLOUD Act. These providers are bound by Article 28 Data Processing Agreements with zero-retention payload defaults and explicit contractual prohibitions on training use. No provider choice can eliminate every legal risk, but the combination of EU jurisdiction, DPAs and zero-retention defaults materially reduces exposure compared with US-controlled providers."
           }
         },
         {
@@ -158,7 +158,7 @@
             <div class="container">
                 <p class="arch-breadcrumb"><a href="/">Home</a> <span class="sep">›</span> EU Data Sovereignty & Sovereign AI Routing</p>
                 <h1>EU Data Sovereignty & Sovereign AI Routing</h1>
-                <p class="section-lead">Keep your prompts, tool outputs, and embeddings inside EU jurisdiction. No US CLOUD Act exposure.</p>
+                <p class="section-lead">Keep your prompts, tool outputs, and embeddings inside EU jurisdiction. Minimize extraterritorial data-access exposure.</p>
                 <div class="arch-header-cta">
                     <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
                         <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
@@ -173,13 +173,46 @@
                     <div class="breakdown-number">01</div>
                     <div class="breakdown-content">
                         <h2>The Residency Attribute & Tiered Routing</h2>
-                        <p>Every model deployment in the gateway catalog carries a residency attribute, for example EU or US, and a maximum data tier. The policy decision point blocks any request that would send data to a deployment whose residency or tier is insufficient. Fallback targets must satisfy the same tier and residency.</p>
-                        <ul>
-                            <li><strong>Public / Internal:</strong> may use global providers where terms allow.</li>
-                            <li><strong>Confidential:</strong> prefers EU-routed deployments with an Article 28 DPA and zero retention.</li>
-                            <li><strong>Restricted:</strong> blocked by default; allowed only through an exception flow per use case.</li>
-                        </ul>
-                        <p>The session tier is set at runtime when a tool returns data. Once Confidential data enters the conversation, the request cannot be routed to a model approved only for Internal. DLP detectors can raise the session tier as a second signal.</p>
+                        <p>The gateway cannot infer sensitivity from a prompt alone. Every object that the platform controls therefore carries either a tier or a residency attribute: tools and MCP servers are registered with a maximum data tier they may return; agent profiles and virtual keys carry a clearance tier; model deployments carry both a maximum tier and a residency attribute such as EU or US. The request or session carries the highest tier touched so far as a runtime taint. The policy evaluated on every call is simple and enforceable: <code>data tier touched &lt;= min(user clearance, agent clearance, model max tier)</code>. Once a session has read Confidential data, it cannot be sent to a model deployment approved only for Internal.</p>
+                        <p>DLP detectors add a second signal. Secrets, credentials, PII and customer identifiers are scanned on input and output, and a detector hit can raise the session tier. The combination of declared tier and detected content means the routing decision is checkable and reproducible, not a guess. Fallback is also governed: a fallback target must satisfy the same tier and residency as the primary target, so a reliability event never becomes a routing escape.</p>
+                        <p>The sovereignty model is built on three boundaries, not one. The <strong>Customer boundary</strong> holds credentials, tool execution and raw source-system access; these never leave it. The <strong>Approved processing boundary</strong> allows Confidential data to be processed by approved EU-resident processors under Article 28 DPAs. The <strong>Restricted boundary</strong> is reserved for self-hosted or sovereign deployments, or is blocked by default. Because tool execution and credentials live inside the customer boundary, sovereignty does not depend on trusting every model provider perfectly.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Object</th>
+                                    <th>Carries</th>
+                                    <th>Set by</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tool / MCP server</td>
+                                    <td>Maximum data tier it can return</td>
+                                    <td>Registration in the tool hub</td>
+                                </tr>
+                                <tr>
+                                    <td>Agent profile</td>
+                                    <td>Clearance tier</td>
+                                    <td>Agent registry</td>
+                                </tr>
+                                <tr>
+                                    <td>Virtual key / user group</td>
+                                    <td>Clearance tier</td>
+                                    <td>Identity group mapping</td>
+                                </tr>
+                                <tr>
+                                    <td>Model deployment</td>
+                                    <td>Maximum tier and residency attribute</td>
+                                    <td>Gateway model config</td>
+                                </tr>
+                                <tr>
+                                    <td>Request / session</td>
+                                    <td>Highest tier touched so far (taint)</td>
+                                    <td>Runtime, updated when tools return data</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -191,7 +224,7 @@
                     <div class="breakdown-number">02</div>
                     <div class="breakdown-content">
                         <h2>EU API Gateways vs. Sovereign Specialists</h2>
-                        <p>EU routing comes in three classes, from least to most control. The right choice depends on the data tier, latency tolerance and how much of the stack the customer wants to operate.</p>
+                        <p>EU routing comes in three classes, from least to most control. The right choice depends on the data tier, latency tolerance and how much of the stack the customer wants to operate. An EU API gateway is a routing and billing layer; inference still runs on upstream GPUs inside the EU. Sovereign specialists add stricter legal guarantees and NIS2 compliance. Managed EU cloud inference removes the third-party gateway entirely but requires the customer to operate more of the stack.</p>
 
                         <table class="data-table">
                             <thead>
@@ -225,7 +258,7 @@
                         </table>
 
                         <h3>The EU premium reality</h3>
-                        <p>For mainstream open models such as Qwen 2.5 72B and Kimi K2.6, EU gateway prices are within about 5% of global aggregators; Requesty states it adds only a ~5% margin. The premium reaches 10-15% mainly on new or supply-constrained models. Provider prompt caching offsets part of the difference: cache-hit input costs for DeepSeek V4 Flash can drop to $0.007 per 1M tokens.</p>
+                        <p>The cost gap is smaller than often assumed. For mainstream open models such as <span class="tech-pill">Qwen 2.5 72B</span> and <span class="tech-pill">Kimi K2.6</span>, EU gateway prices are within about 5% of global aggregators; Requesty states it adds only a ~5% margin. The premium reaches 10-15% mainly on new or supply-constrained models. Provider prompt caching offsets part of the difference: cache-hit input costs for <span class="tech-pill">DeepSeek V4 Flash</span> can drop to $0.007 per 1M tokens. EU provider spend appears as separate cost lines in FinOps so the premium is visible and allocable, not hidden.</p>
                     </div>
                 </div>
             </div>
@@ -237,14 +270,40 @@
                     <div class="breakdown-number">03</div>
                     <div class="breakdown-content">
                         <h2>Article 28 DPAs & Zero-Retention Defaults</h2>
-                        <p>EU providers operate under GDPR Article 28 Data Processing Agreements that legally bind them to the customer's data protection rules. This is a contractual default, not an opt-in privacy mode.</p>
-                        <ul>
-                            <li><strong>Zero-retention payloads:</strong> gateway logs carry metadata only; payload logging is off by default for Confidential and above.</li>
-                            <li><strong>No training use:</strong> EU DPAs explicitly forbid using API traffic to train, fine-tune or improve future models.</li>
-                            <li><strong>No CLOUD Act exposure:</strong> data processed by EU providers on EU infrastructure is outside the reach of US disclosure orders directed at US-controlled companies.</li>
-                            <li><strong>NIS2 alignment:</strong> sovereign specialists such as Nordference are NIS2-compliant for essential and important entities.</li>
-                        </ul>
-                        <p>Contrast this with US providers that often require manual toggling of a "privacy mode" to stop prompt logging. The EU default removes that operational dependency and the associated audit risk.</p>
+                        <p>EU providers operate under GDPR Article 28 Data Processing Agreements that legally bind them to the customer's data protection rules. This is a contractual default, not an opt-in privacy mode. The contrast with many US providers is operational: the latter often require manual toggling of a "privacy mode" to stop prompt logging, which creates audit risk if a toggle is missed. The EU default removes that dependency.</p>
+                        <p>Zero-retention applies to payloads. Gateway logs carry metadata only: timestamps, token counts, model requested, cost, latency. Payload logging is off by default for Confidential and above, matching the logging privacy policy. EU DPAs also include explicit prohibitions on using API traffic for training, fine-tuning or improving future models. For EU customers, the combination of EU jurisdiction, Article 28 DPAs and zero-retention defaults is designed to minimize exposure to extraterritorial data-access requests, including those issued under the US CLOUD Act. No legal structure can eliminate every risk, but the architecture deliberately reduces exposure compared with routing the same data through US-controlled providers.</p>
+                        <p>NIS2 alignment matters for essential and important entities. Sovereign specialists such as <span class="tech-pill">Nordference</span> are NIS2-compliant, and the provider catalog records both the gateway and the upstream inference provider so routing policy can forbid fallback to non-EU upstream nodes. Prompts live transiently in GPU memory for seconds; the logging, residency and retention controls are what remain as evidence.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Control</th>
+                                    <th>What it means in practice</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Article 28 DPA</td>
+                                    <td>Contractual default binding the processor to the customer's data-protection rules</td>
+                                </tr>
+                                <tr>
+                                    <td>Zero-retention payloads</td>
+                                    <td>Gateway logs carry metadata only; payload logging off by default for Confidential and above</td>
+                                </tr>
+                                <tr>
+                                    <td>No training use</td>
+                                    <td>DPA explicitly forbids using API traffic to train, fine-tune or improve future models</td>
+                                </tr>
+                                <tr>
+                                    <td>Residency + upstream tracking</td>
+                                    <td>Catalog records gateway and upstream provider; fallback blocked to non-EU upstream nodes</td>
+                                </tr>
+                                <tr>
+                                    <td>Minimized extraterritorial exposure</td>
+                                    <td>EU jurisdiction, DPAs and zero-retention defaults reduce exposure to extraterritorial data-access requests</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -256,13 +315,9 @@
                     <div class="breakdown-number">04</div>
                     <div class="breakdown-content">
                         <h2>Localized Memory & Vector Stores</h2>
-                        <p>Embeddings of Confidential content and above never leave the platform. The memory service scopes data per user, per agent, per team and organization knowledge, and each item carries the tier of its source.</p>
-                        <ul>
-                            <li><strong>Vector store:</strong> <span class="tech-pill">pgvector</span> on managed PostgreSQL; embeddings stay in-house.</li>
-                            <li><strong>Scoped memory:</strong> <span class="tech-pill">Mem0</span> for user, agent and session scopes. Cross-scope reads are blocked by policy and tested in the evaluation suite.</li>
-                            <li><strong>Self-hosted embeddings:</strong> <span class="tech-pill">BGE</span> via <span class="tech-pill">Infinity</span> keeps Confidential text out of provider embedding APIs.</li>
-                            <li><strong>Retention and deletion:</strong> TTL per scope; users can view and delete personal memory; offboarding triggers verified deletion propagated to backups.</li>
-                        </ul>
+                        <p>Embeddings of Confidential content and above never leave the platform. The memory service scopes data per user, per agent, per team and organization knowledge, and each item carries the tier of its source. Retrieval checks the requester's clearance before returning a memory item, so a user with Internal clearance cannot recall a Confidential team memory. Cross-scope reads are blocked by policy and tested in the evaluation suite.</p>
+                        <p>The vector store runs on <span class="tech-pill">pgvector</span> on managed PostgreSQL, keeping embeddings in-house. There is no external memory SaaS for Confidential or Restricted data. Self-hosted embeddings, such as <span class="tech-pill">BGE</span> served by <span class="tech-pill">Infinity</span>, keep Confidential text out of provider embedding APIs. Reference memory options include <span class="tech-pill">Mem0</span> for user, agent and session scopes, and <span class="tech-pill">Cognee</span> where explicit forget and delete APIs on a single Postgres are valued. Graphiti remains an option for temporal incident history but requires Neo4j or FalkorDB.</p>
+                        <p>Retention and deletion are first-class functions, not afterthoughts. Each memory scope has a TTL. Users can view and delete personal memory. Offboarding triggers verified deletion that is propagated to backups within the backup retention window. This keeps the data lifecycle aligned with GDPR and works-council expectations, not just the live query path.</p>
                     </div>
                 </div>
             </div>
@@ -278,7 +333,7 @@
                     <div class="faq-item reveal">
                         <h3 class="faq-question">Does using an EU AI gateway protect against the US CLOUD Act?</h3>
                         <div class="faq-answer">
-                            <p>Yes, for data processed by EU providers on EU infrastructure. The US CLOUD Act allows US authorities to compel US-controlled companies to disclose data regardless of where it is physically stored. EU-based providers that are not US-controlled and operate under EU jurisdiction are outside the direct reach of those disclosure orders. Data is also covered by Article 28 Data Processing Agreements with zero-retention payload defaults and explicit contractual prohibitions on training use.</p>
+                            <p>Using EU-based providers that are not US-controlled and operate under EU jurisdiction is designed to minimize exposure to extraterritorial data-access requests, including those issued under the US CLOUD Act. These providers are bound by Article 28 Data Processing Agreements with zero-retention payload defaults and explicit contractual prohibitions on training use. No provider choice can eliminate every legal risk, but the combination of EU jurisdiction, DPAs and zero-retention defaults materially reduces exposure compared with US-controlled providers.</p>
                         </div>
                     </div>
                     <div class="faq-item reveal">

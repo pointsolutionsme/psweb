@@ -201,14 +201,64 @@
                     <div class="breakdown-number">01</div>
                     <div class="breakdown-content">
                         <h2>Phase 0: Assess <span class="tech-pill">2–6 weeks</span> <span class="tech-pill">fixed fee</span></h2>
-                        <p>Most engagements start here. We inventory the current state before committing to a build: API keys, shadow AI, traffic paths, existing MDM, EDR, NGFW, ZTNA and SWG capabilities, and the first cut of data classification.</p>
-                        <ul>
-                            <li>Fill the traffic coverage table for every AI path in the organization.</li>
-                            <li>Identify unmanaged provider keys, direct model access and unapproved MCP connections.</li>
-                            <li>Deliver a regulatory exposure report covering EU AI Act, NIS2, GDPR and ISO 42001.</li>
-                            <li>Deliver a costed technical design, layer by layer, that the customer can keep and implement with any vendor.</li>
-                        </ul>
-                        <p>The assessment is a fixed-fee entry point. You can keep the design and walk away.</p>
+                        <p>Most engagements start here. Before committing to a build, we inventory every AI path in the organization and map it to a named control point. The traffic coverage table is the first artifact we produce, and it is the one we check at the end of every later phase. If a path can reach a model provider without passing one of these control points, it is a finding and must be closed by egress policy.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Traffic path</th>
+                                    <th>Example</th>
+                                    <th>Primary control point</th>
+                                    <th>Secondary controls</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>API calls from internal code and automations</td>
+                                    <td>Scripts, n8n, internal tools, opencode run / serve</td>
+                                    <td>AI Gateway (virtual key required)</td>
+                                    <td>NGFW / ZTNA egress policy blocks direct provider endpoints</td>
+                                </tr>
+                                <tr>
+                                    <td>IDE / CLI coding assistants</td>
+                                    <td>Claude Code, opencode, other agentic CLIs</td>
+                                    <td>AI Gateway, via base URL set in managed client config</td>
+                                    <td>MDM enforces client config and MCP allow-list; NGFW / ZTNA blocks direct provider access</td>
+                                </tr>
+                                <tr>
+                                    <td>Enterprise AI SaaS seats</td>
+                                    <td>Claude Enterprise, ChatGPT Enterprise, Gemini</td>
+                                    <td>Vendor tenant controls (SSO, retention, DLP, connector scoping)</td>
+                                    <td>Admin audit API into SIEM, SWG / CASB allows only the corporate tenant</td>
+                                </tr>
+                                <tr>
+                                    <td>Vendor-native agents</td>
+                                    <td>Microsoft 365 Copilot, Salesforce Agentforce, ServiceNow Now Assist</td>
+                                    <td>Vendor tenant controls and contractual terms</td>
+                                    <td>Tenant audit logs into SIEM; procurement and license-tier selection as controls</td>
+                                </tr>
+                                <tr>
+                                    <td>Agents in the orchestration layer</td>
+                                    <td>Knowledge agent, SRE agent</td>
+                                    <td>AI Gateway for models and tools, policy decision point for actions</td>
+                                    <td>Kubernetes network policy: runtime has no direct egress to providers</td>
+                                </tr>
+                                <tr>
+                                    <td>Tool access (MCP) from any client</td>
+                                    <td>IDE assistants, agents, AI SaaS connectors</td>
+                                    <td>MCP gateway</td>
+                                    <td>MDM allow-list contains only the gateway endpoint; NGFW / ZTNA blocks direct access to vendor MCP endpoints</td>
+                                </tr>
+                                <tr>
+                                    <td>Unmanaged / personal AI tools in the browser</td>
+                                    <td>Consumer chatbots</td>
+                                    <td>SWG / CASB: allow for Public tier, block or warn otherwise</td>
+                                    <td>Existing shadow AI detection (CASB, EDR)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>Beyond the traffic table, the assessment identifies unmanaged provider keys, direct model access and unapproved MCP connections. We deliver a regulatory exposure report covering EU AI Act, NIS2, GDPR and ISO 42001, and a costed technical design, layer by layer, that the customer can keep and implement with any vendor. The assessment is a fixed-fee entry point. You can keep the design and walk away.</p>
                     </div>
                 </div>
             </div>
@@ -220,14 +270,9 @@
                     <div class="breakdown-number">02</div>
                     <div class="breakdown-content">
                         <h2>Phase 1: Foundation — The Control Plane</h2>
-                        <p>Deploy the platform scaffolding and route all model traffic through the gateway. By the end of this phase there are no direct provider keys in use and every change is applied through Git.</p>
-                        <ul>
-                            <li><strong>AI Gateway:</strong> HA <span class="tech-pill">LiteLLM</span> with Rust hot path, virtual keys with cost tags, SSO, budgets and egress rules.</li>
-                            <li><strong>Endpoint control:</strong> MDM profiles for IDE assistants such as <span class="tech-pill">Claude Code</span> and <span class="tech-pill">opencode</span>, locking providers to the gateway and provisioning skills.</li>
-                            <li><strong>Observability:</strong> OpenTelemetry collector, LLM tracing, platform dashboards and SIEM feed.</li>
-                            <li><strong>FinOps:</strong> cost data pipeline with provider billing reconciliation and weekly showback per team.</li>
-                            <li><strong>GitOps:</strong> repositories, CI/CD pipelines and <span class="tech-pill">Argo CD</span> for all platform components; no manual production changes.</li>
-                        </ul>
+                        <p>Phase 1 deploys the platform scaffolding and routes all model traffic through the gateway. The platform does not deploy its own endpoint agents; it publishes rules that the customer's existing corporate controls enforce. By the end of this phase there are no direct provider keys in use and every production change is applied through Git.</p>
+                        <p>MDM receives managed configurations for AI clients: gateway base URL, key retrieval method, MCP allow-list from the tool hub, approved skills and rules, and telemetry export settings. For <span class="tech-pill">opencode</span>, this means a managed config directory (<code>/etc/opencode</code> on Linux, <code>ai.opencode.managed</code> plist on macOS) with <code>enabled_providers</code> locked to the gateway and <code>OPENCODE_CONFIG_DIR</code> pointing at provisioned skills. EDR receives indicators of approved AI client binaries, expected MCP processes and config file paths, and alerts on <code>OPENCODE_PERMISSION</code> overrides. NGFW / ZTNA receives an egress list that makes provider API domains reachable only from the gateway and agent runtime, with gateway and admin UIs published as ZTNA applications. SWG / CASB receives the approved AI SaaS tenants and Public-tier tool list. All artifacts are generated from platform registries and published as code, so a change in the platform updates enforcement through the customer's normal change process.</p>
+                        <p>The platform layer itself includes an HA <span class="tech-pill">LiteLLM</span> gateway with the Rust hot path, virtual keys carrying cost tags, SSO, budgets and egress rules; an OpenTelemetry collector with LLM tracing and platform dashboards; a cost data pipeline with provider billing reconciliation and weekly showback per team; and GitOps repositories, CI/CD pipelines and <span class="tech-pill">Argo CD</span> for all components. Exit criteria are strict: no direct provider keys, all API traffic via gateway, weekly showback per team, no manual changes in production.</p>
                     </div>
                 </div>
             </div>
@@ -239,13 +284,9 @@
                     <div class="breakdown-number">03</div>
                     <div class="breakdown-content">
                         <h2>Phase 2 & 3: Governed Tools & First Agents</h2>
-                        <p>Connect enterprise systems through the MCP Tool Hub and launch the first internal agent. Everything stays read-only or approval-gated until identity propagation and policy are proven.</p>
-                        <ul>
-                            <li><strong>MCP Tool Hub:</strong> deploy <span class="tech-pill">agentgateway</span> with registry, virtual servers and per-tool CEL policies.</li>
-                            <li><strong>Source systems:</strong> connect code, Jira, Confluence, documents and Slack via on-behalf-of OAuth 2.1 token exchange.</li>
-                            <li><strong>Knowledge agent:</strong> built on <span class="tech-pill">LangGraph</span> with <span class="tech-pill">Letta</span> conversational profiles, answering in Slack from permission-aware sources.</li>
-                            <li><strong>Memory pilot:</strong> scoped memory with <span class="tech-pill">Mem0</span> and <span class="tech-pill">pgvector</span>, carrying source ACLs and data tier into retrieval.</li>
-                        </ul>
+                        <p>Phase 2 deploys the MCP Tool Hub. We install <span class="tech-pill">agentgateway</span> with its registry, virtual servers and per-tool CEL policies, then connect source systems via on-behalf-of OAuth 2.1 token exchange where possible. Read-only servers come first for source code, project management, documents and Slack. Tier policy is enforced on every tool call, and no client connects directly to a system MCP server.</p>
+                        <p>Phase 3 adds the agent runtime. The runtime is built on <span class="tech-pill">LangGraph</span> for governed workflows with approval interrupts, backed by <span class="tech-pill">Temporal</span> for durable long-running execution. <span class="tech-pill">Letta</span> provides conversational agents with persistent memory and a native Slack channel. Agents run on Kubernetes in worker pools per domain or risk level — for example a general knowledge pool and a separate operations pool with prod access — which isolates noisy neighbors and limits blast radius. Each agent profile has its own identity, secrets, namespace or sandbox, and resource limits. Runtime egress is restricted to the AI Gateway and the policy decision point; model and tool access always flows through the gateway, never directly to a provider.</p>
+                        <p>The first production agent is typically a knowledge Q&A agent answering in Slack from permission-aware sources. A memory pilot runs alongside it using <span class="tech-pill">Mem0</span> and <span class="tech-pill">pgvector</span>, carrying source ACLs and data tier into retrieval. Skills proposed by agents are written to the skill registry as pull requests and reviewed before activation; no unreviewed skill runs in a Confidential or Restricted pool.</p>
                     </div>
                 </div>
             </div>
@@ -257,13 +298,43 @@
                     <div class="breakdown-number">04</div>
                     <div class="breakdown-content">
                         <h2>Phase 4: Operations Agents & Managed AIOps</h2>
-                        <p>Add write capability with human-in-the-loop approvals, then transition to ongoing platform operations. Cost is reported per outcome, not just per token.</p>
-                        <ul>
-                            <li><strong>Write variants:</strong> Jira, CRM, ERP and Argo CD write tools route through Slack Block Kit approvals with signed interactions and hash-chained audit.</li>
-                            <li><strong>Operations agents:</strong> SRE triage agent and CI/CD triage agent, the latter running on the <span class="tech-pill">opencode serve</span> coding-agent pool to propose fix PRs.</li>
-                            <li><strong>Unit economics:</strong> cost per answered question, per triaged incident and per assisted PR.</li>
-                            <li><strong>Managed retainer:</strong> monthly platform operations covering model lifecycle governance, FinOps optimization, security updates and SLO management.</li>
-                        </ul>
+                        <p>Phase 4 adds write capability behind human-in-the-loop approvals, then transitions to ongoing platform operations. Write variants for Jira, CRM, ERP and Argo CD route through Slack Block Kit approvals with signed interactions and hash-chained audit. The agent workflow pauses at a LangGraph interrupt; a posted message shows the action, arguments and context with Approve and Reject buttons. Operations agents include an SRE triage agent and a CI/CD triage agent. The CI/CD agent runs on the <span class="tech-pill">opencode serve</span> coding-agent pool, which is sandboxed with gVisor, uses per-session pods with warm pools, and has egress limited to the AI Gateway and Tool Hub.</p>
+                        <p>FinOps becomes a full operating model in Phase 4. All cost data is normalized to the FinOps Foundation FOCUS format. Allocation keys — cost center, team, product, use case, environment — are mandatory metadata on virtual keys, agent profiles and Kubernetes labels; policy blocks creation without them. Budgets produce soft alerts and hard blocks at the gateway. Daily anomaly detection compares spend against baseline per team and agent to catch runaway loops or leaked keys. Gateway-calculated cost is reconciled against invoices, with differences over an agreed threshold investigated for unrouted traffic or price-table drift. Optimization levers include provider prompt caching, model tiering and routing, response caching keyed by clearance and session tier, batch APIs and context limits. Unit economics are reported per outcome: cost per answered question, per triaged incident, per assisted PR. Reporting cadence settles into weekly showback, monthly chargeback where used, and quarterly review of optimization and commitments.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>FinOps control</th>
+                                    <th>Mechanism</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Allocation</td>
+                                    <td>Mandatory keys on virtual keys, agents and labels; shared cost split by usage share</td>
+                                </tr>
+                                <tr>
+                                    <td>Budgets</td>
+                                    <td>Soft alert (for example 80%) and hard block per team, key and agent at the gateway</td>
+                                </tr>
+                                <tr>
+                                    <td>Anomaly detection</td>
+                                    <td>Daily baseline comparison per team and agent; alerts on spikes</td>
+                                </tr>
+                                <tr>
+                                    <td>Reconciliation</td>
+                                    <td>Gateway cost vs invoice; differences over agreed threshold (for example 3%) investigated</td>
+                                </tr>
+                                <tr>
+                                    <td>Optimization</td>
+                                    <td>Prompt caching, model tiering/routing, response caching, batch APIs, context limits, self-hosting after break-even analysis</td>
+                                </tr>
+                                <tr>
+                                    <td>Reporting</td>
+                                    <td>Weekly showback, monthly chargeback where used, quarterly review</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -275,14 +346,23 @@
                     <div class="breakdown-number breakdown-number-muted">05</div>
                     <div class="breakdown-content">
                         <h2>Decisions We Make Together</h2>
-                        <p>The architecture is shaped by customer choices made during assessment and foundation. These are not optional configuration details; they define the risk posture and operating model.</p>
+                        <p>The architecture is shaped by customer choices made during assessment and foundation. These are not optional configuration details; they define the risk posture and operating model. The full decision list from the reference architecture is addressed explicitly.</p>
                         <ul>
-                            <li><strong>EU data residency requirement:</strong> none, EU-routed providers for Confidential, or sovereign specialist / managed EU inference for Restricted.</li>
-                            <li><strong>Content logging defaults:</strong> how much prompt content to log, balancing audit needs against employee privacy and works-council consultation.</li>
+                            <li><strong>AI model vendors and per-vendor data terms:</strong> which providers are approved and on what contractual terms.</li>
+                            <li><strong>Content logging defaults and retention:</strong> how much prompt content to log, balancing audit needs against employee privacy and works-council consultation.</li>
                             <li><strong>Classification of the initial tool set:</strong> which systems are Internal, Confidential or Restricted.</li>
-                            <li><strong>Existing security stack integration:</strong> which MDM, EDR, NGFW, ZTNA, SWG and SIEM products receive platform-generated rules and signals.</li>
-                            <li><strong>Chargeback vs. showback:</strong> whether teams see cost or are actually charged back, and which allocation keys to use.</li>
-                            <li><strong>SaaS-only dependencies:</strong> whether to accept the official Slack and Atlassian MCP servers or use self-hosted generated API tools.</li>
+                            <li><strong>Fail-open vs fail-closed per tier:</strong> whether Public/Internal may use break-glass credentials when the gateway is unavailable.</li>
+                            <li><strong>Production workloads:</strong> whether customer-facing production services join in a later phase.</li>
+                            <li><strong>Self-hosted model requirement:</strong> whether Restricted data needs a customer-operated vLLM deployment.</li>
+                            <li><strong>Showback or chargeback:</strong> whether teams see cost or are actually charged back, and which allocation keys to use.</li>
+                            <li><strong>Observability and SIEM stack:</strong> integrate with existing tools or deploy the open-source stack.</li>
+                            <li><strong>Existing security products:</strong> which MDM, EDR, NGFW, ZTNA and SWG products receive platform-generated rules, and who applies them.</li>
+                            <li><strong>Source control and repository layout:</strong> GitHub, GitLab or Gitea, and mono- or multi-repo structure.</li>
+                            <li><strong>SaaS-only MCP dependencies:</strong> accept official Slack and Atlassian MCP servers, or use self-hosted generated API tools instead.</li>
+                            <li><strong>AI SaaS seat vendors and tenant policy baseline:</strong> audit ingestion, in-vendor DLP, connector allow-lists.</li>
+                            <li><strong>Guardrail compute:</strong> CPU-only inline chain, or budget a GPU for asynchronous Llama Guard 4 classification.</li>
+                            <li><strong>Workflow automation license posture:</strong> n8n fair-code, Activepieces (MIT) or Windmill (AGPL).</li>
+                            <li><strong>EU data residency requirement:</strong> none, EU-routed providers for Confidential, or sovereign specialist / managed EU inference for Restricted.</li>
                         </ul>
                     </div>
                 </div>

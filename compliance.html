@@ -177,7 +177,7 @@
                     <div class="breakdown-number">01</div>
                     <div class="breakdown-content">
                         <h2>EU AI Act: Deployer Duties</h2>
-                        <p>Article 26 of the EU AI Act imposes deployer duties including use in accordance with instructions, human oversight, input quality and log retention. The platform generates evidence for each obligation from built-in controls rather than after-the-fact documentation.</p>
+                        <p>Article 26 of the EU AI Act imposes deployer duties including use in accordance with instructions, human oversight, input quality and log retention. The platform generates evidence for each obligation from built-in controls rather than after-the-fact documentation. The mapping below is not a slide-deck promise; each control is produced by the same GitOps pipeline that deploys the platform.</p>
 
                         <table class="data-table">
                             <thead>
@@ -210,6 +210,8 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                        <p>The "use in accordance with instructions" obligation is met because every agent profile, system prompt and tool scope is a versioned file. The approved version is the instruction set; any deviation requires a reviewed pull request. Human oversight is enforced at the action layer: reads within a user's scope run autonomously, while writes to production or business records pause at a LangGraph interrupt and request approval through a Slack Block Kit interactive message. The click is verified with Slack request signature, nonce replay protection and approver-to-IdP-role binding, then recorded as a hash-chained audit event. Input quality is not assumed; Presidio, Prompt Guard 2, NeMo Guardrails and the policy decision point evaluate every model and tool call. Log retention follows the published logging policy, with OpenTelemetry traces and Langfuse sessions providing the end-to-end traceability that Article 26 expects.</p>
                     </div>
                 </div>
             </div>
@@ -221,13 +223,40 @@
                     <div class="breakdown-number">02</div>
                     <div class="breakdown-content">
                         <h2>ISO/IEC 42001 & NIST AI RMF</h2>
-                        <p>ISO/IEC 42001 requires an AI management system: roles, risk assessment, controls and continuous monitoring. The NIST AI RMF frames the same work as Govern, Map, Measure and Manage.</p>
-                        <ul>
-                            <li><strong>Roles and ownership:</strong> section 8 of the reference architecture assigns owners to the gateway, policies, agent runtime, individual agents, observability, FinOps and GitOps repositories.</li>
-                            <li><strong>Risk assessment:</strong> the four-tier classification model maps every tool, agent, virtual key and model deployment to a risk level; the policy decision point enforces it at runtime.</li>
-                            <li><strong>Monitoring:</strong> observability (OpenTelemetry, Prometheus, Grafana) and SIEM detections cover guardrail hits, policy denials, tier violations and unusual tool sequences.</li>
-                            <li><strong>FinOps and SLOs:</strong> budgets, cost attribution and service-level objectives provide measurable control and continuous improvement loops.</li>
-                        </ul>
+                        <p>ISO/IEC 42001 requires an AI management system: roles, risk assessment, controls and continuous monitoring. The NIST AI RMF frames the same work as Govern, Map, Measure and Manage. The reference architecture assigns clear ownership so responsibilities do not fall between teams. The AI Gateway and Tool Hub are owned by Platform / DevOps; policies and classification by Security; the agent runtime and memory by the AI platform team; individual agents by business or engineering owners; observability and SLOs by Platform / SRE; FinOps by Finance plus Platform; and GitOps repositories by Platform / DevOps with Security as code owner for policies and guardrails.</p>
+                        <p>Risk assessment becomes operational through the four-tier classification model. Every tool, agent, virtual key and model deployment is mapped to Public, Internal, Confidential or Restricted. The policy decision point enforces the mapping at runtime, so a risk decision made during assessment is not ignored in production. Detection sources cover the full stack: the gateway watches for budget spikes, repeated guardrail hits, unusual key locations and tier violations; the agent runtime reports denied policy decisions, unusual tool sequences and write attempts without approval; the PDP logs deny-rate changes and bypass attempts; corporate controls including EDR, NGFW/ZTNA and CASB correlate with platform events to catch provider access that bypasses the gateway or unapproved local MCP servers; AI SaaS admin audit and identity-provider logs round out the picture. All logs are normalized and forwarded to the existing SIEM.</p>
+                        <p>Continuous monitoring is backed by explicit service-level objectives. Gateway availability is targeted at 99.9% monthly. The gateway's added latency, excluding guardrail calls, is kept under p95 50 ms; including inline guardrails, under p95 800 ms for interactive use, tuned per customer. The tool hub targets 99.5% availability per critical tool. Agent task success is baselined in the pilot and then tracked per agent. These SLOs are not vanity metrics; failed canary rolls and SLO breaches trigger automatic rollback.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>SLO</th>
+                                    <th>Target</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Gateway availability</td>
+                                    <td>99.9% monthly</td>
+                                </tr>
+                                <tr>
+                                    <td>Gateway added latency, excluding guardrails</td>
+                                    <td>p95 under 50 ms</td>
+                                </tr>
+                                <tr>
+                                    <td>Gateway added latency, including inline guardrails</td>
+                                    <td>p95 under 800 ms for interactive use, tuned per customer</td>
+                                </tr>
+                                <tr>
+                                    <td>Tool hub availability per critical tool</td>
+                                    <td>99.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>Agent task success rate</td>
+                                    <td>Baselined in pilot, then tracked per agent</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -239,14 +268,52 @@
                     <div class="breakdown-number">03</div>
                     <div class="breakdown-content">
                         <h2>GitOps as the Ultimate Audit Trail</h2>
-                        <p>The desired state of the entire platform lives in source control. Prompts, configurations, policies, tool definitions, agent profiles and deployments are versioned files. Every change reaches production through a reviewed pull request, automated checks and Argo CD sync.</p>
-                        <ul>
-                            <li><strong>Git history is the audit trail:</strong> who proposed, reviewed and approved every change; what automated checks passed; when it was deployed.</li>
-                            <li><strong>Automated checks:</strong> lint, schema validation, OPA policy unit tests, secret scanning, container and dependency scans, image signing, skill and MCP definition scans, and agent evaluation suites with regression thresholds.</li>
-                            <li><strong>Drift control:</strong> <span class="tech-pill">Argo CD</span> self-heal reverts manual changes and raises alerts; admin UIs are read-only in production.</li>
-                            <li><strong>Policy as code:</strong> <span class="tech-pill">OPA</span> Rego policies are stored in Git and tested in CI; the same engine evaluates runtime authorization and Kubernetes admission.</li>
-                            <li><strong>Dependency freshness:</strong> <span class="tech-pill">Renovate</span> opens pull requests for components, images, MCP servers and model price tables; each update passes the same gates.</li>
-                        </ul>
+                        <p>The desired state of the whole platform lives in source control. Prompts, configurations, policies, tool definitions, agent profiles and deployments are versioned files; every change reaches production through a reviewed pull request and automation. Nobody changes production by hand: admin UIs are read-only in production and used only for inspection or non-production experiments.</p>
+                        <p>Git holds infrastructure, platform deployments, gateway configuration, the tool hub registry, agents, prompts, policies, evaluation suites, dashboards, FinOps transforms and integration artifacts such as generated MDM profiles and ZTNA application definitions. It also holds documentation and runbooks. What Git does not hold are secret values (only references; values live in OpenBao / Vault and are synced by External Secrets Operator, or are SOPS-encrypted), issued virtual key values, and runtime data such as memory, traces, logs and cost records.</p>
+                        <p>The change flow has six steps. First, a proposal arrives as a pull request by an engineer, by the agent lifecycle agent, or by a self-learning agent proposing a skill. Second, automated checks run: lint and schema validation, OPA policy unit tests, secret scanning, container and dependency scans, image signing, skill and MCP definition scans, and the agent evaluation suite with regression thresholds. Third, human code owners review by area: Security for policies and guardrails, system owners for tool scopes, agent owners for prompts. Fourth, the change is merged and Argo CD applies it through development, staging and production. Fifth, verification runs canary rollouts, smoke tests and SLO watching. Sixth, automatic rollback triggers on failed checks or SLO breach; manual rollback is a git revert.</p>
+                        <p>Drift control keeps the running state honest. Argo CD self-heal reverts manual changes and raises drift alerts. Git history is the audit trail for every platform change and is forwarded to the SIEM. Renovate opens pull requests for platform components, container images, MCP servers and model price tables, so dependencies stay fresh through the same gates. Environments are reproducible from Git plus backups of stateful stores; restore is tested as part of disaster recovery exercises.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Step</th>
+                                    <th>What happens</th>
+                                    <th>Automated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1. Propose</td>
+                                    <td>Pull request by engineer, lifecycle agent or self-learning skill proposal</td>
+                                    <td>Partly</td>
+                                </tr>
+                                <tr>
+                                    <td>2. Check</td>
+                                    <td>Lint, schema validation, policy tests, secret scanning, container scans, image signing, MCP/skill scans, evaluation suite with regression thresholds</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>3. Review</td>
+                                    <td>Code owners approve by area: security, system owners, agent owners</td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <td>4. Merge and sync</td>
+                                    <td>Argo CD applies change to dev, then staging and production through the same pipeline</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>5. Verify</td>
+                                    <td>Canary rollout, smoke tests, SLO and quality metrics watched</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>6. Roll back</td>
+                                    <td>Automatic rollback on failed checks or SLO breach; manual rollback is a git revert</td>
+                                    <td>Yes</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -258,14 +325,46 @@
                     <div class="breakdown-number">04</div>
                     <div class="breakdown-content">
                         <h2>Privacy by Default & Employee Monitoring</h2>
-                        <p>GDPR and works-council consultation require a clear logging privacy policy. The default balances audit needs against employee privacy: metadata is always logged, but prompt content is off by default for human interactive use.</p>
-                        <ul>
-                            <li><strong>Metadata always logged:</strong> user, model, tokens, cost, latency, tools, policy result.</li>
-                            <li><strong>Content off by default for interactive use;</strong> enabled per team on request or captured only on policy violation.</li>
-                            <li><strong>Agents and automations:</strong> prompt and response content logged for debugging and audit, with retention per use case.</li>
-                            <li><strong>Redaction:</strong> secrets and PII are masked before storage in all cases.</li>
-                            <li><strong>Governance:</strong> the logging privacy policy is owned by Security and HR/Legal with employee-representative consultation.</li>
-                        </ul>
+                        <p>GDPR and works-council consultation require a clear logging privacy policy. The default balances audit needs against employee privacy: metadata is always logged, but prompt content is off by default for human interactive use. Agents and automations need content logging for debugging and audit, so their content is on with retention per use case. Redaction of secrets and PII runs before storage in every case. Access to content is restricted to Security on incident for human interactive use, and to agent owners plus Security for agents; every access is logged.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Human interactive use</th>
+                                    <th>Agents and automations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Metadata (user, model, tokens, cost, latency, tools, policy result)</td>
+                                    <td>Always</td>
+                                    <td>Always</td>
+                                </tr>
+                                <tr>
+                                    <td>Prompt and response content</td>
+                                    <td>Off by default; enabled per team on request, or captured only on policy violation</td>
+                                    <td>On, for debugging and audit</td>
+                                </tr>
+                                <tr>
+                                    <td>Retention of content</td>
+                                    <td>Short (for example 30 days)</td>
+                                    <td>Per use case (for example 90 days)</td>
+                                </tr>
+                                <tr>
+                                    <td>Access to content</td>
+                                    <td>Security on incident only, access logged</td>
+                                    <td>Agent owners and security</td>
+                                </tr>
+                                <tr>
+                                    <td>Redaction</td>
+                                    <td>Secrets and PII masked before storage</td>
+                                    <td>Secrets and PII masked before storage</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>The logging privacy policy is owned jointly by Security and HR / Legal, with consultation of employee representatives. Logs containing content inherit the highest tier of the session, so a trace that captured Confidential content is handled as Confidential data. The policy is published to employees, not buried in an admin guide. This ownership and transparency are what make the logging default defensible under GDPR and works-council rules, rather than relying on a technical toggle alone.</p>
                     </div>
                 </div>
             </div>

@@ -192,7 +192,7 @@
             <div class="container">
                 <p class="arch-breadcrumb"><a href="/">Home</a> <span class="sep">›</span> AI Gateway & MCP Tool Hub</p>
                 <h1>The Governed AI Gateway & MCP Tool Hub</h1>
-                <p class="section-lead">One door to every model. One door to every system. Zero shared credentials.</p>
+                <p class="section-lead">One door to every model. One door to every system. No shared credentials.</p>
                 <div class="arch-header-cta">
                     <a href="https://cal.com/pointsolutions/30min" target="_blank" rel="noopener" class="btn btn-primary btn-large">
                         <svg class="icon icon-inline" aria-hidden="true"><use href="#icon-calendar"></use></svg> Schedule Consultation
@@ -207,15 +207,48 @@
                     <div class="breakdown-number">01</div>
                     <div class="breakdown-content">
                         <h2>The AI Gateway</h2>
-                        <p>The AI Gateway is the single OpenAI-compatible API endpoint for every model in the enterprise, whether commercial, open-weight or self-hosted. Provider changes become configuration edits, not rewrites. Because all provider credentials live here, no team needs to hold a raw provider key.</p>
-                        <ul>
-                            <li><strong>Unified access:</strong> one API shape for Anthropic, Google, OpenAI, Bedrock and self-hosted models.</li>
-                            <li><strong>Virtual keys:</strong> scoped, revocable keys bound to an IdP identity with short expiry and automatic rotation.</li>
-                            <li><strong>Reliability:</strong> retry, cross-provider fallback and load balancing; fallback targets must satisfy the same data tier and residency.</li>
-                            <li><strong>Cost control:</strong> budgets per team, key and agent; soft alerts and hard blocks at the gateway.</li>
-                            <li><strong>Production deployment:</strong> at least three replicas across zones; managed PostgreSQL for state; Redis for rate limits; exposed only through the corporate ZTNA.</li>
-                        </ul>
-                        <p>Reference implementation: <span class="tech-pill">LiteLLM</span> with its Rust hot path in production. Where SSO, RBAC at scale and audit logs must stay in the free tier, the gateway can be fronted with <span class="tech-pill">Kong AI Gateway 2.0</span>.</p>
+                        <p>The AI Gateway is a single OpenAI-compatible endpoint that fronts every model the enterprise uses: commercial APIs, open-weight providers and self-hosted inference. Provider swaps become configuration changes rather than code rewrites, and no application or team holds a raw provider key. Reference implementation is <span class="tech-pill">LiteLLM</span> running its Rust hot path in production. Where SSO, RBAC at scale and full audit logs must remain in the free tier, the gateway can be fronted with <span class="tech-pill">Kong AI Gateway 2.0</span>.</p>
+                        <p>Authorization is enforced per virtual key. Each key is bound to an authenticated principal — a user, a workload, or a delegated user+agent identity — and carries its own allowed model list, allowed tool set, data-tier clearance, rate limits (RPM/TPM) and budget. Keys expire automatically and rotate without reconfiguring clients. The gateway consults the policy decision point on every call, so tier checks and custom rules are not bolted on afterwards but evaluated inline before any provider is reached.</p>
+                        <p>Reliability is built in: retry with backoff, cross-provider fallback and load balancing. A fallback target must satisfy the same clearance tier and residency attribute as the primary target, so resilience never becomes a data-leak path. Availability is treated seriously because the gateway is a dependency for all AI usage. It runs at least three replicas across zones, stores state in a managed PostgreSQL HA pair and keeps rate-limit counters in Redis. The gateway is exposed only through the corporate ZTNA or internal network; for Confidential and Restricted tiers it fails closed. Break-glass credentials for Public and Internal use are time-boxed, individually issued and fully audited. In production, the admin UI is read-only; every real change flows through Git.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Capability</th>
+                                    <th>Mechanism</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Authentication</td>
+                                    <td>SSO for admin UI; virtual keys bound to IdP identity with short expiry and automatic rotation</td>
+                                </tr>
+                                <tr>
+                                    <td>Authorization</td>
+                                    <td>Per key: allowed models, allowed tools, clearance tier, RPM/TPM, budget</td>
+                                </tr>
+                                <tr>
+                                    <td>Reliability</td>
+                                    <td>Retry/backoff, cross-provider fallback, load balancing; fallback must match tier and residency</td>
+                                </tr>
+                                <tr>
+                                    <td>Residency routing</td>
+                                    <td>Each model deployment carries a residency attribute; routing and fallback respect it</td>
+                                </tr>
+                                <tr>
+                                    <td>Availability</td>
+                                    <td>3+ replicas across zones; managed PostgreSQL HA; Redis rate counters; private ZTNA endpoint; fail-closed for Confidential/Restricted</td>
+                                </tr>
+                                <tr>
+                                    <td>Break glass</td>
+                                    <td>Time-boxed credentials for Public/Internal, individually issued, every use alerted and audited</td>
+                                </tr>
+                                <tr>
+                                    <td>Configuration</td>
+                                    <td>All config in Git, applied by Argo CD; admin UI read-only in production</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -227,14 +260,9 @@
                     <div class="breakdown-number">02</div>
                     <div class="breakdown-content">
                         <h2>Inline Guardrails & DLP</h2>
-                        <p>Every request and response passes through a guardrail chain that enforces policy without adding unacceptable latency. The chain runs on CPU for interactive use and escalates sampled or flagged traffic to deeper classification asynchronously.</p>
-                        <ul>
-                            <li><strong>Injection filter:</strong> <span class="tech-pill">Llama Prompt Guard 2</span> runs on CPU in under 20 ms.</li>
-                            <li><strong>PII and secrets masking:</strong> <span class="tech-pill">Presidio</span> detects and redacts identifiers, credentials and customer data before storage.</li>
-                            <li><strong>Policy rails:</strong> <span class="tech-pill">NeMo Guardrails</span> enforces topic and workflow constraints.</li>
-                            <li><strong>Policy decision point:</strong> <span class="tech-pill">OPA</span> evaluates tier checks and custom rules on every model call and tool call.</li>
-                            <li><strong>Async classification:</strong> flagged or sampled traffic is classified by <span class="tech-pill">Llama Guard 4</span> where a GPU is budgeted.</li>
-                        </ul>
+                        <p>Every request and response passes through a guardrail chain designed to enforce policy without adding unacceptable latency for interactive use. The inline input chain runs on CPU and acts as a fast gate: <span class="tech-pill">Llama Prompt Guard 2</span> classifies prompt-injection attempts in under 20 ms; <span class="tech-pill">Presidio</span> detects and masks PII, credentials and customer identifiers before they reach a model or are stored; <span class="tech-pill">NeMo Guardrails</span> enforces topic and workflow constraints; and <span class="tech-pill">OPA</span> evaluates the data-tier check against the policy decision point. Flagged or sampled traffic is then classified asynchronously by <span class="tech-pill">Llama Guard 4</span> where a GPU is budgeted.</p>
+                        <p>The output side is just as important. Tool outputs and model responses are not simply sanitized and forwarded. The chain is: schema validation first, then content and DLP policy, then output filtering, then provenance and trust tagging, and only then the result is passed to the model or user. This ordering matters because it prevents a downstream detector from being bypassed by an earlier transformation. Provenance tags separate tool data from system instructions in the agent prompt, which is one layer of the prompt-injection defence.</p>
+                        <p>On prompt injection specifically, the platform is honest about residual risk. There is no complete mitigation for prompt injection. The controls reduce how often an injection succeeds and limit the blast radius when one does: tool outputs pass guardrails, results are tagged as data, each agent carries a minimal allow-listed tool set, egress is restricted to block exfiltration, and SIEM rules watch for unusual tool sequences. Because risk remains, high-impact tools stay behind human approval even when all automated controls are enabled.</p>
                     </div>
                 </div>
             </div>
@@ -246,14 +274,43 @@
                     <div class="breakdown-number">03</div>
                     <div class="breakdown-content">
                         <h2>The MCP Tool Hub</h2>
-                        <p>The Tool Hub is the single door to enterprise systems. Source code, project management, documents, CRM, ERP and observability are exposed as MCP tools through one authenticated endpoint. Agents and IDE assistants never hold system credentials, and no client connects to a backend MCP server directly.</p>
-                        <h3>How it works</h3>
-                        <ul>
-                            <li><strong>MCP gateway:</strong> reference implementation is <span class="tech-pill">agentgateway</span> from the Linux Foundation. It authenticates callers via OAuth 2.1, authorizes each tool call with per-tool CEL policies, exchanges or injects downstream credentials, applies rate limits and output guardrails, and emits OpenTelemetry spans.</li>
-                            <li><strong>Virtual servers:</strong> curated toolsets per role or agent, for example "engineering-read", "sre-operations" or "sales-assistant". Keeps tool counts small, which improves selection accuracy and lowers token cost.</li>
-                            <li><strong>Authentication patterns:</strong> on-behalf-of token exchange for systems federated with the IdP; per-user OAuth for SaaS without token exchange; scoped service accounts for ERP; workload identity for cloud and Kubernetes APIs.</li>
-                            <li><strong>Tool design:</strong> custom task-level tools built with <span class="tech-pill">FastMCP</span>, filtered to read-only by default; write variants are separate servers with their own identity and approval routing.</li>
-                        </ul>
+                        <p>The Tool Hub is the single door to enterprise systems. Source code, project management, documents, CRM, ERP, delivery, observability and data platforms are exposed as MCP tools through one authenticated Streamable HTTP endpoint. Agents and IDE assistants never hold system credentials, and no client connects directly to a backend MCP server. Reference implementation is <span class="tech-pill">agentgateway</span> from the Linux Foundation; it authenticates callers via OAuth 2.1, authorizes each tool call with per-tool CEL policies checked against the PDP, exchanges or injects downstream credentials, applies rate limits and output guardrails, and emits OpenTelemetry spans and audit logs.</p>
+                        <p>The architecture has four layers. The MCP gateway is the data plane. Virtual servers sit above it: curated toolsets per role or agent, such as "engineering-read" or "sre-operations", which keep the number of tools per session small and improve selection accuracy while lowering token cost. Backend servers run centrally on Kubernetes, one deployment per system and scope variant, with vendor-hosted remote MCP servers proxied through the gateway rather than called directly. The registry is the control plane: one entry per server capturing system, owner, data tier, scope, auth pattern, version, pinned tool-definition hash, approval status and cost tags. That registry feeds gateway config, MDM allow-lists, policies and FinOps tags.</p>
+                        <p>Downstream authentication follows four patterns, chosen per system. On-behalf-of token exchange is preferred for systems federated with the IdP, such as source code, documents and project management. Per-user OAuth brokered by the gateway is used for SaaS without token exchange, common for CRM and many project tools. Scoped service accounts are reserved for ERP and similar systems without per-user API auth, always combined with task-level tools and approvals for writes. Workload identity is used for cloud and Kubernetes APIs, where the server's service account binds to a project-scoped token. Every request carries an authenticated principal: a user, a workload, or a delegated user+agent identity; unattended agents run under workload identity, not a user's identity.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Auth pattern</th>
+                                    <th>How it works</th>
+                                    <th>Use for</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>On-behalf-of token exchange</td>
+                                    <td>Gateway exchanges the user's IdP token for a system token scoped to that user</td>
+                                    <td>Code, documents, project management when federated with IdP</td>
+                                </tr>
+                                <tr>
+                                    <td>Per-user OAuth, brokered</td>
+                                    <td>User consents once; gateway stores refresh tokens in the secrets vault and injects them</td>
+                                    <td>SaaS without token exchange, such as many CRM tools</td>
+                                </tr>
+                                <tr>
+                                    <td>Scoped service account</td>
+                                    <td>Technical user with minimal permissions; gateway restricts tools and arguments per caller</td>
+                                    <td>ERP and systems without per-user API auth</td>
+                                </tr>
+                                <tr>
+                                    <td>Workload identity</td>
+                                    <td>Cloud or Kubernetes identity bound to the server's service account</td>
+                                    <td>Argo CD, Kubernetes, cloud APIs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>MCP servers enter the catalog in order of preference. Vendor official servers are used when available and maintained; maintained open-source servers are forked, pinned to a reviewed version and built internally; systems with OpenAPI or OData specs generate a filtered, read-only-by-default tool set; and custom task-level tools built with <span class="tech-pill">FastMCP</span> cover ERP business actions and cross-system tasks. The design rule is task-level tools over raw API mirrors: a small set of well-defined business actions is easier to authorize, test and audit than hundreds of endpoints.</p>
                     </div>
                 </div>
             </div>
@@ -265,13 +322,9 @@
                     <div class="breakdown-number">04</div>
                     <div class="breakdown-content">
                         <h2>Tool Poisoning & Supply Chain Defense</h2>
-                        <p>Silent changes to tool definitions, the "rug pull" threat, are blocked by treating the tool registry as immutable code. Every definition is hashed, scanned and approved before it reaches production.</p>
-                        <ul>
-                            <li><strong>Definition pinning:</strong> the registry stores a hash of each tool's name, description and schema. The gateway blocks changed definitions until re-approved.</li>
-                            <li><strong>CI scanning:</strong> three-stage pipeline — <span class="tech-pill">mcp-scan</span> (OWASP fast gate), <span class="tech-pill">NVIDIA SkillSpector</span> for skill packages, and <span class="tech-pill">AI-Infra-Guard</span> for MCP servers before registry publication.</li>
-                            <li><strong>Isolation:</strong> one namespace per backend server, non-root containers, read-only filesystems and network policies that allow egress only to the target system.</li>
-                            <li><strong>Build integrity:</strong> pinned versions, signed images, SBOMs and vulnerability scans; no runtime downloads from package managers.</li>
-                        </ul>
+                        <p>The "rug pull" threat — a silent change to a tool's name, description or schema that tricks a model into calling the wrong action — is blocked by treating the tool registry as immutable code. The registry stores a hash of each tool's name, description and schema. The gateway rejects any definition whose hash does not match the approved entry, so a compromised package cannot alter tool semantics without a reviewed pull request. Before a definition reaches the registry, a CI pipeline scans it in three stages: <span class="tech-pill">mcp-scan</span> from OWASP as the fast gate, <span class="tech-pill">NVIDIA SkillSpector</span> for skill packages, and <span class="tech-pill">AI-Infra-Guard</span> for MCP servers.</p>
+                        <p>Runtime isolation limits blast radius. Each backend server runs in its own namespace, as a non-root container, with a read-only filesystem and a network policy that allows egress only to its target system. Credentials are scoped to that system. The default variant is read-only; write variants are separate servers with their own identity and are granted only to the virtual servers that need them. Argument-level PDP checks enforce allowed Argo CD projects, repositories, SQL templates, record types and amount limits for ERP actions. Output size limits, PII masking and tier tagging prevent leakage through oversized or over-privileged results. Rate limits protect backend systems, and every call is audited with user, agent, virtual server, tool, argument hash, result size, policy decision and approval ID.</p>
+                        <p>Tool design rules reinforce this. Virtual servers contain tens of tools, not hundreds; very large APIs use a search-and-execute pair only when argument-level policy checks are in place. Naming follows <code>system_object_action</code>, pagination and result limits apply to every list tool, and every tool has an owner, a tier, a read/write flag and test cases in the agent evaluation suite. Quarterly re-certification retires unused tools before they become forgotten attack surface.</p>
                     </div>
                 </div>
             </div>
