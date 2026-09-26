@@ -197,24 +197,24 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Use in accordance with instructions</td>
-                                    <td>Agent profiles, system prompts and tool scopes versioned in Git</td>
-                                    <td>Git history of approved prompts and profiles</td>
+                                    <td data-label="Article 26 duty">Use in accordance with instructions</td>
+                                    <td data-label="Platform control">Agent profiles, system prompts and tool scopes versioned in Git</td>
+                                    <td data-label="Evidence generated">Git history of approved prompts and profiles</td>
                                 </tr>
                                 <tr>
-                                    <td>Human oversight</td>
-                                    <td>Slack Block Kit approvals for write and destructive actions</td>
-                                    <td>Approval ID, action hash, approver, timestamp, Slack signature</td>
+                                    <td data-label="Article 26 duty">Human oversight</td>
+                                    <td data-label="Platform control">Slack Block Kit approvals for write and destructive actions</td>
+                                    <td data-label="Evidence generated">Approval ID, action hash, approver, timestamp, Slack signature</td>
                                 </tr>
                                 <tr>
-                                    <td>Input quality</td>
-                                    <td>Inline guardrails and DLP at the gateway</td>
-                                    <td>Guardrail hit logs and policy decision traces</td>
+                                    <td data-label="Article 26 duty">Input quality</td>
+                                    <td data-label="Platform control">Inline guardrails and DLP at the gateway</td>
+                                    <td data-label="Evidence generated">Guardrail hit logs and policy decision traces</td>
                                 </tr>
                                 <tr>
-                                    <td>Log retention</td>
-                                    <td>OpenTelemetry traces and Langfuse session records</td>
-                                    <td>Trace ID linking channel, agent, model, tool and policy decision</td>
+                                    <td data-label="Article 26 duty">Log retention</td>
+                                    <td data-label="Platform control">OpenTelemetry traces and Langfuse session records</td>
+                                    <td data-label="Evidence generated">Trace ID linking channel, agent, model, tool and policy decision</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -244,24 +244,24 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Gateway availability</td>
-                                    <td>99.9% monthly</td>
+                                    <td data-label="SLO">Gateway availability</td>
+                                    <td data-label="Target">99.9% monthly</td>
                                 </tr>
                                 <tr>
-                                    <td>Gateway added latency, excluding guardrails</td>
-                                    <td>p95 under 50 ms</td>
+                                    <td data-label="SLO">Gateway added latency, excluding guardrails</td>
+                                    <td data-label="Target">p95 under 50 ms</td>
                                 </tr>
                                 <tr>
-                                    <td>Gateway added latency, including inline guardrails</td>
-                                    <td>p95 under 800 ms for interactive use, tuned per customer</td>
+                                    <td data-label="SLO">Gateway added latency, including inline guardrails</td>
+                                    <td data-label="Target">p95 under 800 ms for interactive use, tuned per customer</td>
                                 </tr>
                                 <tr>
-                                    <td>Tool hub availability per critical tool</td>
-                                    <td>99.5%</td>
+                                    <td data-label="SLO">Tool hub availability per critical tool</td>
+                                    <td data-label="Target">99.5%</td>
                                 </tr>
                                 <tr>
-                                    <td>Agent task success rate</td>
-                                    <td>Baselined in pilot, then tracked per agent</td>
+                                    <td data-label="SLO">Agent task success rate</td>
+                                    <td data-label="Target">Baselined in pilot, then tracked per agent</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -291,34 +291,34 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1. Propose</td>
-                                    <td>Pull request by engineer, lifecycle agent or self-learning skill proposal</td>
-                                    <td>Partly</td>
+                                    <td data-label="Step">1. Propose</td>
+                                    <td data-label="What happens">Pull request by engineer, lifecycle agent or self-learning skill proposal</td>
+                                    <td data-label="Automated">Partly</td>
                                 </tr>
                                 <tr>
-                                    <td>2. Check</td>
-                                    <td>Lint, schema validation, policy tests, secret scanning, container scans, image signing, MCP/skill scans, evaluation suite with regression thresholds</td>
-                                    <td>Yes</td>
+                                    <td data-label="Step">2. Check</td>
+                                    <td data-label="What happens">Lint, schema validation, policy tests, secret scanning, container scans, image signing, MCP/skill scans, evaluation suite with regression thresholds</td>
+                                    <td data-label="Automated">Yes</td>
                                 </tr>
                                 <tr>
-                                    <td>3. Review</td>
-                                    <td>Code owners approve by area: security, system owners, agent owners</td>
-                                    <td>No</td>
+                                    <td data-label="Step">3. Review</td>
+                                    <td data-label="What happens">Code owners approve by area: security, system owners, agent owners</td>
+                                    <td data-label="Automated">No</td>
                                 </tr>
                                 <tr>
-                                    <td>4. Merge and sync</td>
-                                    <td>Argo CD applies change to dev, then staging and production through the same pipeline</td>
-                                    <td>Yes</td>
+                                    <td data-label="Step">4. Merge and sync</td>
+                                    <td data-label="What happens">Argo CD applies change to dev, then staging and production through the same pipeline</td>
+                                    <td data-label="Automated">Yes</td>
                                 </tr>
                                 <tr>
-                                    <td>5. Verify</td>
-                                    <td>Canary rollout, smoke tests, SLO and quality metrics watched</td>
-                                    <td>Yes</td>
+                                    <td data-label="Step">5. Verify</td>
+                                    <td data-label="What happens">Canary rollout, smoke tests, SLO and quality metrics watched</td>
+                                    <td data-label="Automated">Yes</td>
                                 </tr>
                                 <tr>
-                                    <td>6. Roll back</td>
-                                    <td>Automatic rollback on failed checks or SLO breach; manual rollback is a git revert</td>
-                                    <td>Yes</td>
+                                    <td data-label="Step">6. Roll back</td>
+                                    <td data-label="What happens">Automatic rollback on failed checks or SLO breach; manual rollback is a git revert</td>
+                                    <td data-label="Automated">Yes</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -345,29 +345,29 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Metadata (user, model, tokens, cost, latency, tools, policy result)</td>
-                                    <td>Always</td>
-                                    <td>Always</td>
+                                    <td data-label="Data">Metadata (user, model, tokens, cost, latency, tools, policy result)</td>
+                                    <td data-label="Human interactive use">Always</td>
+                                    <td data-label="Agents and automations">Always</td>
                                 </tr>
                                 <tr>
-                                    <td>Prompt and response content</td>
-                                    <td>Off by default; enabled per team on request, or captured only on policy violation</td>
-                                    <td>On, for debugging and audit</td>
+                                    <td data-label="Data">Prompt and response content</td>
+                                    <td data-label="Human interactive use">Off by default; enabled per team on request, or captured only on policy violation</td>
+                                    <td data-label="Agents and automations">On, for debugging and audit</td>
                                 </tr>
                                 <tr>
-                                    <td>Retention of content</td>
-                                    <td>Short (for example 30 days)</td>
-                                    <td>Per use case (for example 90 days)</td>
+                                    <td data-label="Data">Retention of content</td>
+                                    <td data-label="Human interactive use">Short (for example 30 days)</td>
+                                    <td data-label="Agents and automations">Per use case (for example 90 days)</td>
                                 </tr>
                                 <tr>
-                                    <td>Access to content</td>
-                                    <td>Security on incident only, access logged</td>
-                                    <td>Agent owners and security</td>
+                                    <td data-label="Data">Access to content</td>
+                                    <td data-label="Human interactive use">Security on incident only, access logged</td>
+                                    <td data-label="Agents and automations">Agent owners and security</td>
                                 </tr>
                                 <tr>
-                                    <td>Redaction</td>
-                                    <td>Secrets and PII masked before storage</td>
-                                    <td>Secrets and PII masked before storage</td>
+                                    <td data-label="Data">Redaction</td>
+                                    <td data-label="Human interactive use">Secrets and PII masked before storage</td>
+                                    <td data-label="Agents and automations">Secrets and PII masked before storage</td>
                                 </tr>
                             </tbody>
                         </table>

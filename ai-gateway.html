@@ -228,32 +228,32 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Authentication</td>
-                                    <td>SSO for admin UI; virtual keys bound to IdP identity with short expiry and automatic rotation</td>
+                                    <td data-label="Capability">Authentication</td>
+                                    <td data-label="Mechanism">SSO for admin UI; virtual keys bound to IdP identity with short expiry and automatic rotation</td>
                                 </tr>
                                 <tr>
-                                    <td>Authorization</td>
-                                    <td>Per key: allowed models, allowed tools, clearance tier, RPM/TPM, budget</td>
+                                    <td data-label="Capability">Authorization</td>
+                                    <td data-label="Mechanism">Per key: allowed models, allowed tools, clearance tier, RPM/TPM, budget</td>
                                 </tr>
                                 <tr>
-                                    <td>Reliability</td>
-                                    <td>Retry/backoff, cross-provider fallback, load balancing; fallback must match tier and residency</td>
+                                    <td data-label="Capability">Reliability</td>
+                                    <td data-label="Mechanism">Retry/backoff, cross-provider fallback, load balancing; fallback must match tier and residency</td>
                                 </tr>
                                 <tr>
-                                    <td>Residency routing</td>
-                                    <td>Each model deployment carries a residency attribute; routing and fallback respect it</td>
+                                    <td data-label="Capability">Residency routing</td>
+                                    <td data-label="Mechanism">Each model deployment carries a residency attribute; routing and fallback respect it</td>
                                 </tr>
                                 <tr>
-                                    <td>Availability</td>
-                                    <td>3+ replicas across zones; managed PostgreSQL HA; Redis rate counters; private ZTNA endpoint; fail-closed for Confidential/Restricted</td>
+                                    <td data-label="Capability">Availability</td>
+                                    <td data-label="Mechanism">3+ replicas across zones; managed PostgreSQL HA; Redis rate counters; private ZTNA endpoint; fail-closed for Confidential/Restricted</td>
                                 </tr>
                                 <tr>
-                                    <td>Break glass</td>
-                                    <td>Time-boxed credentials for Public/Internal, individually issued, every use alerted and audited</td>
+                                    <td data-label="Capability">Break glass</td>
+                                    <td data-label="Mechanism">Time-boxed credentials for Public/Internal, individually issued, every use alerted and audited</td>
                                 </tr>
                                 <tr>
-                                    <td>Configuration</td>
-                                    <td>All config in Git, applied by Argo CD; admin UI read-only in production</td>
+                                    <td data-label="Capability">Configuration</td>
+                                    <td data-label="Mechanism">All config in Git, applied by Argo CD; admin UI read-only in production</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -296,24 +296,24 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>On-behalf-of token exchange</td>
-                                    <td>Gateway exchanges the user's IdP token for a system token scoped to that user</td>
-                                    <td>Code, documents, project management when federated with IdP</td>
+                                    <td data-label="Auth pattern">On-behalf-of token exchange</td>
+                                    <td data-label="How it works">Gateway exchanges the user's IdP token for a system token scoped to that user</td>
+                                    <td data-label="Use for">Code, documents, project management when federated with IdP</td>
                                 </tr>
                                 <tr>
-                                    <td>Per-user OAuth, brokered</td>
-                                    <td>User consents once; gateway stores refresh tokens in the secrets vault and injects them</td>
-                                    <td>SaaS without token exchange, such as many CRM tools</td>
+                                    <td data-label="Auth pattern">Per-user OAuth, brokered</td>
+                                    <td data-label="How it works">User consents once; gateway stores refresh tokens in the secrets vault and injects them</td>
+                                    <td data-label="Use for">SaaS without token exchange, such as many CRM tools</td>
                                 </tr>
                                 <tr>
-                                    <td>Scoped service account</td>
-                                    <td>Technical user with minimal permissions; gateway restricts tools and arguments per caller</td>
-                                    <td>ERP and systems without per-user API auth</td>
+                                    <td data-label="Auth pattern">Scoped service account</td>
+                                    <td data-label="How it works">Technical user with minimal permissions; gateway restricts tools and arguments per caller</td>
+                                    <td data-label="Use for">ERP and systems without per-user API auth</td>
                                 </tr>
                                 <tr>
-                                    <td>Workload identity</td>
-                                    <td>Cloud or Kubernetes identity bound to the server's service account</td>
-                                    <td>Argo CD, Kubernetes, cloud APIs</td>
+                                    <td data-label="Auth pattern">Workload identity</td>
+                                    <td data-label="How it works">Cloud or Kubernetes identity bound to the server's service account</td>
+                                    <td data-label="Use for">Argo CD, Kubernetes, cloud APIs</td>
                                 </tr>
                             </tbody>
                         </table>

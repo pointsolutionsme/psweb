@@ -222,46 +222,46 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>API calls from internal code and automations</td>
-                                    <td>Scripts, n8n, internal tools, opencode run / serve</td>
-                                    <td>AI Gateway (virtual key required)</td>
-                                    <td>NGFW / ZTNA egress policy blocks direct provider endpoints</td>
+                                    <td data-label="Traffic path">API calls from internal code and automations</td>
+                                    <td data-label="Example">Scripts, n8n, internal tools, opencode run / serve</td>
+                                    <td data-label="Primary control point">AI Gateway (virtual key required)</td>
+                                    <td data-label="Secondary controls">NGFW / ZTNA egress policy blocks direct provider endpoints</td>
                                 </tr>
                                 <tr>
-                                    <td>IDE / CLI coding assistants</td>
-                                    <td>Claude Code, opencode, other agentic CLIs</td>
-                                    <td>AI Gateway, via base URL set in managed client config</td>
-                                    <td>MDM enforces client config and MCP allow-list; NGFW / ZTNA blocks direct provider access</td>
+                                    <td data-label="Traffic path">IDE / CLI coding assistants</td>
+                                    <td data-label="Example">Claude Code, opencode, other agentic CLIs</td>
+                                    <td data-label="Primary control point">AI Gateway, via base URL set in managed client config</td>
+                                    <td data-label="Secondary controls">MDM enforces client config and MCP allow-list; NGFW / ZTNA blocks direct provider access</td>
                                 </tr>
                                 <tr>
-                                    <td>Enterprise AI SaaS seats</td>
-                                    <td>Claude Enterprise, ChatGPT Enterprise, Gemini</td>
-                                    <td>Vendor tenant controls (SSO, retention, DLP, connector scoping)</td>
-                                    <td>Admin audit API into SIEM, SWG / CASB allows only the corporate tenant</td>
+                                    <td data-label="Traffic path">Enterprise AI SaaS seats</td>
+                                    <td data-label="Example">Claude Enterprise, ChatGPT Enterprise, Gemini</td>
+                                    <td data-label="Primary control point">Vendor tenant controls (SSO, retention, DLP, connector scoping)</td>
+                                    <td data-label="Secondary controls">Admin audit API into SIEM, SWG / CASB allows only the corporate tenant</td>
                                 </tr>
                                 <tr>
-                                    <td>Vendor-native agents</td>
-                                    <td>Microsoft 365 Copilot, Salesforce Agentforce, ServiceNow Now Assist</td>
-                                    <td>Vendor tenant controls and contractual terms</td>
-                                    <td>Tenant audit logs into SIEM; procurement and license-tier selection as controls</td>
+                                    <td data-label="Traffic path">Vendor-native agents</td>
+                                    <td data-label="Example">Microsoft 365 Copilot, Salesforce Agentforce, ServiceNow Now Assist</td>
+                                    <td data-label="Primary control point">Vendor tenant controls and contractual terms</td>
+                                    <td data-label="Secondary controls">Tenant audit logs into SIEM; procurement and license-tier selection as controls</td>
                                 </tr>
                                 <tr>
-                                    <td>Agents in the orchestration layer</td>
-                                    <td>Knowledge agent, SRE agent</td>
-                                    <td>AI Gateway for models and tools, policy decision point for actions</td>
-                                    <td>Kubernetes network policy: runtime has no direct egress to providers</td>
+                                    <td data-label="Traffic path">Agents in the orchestration layer</td>
+                                    <td data-label="Example">Knowledge agent, SRE agent</td>
+                                    <td data-label="Primary control point">AI Gateway for models and tools, policy decision point for actions</td>
+                                    <td data-label="Secondary controls">Kubernetes network policy: runtime has no direct egress to providers</td>
                                 </tr>
                                 <tr>
-                                    <td>Tool access (MCP) from any client</td>
-                                    <td>IDE assistants, agents, AI SaaS connectors</td>
-                                    <td>MCP gateway</td>
-                                    <td>MDM allow-list contains only the gateway endpoint; NGFW / ZTNA blocks direct access to vendor MCP endpoints</td>
+                                    <td data-label="Traffic path">Tool access (MCP) from any client</td>
+                                    <td data-label="Example">IDE assistants, agents, AI SaaS connectors</td>
+                                    <td data-label="Primary control point">MCP gateway</td>
+                                    <td data-label="Secondary controls">MDM allow-list contains only the gateway endpoint; NGFW / ZTNA blocks direct access to vendor MCP endpoints</td>
                                 </tr>
                                 <tr>
-                                    <td>Unmanaged / personal AI tools in the browser</td>
-                                    <td>Consumer chatbots</td>
-                                    <td>SWG / CASB: allow for Public tier, block or warn otherwise</td>
-                                    <td>Existing shadow AI detection (CASB, EDR)</td>
+                                    <td data-label="Traffic path">Unmanaged / personal AI tools in the browser</td>
+                                    <td data-label="Example">Consumer chatbots</td>
+                                    <td data-label="Primary control point">SWG / CASB: allow for Public tier, block or warn otherwise</td>
+                                    <td data-label="Secondary controls">Existing shadow AI detection (CASB, EDR)</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -318,28 +318,28 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Allocation</td>
-                                    <td>Mandatory keys on virtual keys, agents and labels; shared cost split by usage share</td>
+                                    <td data-label="FinOps control">Allocation</td>
+                                    <td data-label="Mechanism">Mandatory keys on virtual keys, agents and labels; shared cost split by usage share</td>
                                 </tr>
                                 <tr>
-                                    <td>Budgets</td>
-                                    <td>Soft alert (for example 80%) and hard block per team, key and agent at the gateway</td>
+                                    <td data-label="FinOps control">Budgets</td>
+                                    <td data-label="Mechanism">Soft alert (for example 80%) and hard block per team, key and agent at the gateway</td>
                                 </tr>
                                 <tr>
-                                    <td>Anomaly detection</td>
-                                    <td>Daily baseline comparison per team and agent; alerts on spikes</td>
+                                    <td data-label="FinOps control">Anomaly detection</td>
+                                    <td data-label="Mechanism">Daily baseline comparison per team and agent; alerts on spikes</td>
                                 </tr>
                                 <tr>
-                                    <td>Reconciliation</td>
-                                    <td>Gateway cost vs invoice; differences over agreed threshold (for example 3%) investigated</td>
+                                    <td data-label="FinOps control">Reconciliation</td>
+                                    <td data-label="Mechanism">Gateway cost vs invoice; differences over agreed threshold (for example 3%) investigated</td>
                                 </tr>
                                 <tr>
-                                    <td>Optimization</td>
-                                    <td>Prompt caching, model tiering/routing, response caching, batch APIs, context limits, self-hosting after break-even analysis</td>
+                                    <td data-label="FinOps control">Optimization</td>
+                                    <td data-label="Mechanism">Prompt caching, model tiering/routing, response caching, batch APIs, context limits, self-hosting after break-even analysis</td>
                                 </tr>
                                 <tr>
-                                    <td>Reporting</td>
-                                    <td>Weekly showback, monthly chargeback where used, quarterly review</td>
+                                    <td data-label="FinOps control">Reporting</td>
+                                    <td data-label="Mechanism">Weekly showback, monthly chargeback where used, quarterly review</td>
                                 </tr>
                             </tbody>
                         </table>
