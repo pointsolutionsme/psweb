@@ -18,9 +18,8 @@
     <title>Enterprise AI Agent Infrastructure & Governance | Point Solutions</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="fonts/space-grotesk-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <script type="application/ld+json">
     {
@@ -186,6 +185,7 @@
         </div>
     </nav>
 
+    <main id="main">
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -221,65 +221,65 @@
                 <p>Governed AI infrastructure, delivered end to end — from the gateway that governs every model call to the agents your teams actually use.</p>
             </div>
             <div class="platform-system" role="region" aria-label="Five platform layers">
-                <div class="platform-stack" role="list">
-                    <div class="platform-slab" data-layer="0" role="listitem">
+                <ul class="platform-stack">
+                    <li class="platform-slab" data-layer="0">
                         <span class="slab-number">01</span>
                         <span class="slab-name">Platform</span>
-                    </div>
-                    <div class="platform-slab" data-layer="1" role="listitem">
+                    </li>
+                    <li class="platform-slab" data-layer="1">
                         <span class="slab-number">02</span>
                         <span class="slab-name">Models</span>
-                    </div>
-                    <div class="platform-slab" data-layer="2" role="listitem">
+                    </li>
+                    <li class="platform-slab" data-layer="2">
                         <span class="slab-number">03</span>
                         <span class="slab-name">Applications & Agents</span>
-                    </div>
-                    <div class="platform-slab" data-layer="3" role="listitem">
+                    </li>
+                    <li class="platform-slab" data-layer="3">
                         <span class="slab-number">04</span>
                         <span class="slab-name">Data & Identity</span>
-                    </div>
-                    <div class="platform-slab" data-layer="4" role="listitem">
+                    </li>
+                    <li class="platform-slab" data-layer="4">
                         <span class="slab-number">05</span>
                         <span class="slab-name">Operations</span>
-                    </div>
-                </div>
-                <div class="platform-descriptions" role="list">
-                    <article class="platform-step" data-layer="0" role="listitem" aria-labelledby="platform-title-01">
+                    </li>
+                </ul>
+                <ul class="platform-descriptions">
+                    <li class="platform-step" data-layer="0" aria-labelledby="platform-title-01">
                         <div class="step-header">
                             <span class="step-number">01</span>
                             <h3 id="platform-title-01">Platform</h3>
                         </div>
                         <p>An open foundation with an AI Gateway as the single door to every model and an MCP Tool Hub as the single door to your systems. No license lock-in, no forced upgrade path.</p>
-                    </article>
-                    <article class="platform-step" data-layer="1" role="listitem" aria-labelledby="platform-title-02">
+                    </li>
+                    <li class="platform-step" data-layer="1" aria-labelledby="platform-title-02">
                         <div class="step-header">
                             <span class="step-number">02</span>
                             <h3 id="platform-title-02">Models</h3>
                         </div>
                         <p>Any provider, any open-weight model, routed by policy — including EU-resident routing for regulated data. Swapping a model is a config change in Git.</p>
-                    </article>
-                    <article class="platform-step" data-layer="2" role="listitem" aria-labelledby="platform-title-03">
+                    </li>
+                    <li class="platform-step" data-layer="2" aria-labelledby="platform-title-03">
                         <div class="step-header">
                             <span class="step-number">03</span>
                             <h3 id="platform-title-03">Applications & Agents</h3>
                         </div>
                         <p>Agents connected to the systems you actually run — code, tickets, documents, CRM, ERP — acting with each principal's own permissions, whether user, workload, or delegated identity.</p>
-                    </article>
-                    <article class="platform-step" data-layer="3" role="listitem" aria-labelledby="platform-title-04">
+                    </li>
+                    <li class="platform-step" data-layer="3" aria-labelledby="platform-title-04">
                         <div class="step-header">
                             <span class="step-number">04</span>
                             <h3 id="platform-title-04">Data & Identity</h3>
                         </div>
                         <p>Classification, inventory and access control run through every other layer at once. This is what makes the platform auditable instead of assumed safe.</p>
-                    </article>
-                    <article class="platform-step" data-layer="4" role="listitem" aria-labelledby="platform-title-05">
+                    </li>
+                    <li class="platform-step" data-layer="4" aria-labelledby="platform-title-05">
                         <div class="step-header">
                             <span class="step-number">05</span>
                             <h3 id="platform-title-05">Operations</h3>
                         </div>
                         <p>DevOps, SecOps and AIOps, continuous — including layers we didn't build. Everything as code: every change reviewed, tested, and rolled back if it breaks.</p>
-                    </article>
-                </div>
+                    </li>
+                </ul>
             </div>
             <div class="section-cta reveal">
                 <a href="ai-gateway.html" class="btn btn-primary">See the Gateway & Tool Hub</a>
@@ -525,15 +525,15 @@
                     <p class="lead">I'm Valery Levchenko. I handle all complex security and AI platform work personally.</p>
                     <div class="about-highlights">
                         <div class="highlight">
-                            <h4>Experience & Credentials</h4>
+                            <h3>Experience & Credentials</h3>
                             <p>15 years in security. NSO Group (cyber intelligence). Noname Security (API security). Qwilt (CDN infrastructure). CISSP certified. MCSE Security. AWS Security Specialty. IAM/CIAM specialist.</p>
                         </div>
                         <div class="highlight">
-                            <h4>Track Record</h4>
+                            <h3>Track Record</h3>
                             <p>50+ security assessments and compliance certifications completed. Every client who followed our recommendations passed their audit. I've built and secured production systems, not just audited them.</p>
                         </div>
                         <div class="highlight">
-                            <h4>How We Work</h4>
+                            <h3>How We Work</h3>
                             <p>I do the architecture, policies and technical work. My team implements. You review and approve. When you hire Point Solutions, I'm personally involved in every engagement.</p>
                         </div>
                     </div>
@@ -568,6 +568,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
@@ -581,7 +582,7 @@
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">
-                        <h4>Platform</h4>
+                        <h3>Platform</h3>
                         <ul>
                             <li><a href="#services">The Five Layers</a></li>
                             <li><a href="architecture.html">Architecture & Request Flow</a></li>
@@ -592,7 +593,7 @@
                         </ul>
                     </div>
                     <div class="footer-section">
-                        <h4>Company</h4>
+                        <h3>Company</h3>
                         <ul>
                             <li><a href="#about">About Valery</a></li>
                             <li><a href="#contact">Contact</a></li>
@@ -607,6 +608,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
