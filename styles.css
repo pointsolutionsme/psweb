@@ -2,6 +2,23 @@
    Point Solutions — SGI Workstation Design System
    ========================================= */
 
+/* Self-hosted fonts (latin subset, variable weights) */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('fonts/inter-var-latin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('fonts/space-grotesk-var-latin.woff2') format('woff2');
+}
+
 :root {
     /* SGI Workstation Palette */
     --sgi-violet: #5F259F;
@@ -489,6 +506,7 @@ a {
     flex-direction: column;
     gap: 10px;
     list-style: none;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
@@ -551,6 +569,7 @@ a {
 .platform-descriptions {
     display: flex;
     flex-direction: column;
+    list-style: none;
 }
 
 .platform-step {
@@ -1473,7 +1492,7 @@ a {
     transform: translateY(-2px);
 }
 
-.highlight h4 {
+.highlight h3 {
     font-size: 1.125rem;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
@@ -1612,7 +1631,7 @@ a {
     gap: 3rem;
 }
 
-.footer-section h4 {
+.footer-section h3 {
     color: var(--chrome-100);
     font-family: var(--font-display);
     font-weight: 600;
@@ -1646,7 +1665,7 @@ a {
     padding-top: 1.5rem;
     text-align: center;
     font-size: 0.875rem;
-    color: var(--chrome-600);
+    color: var(--chrome-400);
 }
 
 .footer-bottom p {
