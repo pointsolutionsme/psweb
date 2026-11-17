@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <linearGradient id="sgiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#5F259F"/>
-      <stop offset="55%" style="stop-color:#00848C"/>
-      <stop offset="100%" style="stop-color:#009CA6"/>
-    </linearGradient>
-  </defs>
-  <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" fill="url(#sgiGrad)"/>
-  <path d="M35,30 L35,70 L45,70 L45,55 L55,55 C65,55 70,48 70,42.5 C70,37 65,30 55,30 L35,30 Z M45,38 L53,38 C58,38 60,40 60,42.5 C60,45 58,47 53,47 L45,47 L45,38 Z" fill="white"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#1A1838"/><g stroke="none"><path d="M100 5 L121.39 17.35 L113.89 30.34 L100 22.32 Z" fill="#8F6AD8"/><path d="M182.27 52.50 L160.88 40.15 L153.38 53.14 L167.27 61.16 Z" fill="#8F6AD8"/><path d="M182.27 52.50 L182.27 77.20 L167.27 77.20 L167.27 61.16 Z" fill="#1FB5BF"/><path d="M182.27 147.50 L182.27 122.80 L167.27 122.80 L167.27 138.84 Z" fill="#1FB5BF"/><path d="M182.27 147.50 L160.88 159.85 L153.38 146.86 L167.27 138.84 Z" fill="#00848C"/><path d="M100 195 L121.39 182.65 L113.89 169.66 L100 177.68 Z" fill="#00848C"/><path d="M100 195 L78.61 182.65 L86.11 169.66 L100 177.68 Z" fill="#5F3FA8"/><path d="M17.73 147.50 L39.12 159.85 L46.62 146.86 L32.73 138.84 Z" fill="#5F3FA8"/><path d="M17.73 147.50 L17.73 122.80 L32.73 122.80 L32.73 138.84 Z" fill="#7B3FC7"/><path d="M17.73 52.50 L17.73 77.20 L32.73 77.20 L32.73 61.16 Z" fill="#7B3FC7"/><path d="M17.73 52.50 L39.12 40.15 L46.62 53.14 L32.73 61.16 Z" fill="#B49BEA"/><path d="M100 5 L78.61 17.35 L86.11 30.34 L100 22.32 Z" fill="#B49BEA"/><path d="M100 52 L141.57 76 L129.57 82.93 L100 65.86 Z" fill="#8F6AD8"/><path d="M141.57 76 L141.57 124 L129.57 117.07 L129.57 82.93 Z" fill="#1FB5BF"/><path d="M141.57 124 L100 148 L100 134.14 L129.57 117.07 Z" fill="#00848C"/><path d="M100 148 L58.43 124 L70.43 117.07 L100 134.14 Z" fill="#5F3FA8"/><path d="M58.43 124 L58.43 76 L70.43 82.93 L70.43 117.07 Z" fill="#7B3FC7"/><path d="M58.43 76 L100 52 L100 65.86 L70.43 82.93 Z" fill="#B49BEA"/><path d="M70.43 82.93 L100 65.86 L129.57 82.93 L100 100 Z" fill="#F4F2F8"/><path d="M70.43 82.93 L100 100 L100 134.14 L70.43 117.07 Z" fill="#C9BCE6"/><path d="M100 100 L129.57 82.93 L129.57 117.07 L100 134.14 Z" fill="#9ED6DB"/></g></svg>

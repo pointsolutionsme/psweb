@@ -40,7 +40,7 @@ Conventions for any new icon added to the sprite:
   them inherit `stroke: currentColor; fill: none` from the `.icon` class so
   color is controlled entirely by CSS on the container (cert-icon tiles are
   violet by default → teal on hover, service-icon tiles are teal/violet by
-  card type). **Exception**: the `icon-logo` symbol (real vector hexagon+"P"
+  card type). **Exception**: the `icon-logo` symbol (real vector hexagon+"cube"
   mark, shared with `favicon.svg`) has genuine multi-color fills and must set
   `stroke="none"` explicitly on its shapes — otherwise it inherits the
   `.icon` class's `stroke: currentColor` and picks up an unwanted outline,
